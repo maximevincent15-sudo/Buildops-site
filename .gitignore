@@ -48,3 +48,6 @@ Thumbs.db
 # Supabase CLI
 supabase/.temp/
 supabase/.branches/
+
+# Claude Code local settings (do not commit)
+.claude/settings.local.json

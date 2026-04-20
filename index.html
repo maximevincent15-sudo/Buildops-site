@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>BuildOps — Logiciel de gestion maintenance sécurité incendie</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F2F3F5;--bg2:#E6E8EC;--bg3:#D8DCE4;
+  --ink:#1C2130;--ink2:#5A6070;--ink3:#9AA0AE;
+  --acc:#3A5CA8;--acc2:#5578C8;
+  --wht:#F8F9FB;
+  --brd:rgba(28,33,48,.10);--brd2:rgba(28,33,48,.18);
+  --grn:#2E7D5E;--grn-lt:#D4EDE5;
+  --org:#C45A1A;--org-lt:#F5E0D0;
+  --red:#A83A3A;--red-lt:#F0DADA;
+  --brn:#7A5C44;--brn-lt:#EDE5DC;
+  --gry:#6B7A8D;--gry-lt:#DDE2EA;
+  --r:10px;--rlg:18px;
+}
+html,body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;}
+button,input,select,textarea{font-family:'DM Sans',sans-serif;}
+.pg{display:none;}
+
+/* ── NAV ── */
+#topnav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.85rem 4%;background:rgba(242,243,245,.95);backdrop-filter:blur(14px);border-bottom:.5px solid var(--brd);}
+.logo{display:flex;align-items:center;gap:9px;cursor:pointer;}
+.logo-icon{width:32px;height:32px;background:var(--acc);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.logo-icon svg{width:17px;height:17px;fill:none;stroke:white;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+.logo-txt{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--ink);}
+.logo-txt span{color:var(--acc);}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-size:.88rem;color:var(--ink2);text-decoration:none;cursor:pointer;}
+.nav-links a:hover{color:var(--ink);}
+.nav-r{display:flex;gap:.6rem;align-items:center;}
+.btn-sm{padding:.48rem 1.1rem;border-radius:100px;font-size:.85rem;font-weight:500;cursor:pointer;border:1px solid var(--brd2);background:transparent;color:var(--ink);transition:background .15s;}
+.btn-sm:hover{background:var(--bg2);}
+.btn-sm.acc{background:var(--acc);color:white;border-color:var(--acc);}
+.btn-sm.acc:hover{background:var(--acc2);}
+
+/* ── LANDING ── */
+#pg-landing{padding-top:65px;}
+
+/* HERO */
+.hero{min-height:calc(100vh - 65px);display:flex;flex-direction:column;justify-content:center;padding:4rem 4%;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 50% at 80% 20%,rgba(58,92,168,.10),transparent 65%),radial-gradient(ellipse 40% 40% at 5% 80%,rgba(122,92,68,.07),transparent 60%);}
+.hero-grid{position:absolute;inset:0;opacity:.03;background-image:linear-gradient(var(--ink) 1px,transparent 1px),linear-gradient(90deg,var(--ink) 1px,transparent 1px);background-size:54px 54px;}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:var(--gry-lt);color:var(--acc);font-size:.76rem;font-weight:500;padding:5px 12px;border-radius:100px;margin-bottom:1.6rem;width:fit-content;}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--acc);border-radius:50%;}
+.hero h1{font-size:clamp(2.4rem,5vw,4.4rem);font-weight:800;line-height:1.05;letter-spacing:-.025em;max-width:20ch;}
+.hero h1 .line{display:block;}
+.hero h1 .line.acc{color:var(--acc);}
+.hero-sub{font-size:1rem;color:var(--ink2);font-weight:300;max-width:54ch;line-height:1.8;margin-top:1.6rem;}
+.hero-btns{display:flex;gap:.9rem;margin-top:2.2rem;flex-wrap:wrap;align-items:center;}
+.btn-prim{background:var(--acc);color:white;padding:.82rem 1.9rem;border-radius:100px;font-size:.92rem;font-weight:500;border:none;cursor:pointer;box-shadow:0 4px 18px rgba(58,92,168,.28);transition:transform .15s,box-shadow .15s;}
+.btn-prim:hover{transform:translateY(-2px);box-shadow:0 7px 24px rgba(58,92,168,.35);}
+.btn-out{background:transparent;color:var(--ink);padding:.82rem 1.9rem;border-radius:100px;font-size:.92rem;font-weight:500;border:1.5px solid var(--brd2);cursor:pointer;transition:background .15s;}
+.btn-out:hover{background:rgba(28,33,48,.05);}
+.hero-reassurance{font-size:.76rem;color:var(--ink3);margin-top:.9rem;}
+.hero-tags{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:2.6rem;padding-top:2rem;border-top:.5px solid var(--brd);}
+.htag{display:flex;align-items:center;gap:7px;background:var(--wht);border:.5px solid var(--brd2);border-radius:100px;padding:.38rem .9rem;font-size:.78rem;color:var(--ink2);}
+.htag-dot{width:7px;height:7px;border-radius:50%;background:var(--acc);flex-shrink:0;}
+
+/* POUR QUI */
+.pour-qui{background:var(--ink);padding:3.5rem 4%;}
+.pq-inner{display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:center;}
+.pq-left .sec-tag{color:rgba(85,120,200,.85);}
+.pq-left .sec-h{color:white;font-size:clamp(1.5rem,2.5vw,2rem);}
+.pq-left p{font-size:.9rem;color:rgba(255,255,255,.42);line-height:1.75;font-weight:300;margin-top:.7rem;}
+.pq-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;}
+.pq-card{background:rgba(255,255,255,.06);border:.5px solid rgba(255,255,255,.1);border-radius:var(--rlg);padding:1.2rem 1.3rem;}
+.pq-card.hi{background:var(--acc);border-color:var(--acc);}
+.pq-ico{font-size:1.3rem;margin-bottom:.7rem;}
+.pq-card h4{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:800;color:white;margin-bottom:.4rem;}
+.pq-card p{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.6;font-weight:300;}
+.pq-card.hi p{color:rgba(255,255,255,.72);}
+.pq-not{margin-top:1.2rem;font-size:.78rem;color:rgba(255,255,255,.22);padding-top:1rem;border-top:.5px solid rgba(255,255,255,.08);}
+
+/* MARQUEE */
+.logos-bar{background:var(--acc);padding:.9rem 4%;display:flex;align-items:center;gap:2rem;overflow:hidden;}
+.logos-lbl{font-size:.7rem;color:rgba(255,255,255,.55);white-space:nowrap;font-weight:500;text-transform:uppercase;letter-spacing:.08em;}
+.logos-scroll{display:flex;gap:3rem;animation:marquee 26s linear infinite;white-space:nowrap;}
+.litem{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.35);}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* SECTIONS */
+.lsec{padding:5rem 4%;}
+.sec-tag{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--acc);margin-bottom:.65rem;}
+.sec-h{font-size:clamp(1.8rem,3.2vw,2.7rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:.85rem;}
+.sec-p{font-size:.98rem;color:var(--ink2);max-width:52ch;line-height:1.8;font-weight:300;}
+
+/* FEATURES */
+.feat-main{background:var(--wht);border:.5px solid var(--brd2);border-radius:var(--rlg);overflow:hidden;display:grid;grid-template-columns:1fr 1fr;margin-bottom:1.5px;}
+.feat-main-left{padding:2.2rem 2.5rem;background:var(--ink);position:relative;overflow:hidden;}
+.feat-main-left::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(58,92,168,.15);}
+.feat-main-left::after{content:'';position:absolute;bottom:-60px;left:-30px;width:160px;height:160px;border-radius:50%;background:rgba(58,92,168,.07);}
+.feat-rank{font-family:'Syne',sans-serif;font-size:4rem;font-weight:800;color:rgba(255,255,255,.05);line-height:1;margin-bottom:.5rem;position:relative;z-index:1;}
+.feat-tag{display:inline-flex;align-items:center;gap:6px;background:var(--acc);color:white;font-size:.68rem;font-weight:600;padding:4px 10px;border-radius:100px;margin-bottom:1rem;position:relative;z-index:1;}
+.feat-main-left h3{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:white;line-height:1.2;margin-bottom:.75rem;position:relative;z-index:1;}
+.feat-main-left p{font-size:.87rem;color:rgba(255,255,255,.48);line-height:1.78;font-weight:300;position:relative;z-index:1;}
+.feat-mobile-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);font-size:.74rem;font-weight:500;padding:5px 11px;border-radius:100px;margin-top:1.1rem;position:relative;z-index:1;}
+.feat-main-right{padding:2rem 2.2rem;background:var(--wht);}
+.feat-sub-title{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--ink3);margin-bottom:1.1rem;}
+.feat-item{display:flex;align-items:flex-start;gap:10px;padding:.72rem 0;border-bottom:.5px solid var(--brd);}
+.feat-item:last-child{border-bottom:none;}
+.feat-item-ico{width:30px;height:30px;border-radius:8px;background:var(--gry-lt);display:flex;align-items:center;justify-content:center;font-size:.82rem;flex-shrink:0;margin-top:1px;}
+.feat-item-txt{font-size:.86rem;font-weight:500;color:var(--ink);}
+.feat-item-sub{font-size:.76rem;color:var(--ink2);margin-top:3px;font-weight:300;line-height:1.55;}
+
+.feat-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;margin-top:1.5px;}
+.fc{background:var(--wht);padding:1.8rem;position:relative;border:.5px solid var(--brd2);border-radius:var(--rlg);transition:background .2s;}
+.fc:hover{background:var(--bg);}
+.fc-rank{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:rgba(28,33,48,.05);line-height:1;margin-bottom:.4rem;}
+.fc-tag{display:inline-flex;align-items:center;gap:5px;background:var(--gry-lt);color:var(--acc);font-size:.68rem;font-weight:600;padding:3px 10px;border-radius:100px;margin-bottom:.9rem;}
+.fc-ico{font-size:1.2rem;margin-bottom:.8rem;}
+.fc h3{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;margin-bottom:.5rem;color:var(--ink);}
+.fc p{font-size:.85rem;color:var(--ink2);line-height:1.68;font-weight:300;margin-bottom:1rem;}
+.fc-items{display:flex;flex-direction:column;gap:.42rem;}
+.fc-item{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink2);}
+.fc-item::before{content:'✓';font-weight:700;color:var(--acc);flex-shrink:0;}
+.fc-pdf{display:inline-flex;align-items:center;gap:6px;margin-top:.8rem;background:var(--acc);color:white;font-size:.75rem;font-weight:500;padding:5px 12px;border-radius:100px;}
+
+/* CONFORMITÉ */
+.conformite-sec{background:var(--acc);padding:5rem 4%;position:relative;overflow:hidden;}
+.conformite-sec::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 1px,transparent 1px,transparent 14px);}
+.conf-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.conf-left .sec-tag{color:rgba(255,255,255,.6);}
+.conf-left .sec-h{color:white;}
+.conf-left .sec-p{color:rgba(255,255,255,.68);}
+.conf-items{display:flex;flex-direction:column;gap:.8rem;margin-top:2rem;}
+.conf-item{background:rgba(255,255,255,.12);border:.5px solid rgba(255,255,255,.18);border-radius:var(--rlg);padding:1.1rem 1.3rem;display:flex;gap:12px;align-items:flex-start;}
+.conf-ico{font-size:1rem;flex-shrink:0;margin-top:2px;}
+.conf-txt strong{display:block;font-size:.88rem;font-weight:500;color:white;margin-bottom:3px;}
+.conf-txt span{font-size:.78rem;color:rgba(255,255,255,.62);line-height:1.6;}
+.conf-right{}
+.equip-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+.equip-card{background:rgba(255,255,255,.1);border:.5px solid rgba(255,255,255,.15);border-radius:var(--rlg);padding:1.1rem;text-align:center;}
+.equip-ico{font-size:1.6rem;margin-bottom:.5rem;}
+.equip-name{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:800;color:white;margin-bottom:.25rem;}
+.equip-freq{font-size:.72rem;color:rgba(255,255,255,.5);}
+.conf-note{margin-top:1rem;font-size:.78rem;color:rgba(255,255,255,.5);text-align:center;padding-top:.9rem;border-top:.5px solid rgba(255,255,255,.12);}
+
+/* HOW */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;margin-top:2.8rem;}
+.step-n{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:rgba(28,33,48,.08);line-height:1;}
+.step-ln{width:28px;height:2px;background:var(--acc);border-radius:1px;margin:.9rem 0;}
+.step h3{font-family:'Syne',sans-serif;font-size:.97rem;font-weight:700;margin-bottom:.45rem;}
+.step p{font-size:.85rem;color:var(--ink2);line-height:1.65;font-weight:300;}
+
+/* PRICING */
+.pricing-sec{background:var(--ink);padding:5rem 4%;}
+.pricing-sec .sec-tag{color:rgba(85,120,200,.85);}
+.pricing-sec .sec-h{color:white;}
+.pricing-sec .sec-p{color:rgba(255,255,255,.42);}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:2.8rem;}
+.plan{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:var(--rlg);padding:1.7rem;display:flex;flex-direction:column;gap:1.1rem;transition:background .2s;}
+.plan:hover{background:rgba(255,255,255,.08);}
+.plan.featured{background:var(--acc);border-color:var(--acc);transform:translateY(-5px);}
+.plan.featured:hover{background:var(--acc2);}
+.plan-pop{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:rgba(255,255,255,.2);color:white;padding:3px 9px;border-radius:100px;width:fit-content;}
+.plan-name{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:white;}
+.plan-price{display:flex;align-items:baseline;gap:4px;}
+.plan-price strong{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:white;}
+.plan-price span{font-size:.82rem;color:rgba(255,255,255,.45);}
+.plan-desc{font-size:.82rem;color:rgba(255,255,255,.48);line-height:1.65;font-weight:300;}
+.plan-roi{background:rgba(255,255,255,.1);border-radius:8px;padding:.6rem .8rem;font-size:.76rem;color:rgba(255,255,255,.72);line-height:1.5;}
+.plan-roi strong{color:white;font-weight:600;}
+.plan-feats{list-style:none;display:flex;flex-direction:column;gap:.5rem;flex:1;}
+.plan-feats li{font-size:.82rem;color:rgba(255,255,255,.7);display:flex;gap:8px;}
+.plan-feats li::before{content:'✓';font-weight:700;flex-shrink:0;}
+.plan-feats li.off{color:rgba(255,255,255,.26);}
+.plan-feats li.off::before{content:'—';font-weight:400;}
+.plan-btn{display:block;text-align:center;padding:.72rem;border-radius:100px;font-size:.88rem;font-weight:500;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;margin-top:auto;transition:background .15s;}
+.plan-btn.lt{background:rgba(255,255,255,.1);color:white;border:1px solid rgba(255,255,255,.15);}
+.plan-btn.lt:hover{background:rgba(255,255,255,.18);}
+.plan-btn.dk{background:var(--ink);color:white;}
+.plan-btn.dk:hover{background:#2a3040;}
+.pricing-note{margin-top:1.5rem;font-size:.78rem;color:rgba(255,255,255,.24);text-align:center;}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:2.5rem;}
+.testi{background:var(--wht);border-radius:var(--rlg);padding:1.5rem;border:.5px solid var(--brd);}
+.testi-label{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);margin-bottom:.6rem;}
+.testi-stars{color:var(--acc);font-size:.82rem;margin-bottom:.65rem;}
+.testi-txt{font-size:.9rem;line-height:1.72;font-style:italic;font-weight:300;margin-bottom:.9rem;color:var(--ink);}
+.testi-av{width:34px;height:34px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;color:var(--ink2);}
+.testi-name{font-size:.84rem;font-weight:500;}
+.testi-role{font-size:.73rem;color:var(--ink2);}
+
+/* CTA */
+.cta-band{background:var(--acc);padding:5rem 4%;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.3rem;}
+.cta-band h2{font-size:clamp(1.8rem,3.8vw,2.8rem);font-weight:800;color:white;max-width:24ch;line-height:1.1;letter-spacing:-.02em;}
+.cta-band p{font-size:.97rem;color:rgba(255,255,255,.7);max-width:48ch;font-weight:300;}
+.btn-wht{background:white;color:var(--acc);padding:.88rem 2.1rem;border-radius:100px;font-size:.95rem;font-weight:600;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;}
+.btn-wht:hover{transform:translateY(-2px);box-shadow:0 7px 22px rgba(0,0,0,.18);}
+.cta-reassurance{font-size:.75rem;color:rgba(255,255,255,.48);}
+
+footer{background:var(--ink);padding:2.2rem 4%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
+.flinks{display:flex;gap:1.4rem;list-style:none;}
+.flinks a{font-size:.76rem;color:rgba(255,255,255,.35);text-decoration:none;}
+.flinks a:hover{color:rgba(255,255,255,.7);}
+
+/* ── AUTH ── */
+#pg-auth{min-height:100vh;padding-top:65px;}
+.auth-left{width:40%;min-height:calc(100vh - 65px);background:var(--ink);display:flex;flex-direction:column;justify-content:space-between;padding:2.5rem 2.8rem;position:relative;overflow:hidden;}
+.auth-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 65% 50% at 90% 5%,rgba(58,92,168,.3),transparent 60%),radial-gradient(ellipse 50% 45% at -10% 90%,rgba(122,92,68,.2),transparent 60%);}
+.auth-grid{position:absolute;inset:0;opacity:.04;background-image:linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px);background-size:44px 44px;}
+.auth-body{position:relative;z-index:1;}
+.auth-body h2{font-size:1.85rem;font-weight:800;color:white;line-height:1.15;letter-spacing:-.02em;margin-bottom:1rem;}
+.auth-body h2 em{font-style:normal;color:#8AAEE8;}
+.auth-body > p{font-size:.85rem;color:rgba(255,255,255,.42);line-height:1.7;max-width:32ch;font-weight:300;margin-bottom:1.6rem;}
+.af-list{display:flex;flex-direction:column;gap:.6rem;}
+.af-item{display:flex;align-items:center;gap:9px;}
+.af-dot{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;}
+.af-item span{font-size:.82rem;color:rgba(255,255,255,.58);}
+.auth-foot{position:relative;z-index:1;border-top:.5px solid rgba(255,255,255,.08);padding-top:1.1rem;}
+.tmini{display:flex;gap:10px;align-items:flex-start;}
+.tmini-av{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.73rem;font-weight:700;color:rgba(255,255,255,.4);flex-shrink:0;}
+.tmini p{font-size:.76rem;color:rgba(255,255,255,.38);line-height:1.6;font-style:italic;font-weight:300;}
+.tmini strong{color:rgba(255,255,255,.52);font-style:normal;font-weight:500;}
+.auth-right{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem;}
+.auth-card{width:100%;max-width:420px;background:var(--wht);border:.5px solid var(--brd2);border-radius:var(--rlg);padding:2.2rem;}
+.atabs{display:flex;background:var(--bg2);border-radius:var(--r);padding:4px;margin-bottom:1.7rem;}
+.atab{flex:1;padding:.48rem;font-size:.86rem;font-weight:500;cursor:pointer;border-radius:8px;border:none;background:transparent;color:var(--ink2);transition:all .2s;}
+.atab.on{background:var(--wht);color:var(--acc);box-shadow:0 1px 4px rgba(28,33,48,.1);}
+.fp{display:none;flex-direction:column;gap:1rem;}
+.fp.on{display:flex;}
+.fp-title{font-family:'Syne',sans-serif;font-size:1.18rem;font-weight:800;}
+.fp-sub{font-size:.8rem;color:var(--ink2);margin-top:2px;font-weight:300;}
+.fg{display:flex;flex-direction:column;gap:5px;}
+.fg label{font-size:.76rem;font-weight:500;color:var(--ink2);}
+.fg input,.fg select{width:100%;padding:.62rem .82rem;font-size:.9rem;background:var(--bg);border:1px solid var(--brd2);border-radius:var(--r);color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s;}
+.fg input:focus,.fg select:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(58,92,168,.12);}
+.fg input::placeholder{color:var(--ink3);}
+.frow2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.pw-wrap{position:relative;}
+.pw-wrap input{padding-right:2.4rem;}
+.eye-btn{position:absolute;right:.65rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--ink3);font-size:.9rem;padding:0;}
+.gdiv{display:flex;align-items:center;gap:8px;font-size:.72rem;color:var(--ink3);}
+.gdiv::before,.gdiv::after{content:'';flex:1;height:.5px;background:var(--brd2);}
+.g-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:.62rem;border-radius:var(--r);border:1px solid var(--brd2);background:var(--wht);font-size:.86rem;font-weight:500;color:var(--ink);cursor:pointer;transition:background .15s;}
+.g-btn:hover{background:var(--bg);}
+.g-btn svg{width:16px;height:16px;}
+.sub-btn{width:100%;padding:.78rem;background:var(--acc);color:white;border:none;border-radius:var(--r);font-size:.93rem;font-weight:500;cursor:pointer;transition:background .15s,transform .15s;}
+.sub-btn:hover{background:var(--acc2);transform:translateY(-1px);}
+.hint{font-size:.73rem;color:var(--ink3);text-align:center;line-height:1.6;}
+.hint a{color:var(--acc);text-decoration:none;cursor:pointer;}
+.str-row{display:flex;gap:3px;margin-top:5px;}
+.str-s{flex:1;height:3px;border-radius:2px;background:var(--bg2);transition:background .3s;}
+.str-s.w{background:#C45A1A;}.str-s.m{background:#C88C1E;}.str-s.s{background:var(--acc);}
+.str-lbl{font-size:.68rem;color:var(--ink3);margin-top:3px;}
+.plan-pick{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
+.pp{border:1.5px solid var(--brd2);border-radius:var(--r);padding:.58rem .4rem;text-align:center;cursor:pointer;transition:all .15s;}
+.pp:hover{border-color:var(--acc);background:var(--gry-lt);}
+.pp.on{border-color:var(--acc);background:rgba(58,92,168,.07);}
+.pp .pn{font-size:.76rem;font-weight:600;color:var(--ink);}
+.pp .pr{font-size:.67rem;color:var(--ink3);margin-top:2px;}
+.pp.on .pn{color:var(--acc);}
+.ferr{font-size:.74rem;color:var(--red);display:none;margin-top:2px;}
+.ferr.on{display:block;}
+.suc-scr{display:none;flex-direction:column;align-items:center;text-align:center;gap:.85rem;padding:.5rem 0;}
+.suc-scr.on{display:flex;}
+.suc-ico{width:58px;height:58px;border-radius:50%;background:var(--grn-lt);display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+.suc-scr h3{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;}
+.suc-scr p{font-size:.85rem;color:var(--ink2);line-height:1.6;max-width:28ch;font-weight:300;}
+
+/* ── DASHBOARD ── */
+#pg-dashboard{min-height:100vh;padding-top:64px;background:var(--bg);}
+.dash-wrap{display:flex;min-height:calc(100vh - 64px);}
+.sidebar{width:215px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;padding:1.3rem 0;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto;}
+.sb-sec{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.22);padding:.25rem 1.4rem .45rem;margin-top:.4rem;}
+.sb-a{display:flex;align-items:center;gap:9px;padding:.6rem 1.4rem;font-size:.85rem;color:rgba(255,255,255,.48);cursor:pointer;border-left:2.5px solid transparent;transition:all .15s;}
+.sb-a:hover{background:rgba(255,255,255,.06);color:rgba(255,255,255,.78);}
+.sb-a.on{background:rgba(58,92,168,.22);color:white;border-left-color:var(--acc2);}
+.sb-ico{font-size:.95rem;width:19px;text-align:center;}
+.sb-badge{margin-left:auto;background:var(--acc);color:white;font-size:.62rem;font-weight:700;padding:1px 6px;border-radius:100px;}
+.sb-user{margin-top:auto;padding:1.1rem 1.4rem;border-top:.5px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:9px;}
+.sb-av{width:32px;height:32px;border-radius:50%;background:var(--acc);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.74rem;font-weight:700;color:white;flex-shrink:0;}
+.sb-un{font-size:.8rem;font-weight:500;color:white;}
+.sb-ur{font-size:.7rem;color:rgba(255,255,255,.36);}
+.sb-out{margin-left:auto;background:none;border:none;color:rgba(255,255,255,.3);cursor:pointer;font-size:.85rem;padding:0;}
+.sb-out:hover{color:rgba(255,255,255,.7);}
+.dash-main{flex:1;padding:1.8rem 2.2rem;overflow-x:hidden;}
+.dash-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.8rem;flex-wrap:wrap;gap:.9rem;}
+.dash-title{font-family:'Syne',sans-serif;font-size:1.45rem;font-weight:800;}
+.dash-sub{font-size:.82rem;color:var(--ink2);margin-top:2px;font-weight:300;}
+.dash-acts{display:flex;gap:.6rem;}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-bottom:1.5rem;}
+.kpi{background:var(--wht);border:.5px solid var(--brd);border-radius:var(--rlg);padding:1.2rem 1.4rem;}
+.kpi-lbl{font-size:.72rem;color:var(--ink2);margin-bottom:.45rem;font-weight:500;}
+.kpi-val{font-family:'Syne',sans-serif;font-size:1.75rem;font-weight:800;}
+.kpi-sub{font-size:.72rem;margin-top:.25rem;}
+.up{color:var(--grn);}.dn{color:var(--red);}.nu{color:var(--ink2);}
+.kpi-bar{height:3px;border-radius:2px;margin-top:.75rem;background:var(--bg2);overflow:hidden;}
+.kpi-fill{height:100%;border-radius:2px;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.g3{display:grid;grid-template-columns:2fr 1fr;gap:1rem;margin-bottom:1rem;}
+.card{background:var(--wht);border:.5px solid var(--brd);border-radius:var(--rlg);padding:1.3rem;}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;}
+.card-title{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;}
+.card-lnk{font-size:.76rem;color:var(--acc);cursor:pointer;}
+.card-lnk:hover{text-decoration:underline;}
+.dtbl{width:100%;border-collapse:collapse;font-size:.8rem;}
+.dtbl th{text-align:left;font-size:.67rem;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em;padding:.45rem .65rem;border-bottom:.5px solid var(--brd2);}
+.dtbl td{padding:.6rem .65rem;border-bottom:.5px solid var(--brd);color:var(--ink);}
+.dtbl tr:last-child td{border-bottom:none;}
+.dtbl tr:hover td{background:var(--bg);}
+.badge{font-size:.65rem;font-weight:600;padding:2px 8px;border-radius:100px;white-space:nowrap;}
+.b-grn{background:var(--grn-lt);color:var(--grn);}
+.b-org{background:var(--org-lt);color:var(--org);}
+.b-red{background:var(--red-lt);color:var(--red);}
+.b-gry{background:var(--gry-lt);color:var(--gry);}
+.b-blu{background:var(--gry-lt);color:var(--acc);}
+.al-item{display:flex;gap:10px;align-items:flex-start;padding:.65rem .75rem;border-radius:var(--r);margin-bottom:.4rem;border:.5px solid var(--brd);}
+.al-item.crit{border-color:rgba(168,58,58,.25);background:var(--red-lt);}
+.al-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.dot-r{background:var(--red);}.dot-o{background:var(--org);}.dot-g{background:var(--grn);}
+.al-main{font-size:.8rem;font-weight:500;}
+.al-sub{font-size:.7rem;color:var(--ink2);margin-top:2px;}
+.al-item.crit .al-main{color:var(--red);}
+.ch-item{padding:.72rem 0;border-bottom:.5px solid var(--brd);}
+.ch-item:last-child{border-bottom:none;}
+.ch-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem;}
+.ch-name{font-size:.85rem;font-weight:500;}
+.ch-pct{font-size:.75rem;font-weight:600;color:var(--acc);}
+.prog{height:5px;background:var(--bg2);border-radius:3px;overflow:hidden;margin-bottom:.3rem;}
+.prog-fill{height:100%;border-radius:3px;background:var(--acc);}
+.ch-meta{font-size:.7rem;color:var(--ink2);}
+.bars-wrap{display:flex;align-items:flex-end;gap:5px;height:80px;margin-top:.4rem;}
+.bw{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;}
+.bar{width:100%;border-radius:4px 4px 0 0;background:var(--gry-lt);transition:background .2s;cursor:pointer;}
+.bar:hover,.bar.hi{background:var(--acc);}
+.bar-l{font-size:.6rem;color:var(--ink3);}
+.act-item{display:flex;gap:10px;align-items:flex-start;padding:.65rem 0;border-bottom:.5px solid var(--brd);}
+.act-item:last-child{border-bottom:none;}
+.act-dot{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.75rem;}
+.ad-grn{background:var(--grn-lt);}
+.ad-org{background:var(--org-lt);}
+.ad-blu{background:var(--gry-lt);}
+.ad-red{background:var(--red-lt);}
+.act-txt{font-size:.8rem;line-height:1.5;}
+.act-time{font-size:.7rem;color:var(--ink3);margin-top:1px;}
+
+/* MODAL */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:9998;display:none;align-items:center;justify-content:center;padding:1rem;}
+.overlay.open{display:flex;}
+.modal{background:var(--wht);border-radius:var(--rlg);width:100%;max-width:680px;max-height:90vh;overflow-y:auto;padding:2rem;}
+.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.4rem;}
+.modal-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:800;}
+.modal-x{background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--ink2);line-height:1;padding:0;}
+.mrow{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.ligne-hd{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr 32px;gap:7px;font-size:.68rem;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em;padding-bottom:6px;border-bottom:.5px solid var(--brd2);}
+.lg-row{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr 32px;gap:7px;align-items:center;margin-top:6px;}
+.lg-row input{font-size:.82rem;}
+.del-btn{width:28px;height:28px;border:none;background:none;cursor:pointer;color:var(--ink3);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.del-btn:hover{background:var(--red-lt);color:var(--red);}
+.add-btn{background:var(--bg2);border:1px solid var(--brd2);border-radius:var(--r);padding:.5rem 1rem;font-size:.8rem;cursor:pointer;color:var(--ink);transition:background .15s;margin-top:8px;}
+.add-btn:hover{background:var(--bg3);}
+.totaux{background:var(--bg);border-radius:var(--r);padding:.9rem 1.1rem;}
+.tot-row{display:flex;justify-content:space-between;font-size:.84rem;padding:3px 0;}
+.tot-row.ttc{font-weight:600;font-size:1rem;border-top:.5px solid var(--brd2);padding-top:8px;margin-top:4px;color:var(--acc);}
+.modal-foot{display:flex;gap:.7rem;justify-content:flex-end;margin-top:1.4rem;flex-wrap:wrap;}
+.mf{padding:.68rem 1.4rem;border-radius:100px;font-size:.88rem;font-weight:500;cursor:pointer;}
+.mf.out{background:transparent;border:1px solid var(--brd2);color:var(--ink);}
+.mf.out:hover{background:var(--bg);}
+.mf.prim{background:var(--acc);color:white;border:none;}
+.mf.prim:hover{background:var(--acc2);}
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--ink);color:white;padding:.72rem 1.3rem;border-radius:var(--r);font-size:.84rem;z-index:99999;opacity:0;transform:translateY(8px);transition:all .28s;pointer-events:none;}
+.toast.on{opacity:1;transform:translateY(0);}
+.toast.grn{background:var(--grn);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="topnav">
+  <div class="logo" onclick="go('landing')">
+    <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="logo-txt">Build<span>Ops</span></div>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a onclick="sTo('sec-features')">Fonctionnalités</a></li>
+    <li><a onclick="sTo('sec-pour-qui')">Pour qui</a></li>
+    <li><a onclick="sTo('sec-pricing')">Tarifs</a></li>
+    <li><a onclick="sTo('sec-reviews')">Avis</a></li>
+  </ul>
+  <div class="nav-r" id="nav-r">
+    <button class="btn-sm" onclick="go('auth','login')">Connexion</button>
+    <button class="btn-sm acc" onclick="go('auth','register')">Essai gratuit</button>
+  </div>
+</nav>
+
+<!-- ============ LANDING ============ -->
+<div class="pg" id="pg-landing">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div><div class="hero-grid"></div>
+    <div class="hero-badge">Logiciel de gestion maintenance sécurité incendie</div>
+    <h1>
+      <span class="line">Planifiez vos interventions incendie.</span>
+      <span class="line">Générez vos rapports <span class="acc">automatiquement.</span></span>
+      <span class="line">Restez conforme sans effort.</span>
+    </h1>
+    <p class="hero-sub">BuildOps aide les entreprises de maintenance incendie à organiser leurs techniciens, suivre chaque intervention et anticiper les échéances réglementaires — extincteurs, RIA, désenfumage, SSI.</p>
+    <div class="hero-btns">
+      <button class="btn-prim" onclick="go('auth','register')">Créer mon compte et planifier mes premières interventions</button>
+      <button class="btn-out" onclick="sTo('sec-features')">Voir comment ça marche</button>
+    </div>
+    <p class="hero-reassurance">Essai gratuit 14 jours · Sans carte bancaire · Sans engagement</p>
+    <div class="hero-tags">
+      <div class="htag"><div class="htag-dot"></div>Conçu pour les entreprises de maintenance incendie</div>
+      <div class="htag"><div class="htag-dot"></div>Testé avec des professionnels du secteur</div>
+      <div class="htag"><div class="htag-dot"></div>Équipes de 3 à 20 techniciens</div>
+      <div class="htag"><div class="htag-dot"></div>Opérationnel en 48h</div>
+    </div>
+  </section>
+
+  <!-- POUR QUI -->
+  <section class="pour-qui" id="sec-pour-qui">
+    <div class="pq-inner">
+      <div class="pq-left">
+        <div class="sec-tag">Pour qui</div>
+        <h2 class="sec-h">BuildOps est fait pour vous si…</h2>
+        <p>Vous gérez des techniciens sur le terrain, des clients multi-sites et des obligations réglementaires à respecter. Et vous perdez trop de temps sur la paperasse.</p>
+      </div>
+      <div>
+        <div class="pq-cards">
+          <div class="pq-card hi">
+            <div class="pq-ico">🔥</div>
+            <h4>Maintenance incendie</h4>
+            <p>Vérification extincteurs, RIA, SSI, désenfumage — un seul outil pour tout gérer.</p>
+          </div>
+          <div class="pq-card">
+            <div class="pq-ico">👷</div>
+            <h4>3 à 20 techniciens</h4>
+            <p>Assez petit pour être agile, assez grand pour avoir besoin d'organisation.</p>
+          </div>
+          <div class="pq-card">
+            <div class="pq-ico">🏢</div>
+            <h4>Gestion multi-sites</h4>
+            <p>Plusieurs clients, plusieurs sites, des équipements différents. BuildOps centralise tout.</p>
+          </div>
+        </div>
+        <p class="pq-not">BuildOps n'est pas adapté aux très grandes entreprises (50+ techniciens) ou aux activités sans obligation réglementaire périodique.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="logos-bar">
+    <span class="logos-lbl">Bêta utilisateurs</span>
+    <div class="logos-scroll">
+      <span class="litem">SÉCURITÉ PRO ÎLE-DE-FRANCE</span>
+      <span class="litem">INCENDIE SERVICES LYON</span>
+      <span class="litem">PROTECT FIRE NORD</span>
+      <span class="litem">FEU PROTECT SUD</span>
+      <span class="litem">SÉCURIS BRETAGNE</span>
+      <span class="litem">FIRE EXPERT BORDEAUX</span>
+      <span class="litem">SÉCURITÉ PRO ÎLE-DE-FRANCE</span>
+      <span class="litem">INCENDIE SERVICES LYON</span>
+      <span class="litem">PROTECT FIRE NORD</span>
+      <span class="litem">FEU PROTECT SUD</span>
+      <span class="litem">SÉCURIS BRETAGNE</span>
+      <span class="litem">FIRE EXPERT BORDEAUX</span>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="lsec" id="sec-features" style="background:var(--wht)">
+    <div class="sec-tag">Fonctionnalités</div>
+    <h2 class="sec-h">Ce que fait BuildOps concrètement</h2>
+    <p class="sec-p">Trois modules pour le terrain. Vos techniciens travaillent directement depuis leur téléphone, sur site.</p>
+
+    <!-- MODULE 1 -->
+    <div class="feat-main" style="margin-top:2.8rem;">
+      <div class="feat-main-left">
+        <div class="feat-rank">01</div>
+        <div class="feat-tag">🥇 Priorité principale</div>
+        <h3>Planning des interventions</h3>
+        <p>Planifiez les vérifications de vos extincteurs, RIA, systèmes de désenfumage et SSI. Assignez chaque mission au bon technicien. Suivez l'avancement en temps réel depuis le bureau.</p>
+        <div class="feat-mobile-badge">📱 Vos techniciens accèdent au planning depuis leur téléphone</div>
+      </div>
+      <div class="feat-main-right">
+        <div class="feat-sub-title">En pratique</div>
+        <div class="feat-item">
+          <div class="feat-item-ico">➕</div>
+          <div>
+            <div class="feat-item-txt">Créer une intervention</div>
+            <div class="feat-item-sub">Type d'équipement, site client, priorité, notes pour le technicien. Prêt en moins d'une minute.</div>
+          </div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-item-ico">👷</div>
+          <div>
+            <div class="feat-item-txt">Assigner à un technicien</div>
+            <div class="feat-item-sub">Le technicien reçoit une notification sur son téléphone. Il voit l'adresse, le type d'intervention et les équipements à vérifier.</div>
+          </div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-item-ico">📅</div>
+          <div>
+            <div class="feat-item-txt">Date / client / site</div>
+            <div class="feat-item-sub">Chaque intervention est liée à la fiche client. L'historique se remplit automatiquement à chaque passage.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULES 2 & 3 -->
+    <div class="feat-row">
+      <div class="fc">
+        <div class="fc-rank">02</div>
+        <div class="fc-tag">🥈 Sur le terrain</div>
+        <div class="fc-ico">📱</div>
+        <h3>Rapport d'intervention mobile</h3>
+        <p>Le technicien remplit le rapport sur son téléphone pendant l'intervention. Pas de papier, pas de ressaisie au bureau. Le client reçoit son PDF avant que le technicien reparte.</p>
+        <div class="fc-items">
+          <div class="fc-item">Checklist de contrôle par type d'équipement</div>
+          <div class="fc-item">Commentaires et observations libres</div>
+          <div class="fc-item">Photos des équipements vérifiés</div>
+          <div class="fc-item">Signature client sur l'écran du téléphone</div>
+        </div>
+        <div class="fc-pdf">📄 Génération PDF automatique</div>
+      </div>
+      <div class="fc">
+        <div class="fc-rank">03</div>
+        <div class="fc-tag">🥉 Base clients</div>
+        <div class="fc-ico">🏢</div>
+        <h3>Fiche client</h3>
+        <p>Une fiche par client et par site. Retrouvez en quelques secondes tout l'historique d'un équipement lors d'un contrôle ou d'une relance commerciale.</p>
+        <div class="fc-items">
+          <div class="fc-item">Nom, adresse, contact du site</div>
+          <div class="fc-item">Liste des équipements avec fréquences réglementaires</div>
+          <div class="fc-item">Historique complet de toutes les interventions</div>
+          <div class="fc-item">Documents archivés accessibles en un clic</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFORMITÉ -->
+  <section class="conformite-sec" id="sec-conformite">
+    <div class="conf-inner">
+      <div class="conf-left">
+        <div class="sec-tag">Conformité réglementaire</div>
+        <h2 class="sec-h">Conservez une traçabilité complète. En cas de contrôle, vous êtes prêt.</h2>
+        <p class="sec-p">Les obligations réglementaires dans la sécurité incendie sont précises et contraignantes. BuildOps vous aide à les respecter sans y penser.</p>
+        <div class="conf-items">
+          <div class="conf-item">
+            <div class="conf-ico">📋</div>
+            <div class="conf-txt">
+              <strong>Traçabilité de chaque intervention</strong>
+              <span>Chaque passage est enregistré avec date, technicien, résultats et photos. Consultable à tout moment.</span>
+            </div>
+          </div>
+          <div class="conf-item">
+            <div class="conf-ico">🔔</div>
+            <div class="conf-txt">
+              <strong>Alertes avant les échéances réglementaires</strong>
+              <span>BuildOps vous prévient avant les vérifications obligatoires. Vous planifiez à l'avance, sans urgence.</span>
+            </div>
+          </div>
+          <div class="conf-item">
+            <div class="conf-ico">🗂️</div>
+            <div class="conf-txt">
+              <strong>Historique complet par site et par équipement</strong>
+              <span>En cas de contrôle imprévu, retrouvez tous les rapports d'un site en moins de 10 secondes.</span>
+            </div>
+          </div>
+          <div class="conf-item">
+            <div class="conf-ico">✅</div>
+            <div class="conf-txt">
+              <strong>Preuve documentée en cas de litige</strong>
+              <span>Chaque rapport PDF signé est archivé. Vous avez toujours la preuve que l'intervention a bien eu lieu.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="conf-right">
+        <div style="font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:1rem;">Équipements couverts</div>
+        <div class="equip-grid">
+          <div class="equip-card">
+            <div class="equip-ico">🧯</div>
+            <div class="equip-name">Extincteurs</div>
+            <div class="equip-freq">Vérification annuelle</div>
+          </div>
+          <div class="equip-card">
+            <div class="equip-ico">🚿</div>
+            <div class="equip-name">RIA</div>
+            <div class="equip-freq">Contrôle annuel + semestriel</div>
+          </div>
+          <div class="equip-card">
+            <div class="equip-ico">💨</div>
+            <div class="equip-name">Désenfumage</div>
+            <div class="equip-freq">Vérification annuelle</div>
+          </div>
+          <div class="equip-card">
+            <div class="equip-ico">🔴</div>
+            <div class="equip-name">SSI</div>
+            <div class="equip-freq">Contrôle annuel obligatoire</div>
+          </div>
+        </div>
+        <p class="conf-note">Fréquences indicatives — BuildOps s'adapte aux obligations spécifiques de chaque site</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section class="lsec" id="sec-how">
+    <div class="sec-tag">Comment ça marche</div>
+    <h2 class="sec-h">Opérationnel en moins de 48h</h2>
+    <p class="sec-p">Importez vos clients. Vos techniciens reçoivent leur planning le lendemain matin.</p>
+    <div class="steps-grid">
+      <div class="step"><div class="step-n">01</div><div class="step-ln"></div><h3>Créez votre compte</h3><p>2 minutes. Renseignez votre entreprise et choisissez votre plan. Aucune carte bancaire requise pour l'essai.</p></div>
+      <div class="step"><div class="step-n">02</div><div class="step-ln"></div><h3>Importez vos clients et sites</h3><p>Adresses, équipements, fréquences réglementaires — importez votre base Excel existante en un clic.</p></div>
+      <div class="step"><div class="step-n">03</div><div class="step-ln"></div><h3>Planifiez vos techniciens</h3><p>Créez vos premières interventions et assignez-les. Les alertes d'échéance se configurent automatiquement.</p></div>
+      <div class="step"><div class="step-n">04</div><div class="step-ln"></div><h3>Vos techniciens travaillent sur mobile</h3><p>Rapport, photos, signature client — tout depuis leur téléphone. Le client reçoit son PDF dans la minute.</p></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-sec" id="sec-pricing">
+    <div class="sec-tag">Tarifs</div>
+    <h2 class="sec-h">Simple, transparent, sans surprise</h2>
+    <p class="sec-p">14 jours d'essai gratuit. Sans carte bancaire. Vous choisissez votre plan après.</p>
+    <div class="plans">
+      <div class="plan">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price"><strong>149</strong><span>€ / mois HT</span></div>
+        <p class="plan-desc">Pour les artisans et petites équipes qui veulent s'organiser et ne plus rater d'échéances.</p>
+        <div class="plan-roi"><strong>Rentabilisé dès 1 intervention supplémentaire par mois.</strong> Réduisez le temps administratif et évitez les oublis coûteux.</div>
+        <ul class="plan-feats">
+          <li>Jusqu'à 2 techniciens</li>
+          <li>50 sites gérés</li>
+          <li>Planning des interventions</li>
+          <li>Alertes réglementaires</li>
+          <li>Rapports automatiques</li>
+          <li class="off">Signature électronique</li>
+          <li class="off">Archivage illimité</li>
+        </ul>
+        <button class="plan-btn lt" onclick="go('auth','register')">Démarrer l'essai gratuit</button>
+      </div>
+      <div class="plan featured">
+        <div class="plan-pop">Le plus populaire</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price"><strong>349</strong><span>€ / mois HT</span></div>
+        <p class="plan-desc">Pour les PME qui gèrent un portefeuille de sites actif avec plusieurs techniciens.</p>
+        <div class="plan-roi"><strong>Rentabilisé dès 2 interventions supplémentaires par mois.</strong> Vos techniciens gagnent du temps sur chaque rapport terrain.</div>
+        <ul class="plan-feats">
+          <li>Jusqu'à 10 techniciens</li>
+          <li>Sites illimités</li>
+          <li>Planning des interventions</li>
+          <li>Alertes réglementaires</li>
+          <li>Rapports + signature électronique</li>
+          <li>Fiches clients complètes</li>
+          <li>Archivage illimité</li>
+        </ul>
+        <button class="plan-btn dk" onclick="go('auth','register')">Démarrer l'essai gratuit</button>
+      </div>
+      <div class="plan">
+        <div class="plan-name">Business</div>
+        <div class="plan-price"><strong>699</strong><span>€ / mois HT</span></div>
+        <p class="plan-desc">Pour les structures multi-agences ou à fort volume de sites et techniciens.</p>
+        <div class="plan-roi"><strong>Adaptez BuildOps à votre organisation.</strong> Intégrations comptables et account manager dédié inclus.</div>
+        <ul class="plan-feats">
+          <li>Techniciens illimités</li>
+          <li>Sites illimités</li>
+          <li>Tout le plan Pro</li>
+          <li>Tableau de bord conformité</li>
+          <li>API & intégrations (Sage, EBP…)</li>
+          <li>Account manager dédié</li>
+        </ul>
+        <button class="plan-btn lt" onclick="go('auth','register')">Démarrer l'essai gratuit</button>
+      </div>
+    </div>
+    <p class="pricing-note">Tous les plans incluent les alertes réglementaires · Facturation annuelle : −15% · Support inclus</p>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="lsec" id="sec-reviews" style="background:var(--bg2)">
+    <div class="sec-tag">Retours utilisateurs</div>
+    <h2 class="sec-h">Ce qu'on entend sur le terrain</h2>
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="testi-label">Bêta utilisateur · 8 techniciens</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-txt">"On a gagné du temps sur les rapports. Avant, les techniciens remplissaient des papiers et je ressaisissais tout le soir. Maintenant c'est fait directement sur le terrain."</p>
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="testi-av">TM</div>
+          <div><div class="testi-name">Thomas M.</div><div class="testi-role">Gérant · Sécurité Pro IDF</div></div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="testi-label">Bêta utilisateur · 12 techniciens</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-txt">"Plus simple pour organiser les interventions. Avant j'envoyais les plannings par WhatsApp. Maintenant chacun voit ce qu'il a à faire directement sur son téléphone."</p>
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="testi-av">SL</div>
+          <div><div class="testi-name">Sophie L.</div><div class="testi-role">Directrice · Incendie Services Lyon</div></div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="testi-label">Bêta utilisateur · 4 techniciens</div>
+        <div class="testi-stars">★★★★☆</div>
+        <p class="testi-txt">"Ce qui m'a convaincu c'est les alertes réglementaires. J'avais déjà eu un problème avec une vérification SSI oubliée. Là, on est prévenu bien à l'avance."</p>
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="testi-av">RB</div>
+          <div><div class="testi-name">Romain B.</div><div class="testi-role">Artisan · Protect Fire Nord</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2>Planifiez vos interventions incendie. Restez conforme. Sans effort.</h2>
+    <p>BuildOps est conçu pour les entreprises de maintenance incendie de 3 à 20 techniciens. Testé avec des professionnels du secteur.</p>
+    <button class="btn-wht" onclick="go('auth','register')">Créer mon compte et planifier mes premières interventions</button>
+    <span class="cta-reassurance">14 jours gratuits · Sans carte bancaire · Sans engagement · Opérationnel en 48h</span>
+  </div>
+
+  <footer>
+    <div class="logo" onclick="go('landing')">
+      <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <div class="logo-txt" style="color:white">Build<span>Ops</span></div>
+    </div>
+    <p>© 2026 BuildOps. Logiciel de gestion maintenance sécurité incendie.</p>
+    <ul class="flinks"><li><a href="#">Mentions légales</a></li><li><a href="#">CGU</a></li><li><a href="#">Confidentialité</a></li><li><a href="#">Contact</a></li></ul>
+  </footer>
+</div>
+
+<!-- ============ AUTH ============ -->
+<div class="pg flex" id="pg-auth">
+  <div class="auth-left">
+    <div class="auth-bg"></div><div class="auth-grid"></div>
+    <div class="auth-body">
+      <h2>Maintenance incendie<br/>sous <em>contrôle total</em></h2>
+      <p>Conçu pour les entreprises de maintenance incendie de 3 à 20 techniciens.</p>
+      <div class="af-list">
+        <div class="af-item"><div class="af-dot" style="background:rgba(58,92,168,.3)">🗓️</div><span>Planning des interventions — extincteurs, RIA, SSI, désenfumage</span></div>
+        <div class="af-item"><div class="af-dot" style="background:rgba(58,92,168,.25)">📱</div><span>Rapports PDF depuis le téléphone du technicien</span></div>
+        <div class="af-item"><div class="af-dot" style="background:rgba(58,92,168,.2)">🔔</div><span>Alertes avant chaque échéance réglementaire</span></div>
+        <div class="af-item"><div class="af-dot" style="background:rgba(46,125,94,.25)">📋</div><span>Traçabilité complète pour les contrôles</span></div>
+      </div>
+    </div>
+    <div class="auth-foot">
+      <div class="tmini">
+        <div class="tmini-av">RB</div>
+        <p>"Ce qui m'a convaincu, c'est les alertes réglementaires. J'avais déjà eu un problème avec un contrôle SSI oublié." — <strong>Romain B., 4 techniciens</strong></p>
+      </div>
+    </div>
+  </div>
+  <div class="auth-right">
+    <div class="auth-card">
+      <div class="atabs">
+        <button class="atab on" id="tab-login" onclick="switchTab('login')">Connexion</button>
+        <button class="atab" id="tab-register" onclick="switchTab('register')">Créer un compte</button>
+      </div>
+      <div class="fp on" id="fp-login">
+        <div><p class="fp-title">Bon retour 👋</p><p class="fp-sub">Connectez-vous à votre espace BuildOps</p></div>
+        <button class="g-btn" type="button"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Continuer avec Google</button>
+        <div class="gdiv">ou avec votre email</div>
+        <div class="fg"><label>Adresse email</label><input type="email" id="l-email" placeholder="vous@entreprise.fr"/><span class="ferr" id="e-lemail">Email requis</span></div>
+        <div class="fg"><label>Mot de passe</label><div class="pw-wrap"><input type="password" id="l-pwd" placeholder="••••••••"/><button type="button" class="eye-btn" onclick="togglePw('l-pwd',this)">👁</button></div><span class="ferr" id="e-lpwd">Mot de passe requis</span></div>
+        <div style="text-align:right"><a href="#" style="font-size:.74rem;color:var(--acc);text-decoration:none">Mot de passe oublié ?</a></div>
+        <button type="button" class="sub-btn" onclick="doLogin()">Se connecter →</button>
+        <p class="hint">Pas encore de compte ? <a onclick="switchTab('register')">Créer un compte gratuit</a></p>
+      </div>
+      <div class="fp" id="fp-register">
+        <div><p class="fp-title">Créer votre compte</p><p class="fp-sub">14 jours d'essai gratuit — sans carte bancaire</p></div>
+        <button class="g-btn" type="button"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>S'inscrire avec Google</button>
+        <div class="gdiv">ou remplissez le formulaire</div>
+        <div class="frow2">
+          <div class="fg"><label>Prénom</label><input type="text" id="r-prenom" placeholder="Thomas"/><span class="ferr" id="e-rprenom">Requis</span></div>
+          <div class="fg"><label>Nom</label><input type="text" id="r-nom" placeholder="Moreau"/><span class="ferr" id="e-rnom">Requis</span></div>
+        </div>
+        <div class="fg"><label>Entreprise</label><input type="text" id="r-ent" placeholder="Sécurité Pro SARL"/><span class="ferr" id="e-rent">Requis</span></div>
+        <div class="fg"><label>Email professionnel</label><input type="email" id="r-email" placeholder="thomas@securite-pro.fr"/><span class="ferr" id="e-remail">Email valide requis</span></div>
+        <div class="fg">
+          <label>Mot de passe</label>
+          <div class="pw-wrap"><input type="password" id="r-pwd" placeholder="8 caractères minimum" oninput="checkStr(this.value)"/><button type="button" class="eye-btn" onclick="togglePw('r-pwd',this)">👁</button></div>
+          <div class="str-row"><div class="str-s" id="s1"></div><div class="str-s" id="s2"></div><div class="str-s" id="s3"></div><div class="str-s" id="s4"></div></div>
+          <div class="str-lbl" id="slbl">Saisissez un mot de passe</div>
+          <span class="ferr" id="e-rpwd">8 caractères minimum</span>
+        </div>
+        <div class="fg">
+          <label>Votre plan</label>
+          <div class="plan-pick">
+            <div class="pp" onclick="pickPlan(this)"><div class="pn">Starter</div><div class="pr">149 €/mois</div></div>
+            <div class="pp on" onclick="pickPlan(this)"><div class="pn">Pro ✦</div><div class="pr">349 €/mois</div></div>
+            <div class="pp" onclick="pickPlan(this)"><div class="pn">Business</div><div class="pr">699 €/mois</div></div>
+          </div>
+        </div>
+        <button type="button" class="sub-btn" onclick="doRegister()">Créer mon compte →</button>
+        <p class="hint">En créant un compte, vous acceptez nos <a href="#">CGU</a> et notre <a href="#">politique de confidentialité</a>.</p>
+      </div>
+      <div class="suc-scr" id="suc-scr">
+        <div class="suc-ico">✓</div>
+        <h3>Compte créé !</h3>
+        <p>Bienvenue dans BuildOps. Accédez à votre tableau de bord.</p>
+        <button type="button" class="sub-btn" style="margin-top:.3rem" onclick="go('dashboard')">Accéder au dashboard →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ DASHBOARD ============ -->
+<div class="pg flex" id="pg-dashboard">
+  <div class="dash-wrap" style="width:100%">
+    <aside class="sidebar">
+      <div class="sb-sec">Principal</div>
+      <div class="sb-a on" onclick="setSb(this)"><span class="sb-ico">🏠</span>Tableau de bord</div>
+      <div class="sb-a" onclick="setSb(this);openModal()"><span class="sb-ico">🗓️</span>Planning<span class="sb-badge">5</span></div>
+      <div class="sb-a" onclick="setSb(this)"><span class="sb-ico">📱</span>Rapports<span class="sb-badge">3</span></div>
+      <div class="sb-a" onclick="setSb(this)"><span class="sb-ico">🔔</span>Alertes<span class="sb-badge">4</span></div>
+      <div class="sb-sec">Clients</div>
+      <div class="sb-a" onclick="setSb(this)"><span class="sb-ico">🏢</span>Fiches clients</div>
+      <div class="sb-a" onclick="setSb(this)"><span class="sb-ico">👷</span>Techniciens</div>
+      <div class="sb-sec">Facturation</div>
+      <div class="sb-a" onclick="setSb(this);openModal()"><span class="sb-ico">💶</span>Devis<span class="sb-badge">2</span></div>
+      <div class="sb-a" onclick="setSb(this)"><span class="sb-ico">🧾</span>Factures</div>
+      <div class="sb-sec">Documents</div>
+      <div class="sb-a" onclick="setSb(this)"><span class="sb-ico">🗂️</span>Archivage</div>
+      <div class="sb-sec">Compte</div>
+      <div class="sb-a" onclick="setSb(this)"><span class="sb-ico">⚙️</span>Paramètres</div>
+      <div class="sb-user">
+        <div class="sb-av" id="sb-av">TM</div>
+        <div><div class="sb-un" id="sb-un">Thomas Moreau</div><div class="sb-ur" id="sb-ur">Sécurité Pro IDF</div></div>
+        <button class="sb-out" onclick="go('landing')" title="Déconnexion">⏻</button>
+      </div>
+    </aside>
+    <main class="dash-main">
+      <div class="dash-top">
+        <div><div class="dash-title" id="dash-greet">Bonjour, Thomas 👋</div><div class="dash-sub">Tableau de bord maintenance incendie — avril 2026</div></div>
+        <div class="dash-acts">
+          <button class="btn-sm" onclick="openModal()">+ Nouvelle intervention</button>
+          <button class="btn-sm acc" onclick="toast('Rapport créé !','grn')">+ Nouveau rapport</button>
+        </div>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-lbl">Interventions ce mois</div><div class="kpi-val">47</div><div class="kpi-sub up">↑ +8 vs mars</div><div class="kpi-bar"><div class="kpi-fill" style="width:78%;background:var(--acc)"></div></div></div>
+        <div class="kpi"><div class="kpi-lbl">Alertes réglementaires</div><div class="kpi-val">4</div><div class="kpi-sub dn">À planifier urgemment</div><div class="kpi-bar"><div class="kpi-fill" style="width:30%;background:var(--red)"></div></div></div>
+        <div class="kpi"><div class="kpi-lbl">Taux de conformité</div><div class="kpi-val">94%</div><div class="kpi-sub up">↑ +2% vs mars</div><div class="kpi-bar"><div class="kpi-fill" style="width:94%;background:var(--grn)"></div></div></div>
+        <div class="kpi"><div class="kpi-lbl">CA avril</div><div class="kpi-val">31 400 €</div><div class="kpi-sub nu">Objectif : 35k €</div><div class="kpi-bar"><div class="kpi-fill" style="width:62%;background:var(--brn)"></div></div></div>
+      </div>
+      <div class="g2">
+        <div class="card">
+          <div class="card-top"><span class="card-title">CA mensuel 2026</span><span class="card-lnk" onclick="toast('Rapport disponible bientôt')">Voir le rapport</span></div>
+          <div class="bars-wrap" id="bars"></div>
+        </div>
+        <div class="card">
+          <div class="card-top"><span class="card-title">Alertes réglementaires</span><span class="badge b-red">4 urgentes</span></div>
+          <div class="al-item crit"><div class="al-dot dot-r"></div><div><div class="al-main">Mairie de Creil — SSI</div><div class="al-sub">Vérif. annuelle obligatoire · 8 jours</div></div></div>
+          <div class="al-item crit"><div class="al-dot dot-r"></div><div><div class="al-main">Lycée Victor Hugo — Extincteurs</div><div class="al-sub">Contrôle annuel · 12 jours</div></div></div>
+          <div class="al-item"><div class="al-dot dot-o"></div><div><div class="al-main">Résidence Les Lilas — RIA</div><div class="al-sub">Vérif. semestrielle · 21 jours</div></div></div>
+          <div class="al-item"><div class="al-dot dot-o"></div><div><div class="al-main">Grand'Place — Désenfumage</div><div class="al-sub">Contrôle annuel · 28 jours</div></div></div>
+        </div>
+      </div>
+      <div class="g3">
+        <div class="card">
+          <div class="card-top"><span class="card-title">Interventions récentes</span><span class="card-lnk" onclick="openModal()">+ Nouvelle</span></div>
+          <table class="dtbl"><thead><tr><th>Réf.</th><th>Client / Site</th><th>Équipement</th><th>Statut</th><th>Date</th></tr></thead>
+          <tbody id="dtbody">
+            <tr><td>INT-042</td><td>Résidence Les Lilas</td><td>Extincteurs</td><td><span class="badge b-grn">Terminée</span></td><td>Auj. 08h30</td></tr>
+            <tr><td>INT-041</td><td>Grand'Place</td><td>Désenfumage</td><td><span class="badge b-org">En cours</span></td><td>Auj. 11h00</td></tr>
+            <tr><td>INT-040</td><td>Lycée Victor Hugo</td><td>SSI + RIA</td><td><span class="badge b-org">Planifiée</span></td><td>Auj. 14h00</td></tr>
+            <tr><td>INT-039</td><td>Mairie de Creil</td><td>SSI</td><td><span class="badge b-red">À planifier</span></td><td>—</td></tr>
+            <tr><td>INT-038</td><td>Clinique du Parc</td><td>Extincteurs</td><td><span class="badge b-grn">Terminée</span></td><td>12 avr.</td></tr>
+          </tbody></table>
+        </div>
+        <div class="card">
+          <div class="card-top"><span class="card-title">Techniciens du jour</span><span class="card-lnk">Voir tout</span></div>
+          <div class="ch-item"><div class="ch-top"><span class="ch-name">T. Moreau</span><span class="ch-pct">2/3</span></div><div class="prog"><div class="prog-fill" style="width:66%"></div></div><div class="ch-meta">Les Lilas ✓ · Grand'Place → · Hugo 14h</div></div>
+          <div class="ch-item"><div class="ch-top"><span class="ch-name">S. Laurent</span><span class="ch-pct">1/2</span></div><div class="prog"><div class="prog-fill" style="width:50%"></div></div><div class="ch-meta">Grand'Place en cours · Clinique 16h</div></div>
+          <div class="ch-item"><div class="ch-top"><span class="ch-name">R. Bernard</span><span class="ch-pct">0/1</span></div><div class="prog"><div class="prog-fill" style="width:10%"></div></div><div class="ch-meta">Lycée Victor Hugo 14h00</div></div>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:2rem">
+        <div class="card-top"><span class="card-title">Activité récente</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 2rem">
+          <div class="act-item"><div class="act-dot ad-grn">✓</div><div><div class="act-txt">Rapport INT-042 signé et envoyé — Résidence Les Lilas</div><div class="act-time">Aujourd'hui, 09h52</div></div></div>
+          <div class="act-item"><div class="act-dot ad-red">🔔</div><div><div class="act-txt">Alerte — SSI Mairie de Creil (8 jours)</div><div class="act-time">Aujourd'hui, 08h00</div></div></div>
+          <div class="act-item"><div class="act-dot ad-blu">🗓️</div><div><div class="act-txt">Intervention planifiée — Lycée Victor Hugo · R. Bernard</div><div class="act-time">Hier, 17h14</div></div></div>
+          <div class="act-item"><div class="act-dot ad-grn">✓</div><div><div class="act-txt">Facture payée — Résidence Les Lilas</div><div class="act-time">Hier, 11h30</div></div></div>
+          <div class="act-item"><div class="act-dot ad-blu">🏢</div><div><div class="act-txt">Nouveau site ajouté — Clinique du Parc (42 équipements)</div><div class="act-time">13 avr., 14h20</div></div></div>
+          <div class="act-item"><div class="act-dot ad-grn">📄</div><div><div class="act-txt">Rapport PDF — Clinique du Parc · Conforme</div><div class="act-time">12 avr., 16h05</div></div></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- MODAL INTERVENTION -->
+<div class="overlay" id="modal">
+  <div class="modal">
+    <div class="modal-head"><span class="modal-title">Nouvelle intervention</span><button class="modal-x" onclick="closeModal()">×</button></div>
+    <div style="display:flex;flex-direction:column;gap:1rem">
+      <div class="mrow">
+        <div class="fg"><label>Client / Site</label><input type="text" id="dv-client" placeholder="Ex. : Mairie de Creil — Hôtel de ville"/></div>
+        <div class="fg"><label>Email client</label><input type="email" id="dv-email" placeholder="client@exemple.fr"/></div>
+      </div>
+      <div class="mrow">
+        <div class="fg"><label>Type d'équipement</label><select id="dv-chantier"><option>Vérification extincteurs</option><option>Contrôle RIA</option><option>Désenfumage</option><option>SSI / Alarme incendie</option><option>Extinction automatique</option></select></div>
+        <div class="fg"><label>Date prévue</label><input type="date" id="dv-date"/></div>
+      </div>
+      <div class="mrow">
+        <div class="fg"><label>Technicien assigné</label><select id="dv-tech"><option>T. Moreau</option><option>S. Laurent</option><option>R. Bernard</option></select></div>
+        <div class="fg"><label>Priorité</label><select id="dv-prio"><option>Normale</option><option>Urgente</option><option>Réglementaire — échéance proche</option></select></div>
+      </div>
+      <div class="fg"><label>Notes pour le technicien</label><input type="text" id="dv-notes" placeholder="Ex. : Accès parking sous-sol, demander M. Dupont en arrivant"/></div>
+      <div>
+        <div class="ligne-hd"><span>Prestation</span><span>Qté</span><span>Unité</span><span>Prix HT €</span><span></span></div>
+        <div id="lg-wrap"></div>
+        <button class="add-btn" onclick="addLg()">+ Ajouter une prestation</button>
+      </div>
+      <div class="mrow">
+        <div class="fg"><label>TVA</label><select id="dv-tva" onchange="calcTot()"><option value="10">10% — Rénovation</option><option value="20">20% — Taux normal</option><option value="5.5">5,5% — Énergie</option><option value="0">0% — Auto-liquidation</option></select></div>
+        <div class="fg"><label>Validité devis</label><select id="dv-valid"><option>30 jours</option><option>45 jours</option><option>60 jours</option></select></div>
+      </div>
+      <div class="totaux">
+        <div class="tot-row"><span style="color:var(--ink2)">Total HT</span><span id="t-ht">0,00 €</span></div>
+        <div class="tot-row"><span style="color:var(--ink2)">TVA (<span id="t-tpct">10</span>%)</span><span id="t-tva">0,00 €</span></div>
+        <div class="tot-row ttc"><span>Total TTC</span><span id="t-ttc">0,00 €</span></div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="mf out" onclick="closeModal()">Annuler</button>
+      <button class="mf out" onclick="saveDevis(false)">Sauvegarder brouillon</button>
+      <button class="mf prim" onclick="saveDevis(true)">Créer & assigner au technicien →</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toastEl"></div>
+
+<script>
+var lcnt=0,lids=[],dvcnt=43;
+function sTo(id){var e=document.getElementById(id);if(e)e.scrollIntoView({behavior:'smooth'});}
+function go(page,tab){
+  var pages=document.querySelectorAll('.pg');
+  for(var i=0;i<pages.length;i++){pages[i].style.display='none';}
+  window.scrollTo(0,0);
+  var el=document.getElementById('pg-'+page);
+  var nav=document.getElementById('topnav');
+  var links=document.getElementById('nav-links');
+  var navr=document.getElementById('nav-r');
+  if(page==='landing'){
+    el.style.display='block';
+    nav.style.background='rgba(242,243,245,.95)';
+    links.style.display='flex';
+    navr.innerHTML='<button class="btn-sm" onclick="go(\'auth\',\'login\')">Connexion</button><button class="btn-sm acc" onclick="go(\'auth\',\'register\')">Essai gratuit</button>';
+  } else if(page==='auth'){
+    el.style.display='flex';
+    nav.style.background='rgba(242,243,245,.95)';
+    links.style.display='none';
+    navr.innerHTML='<button class="btn-sm" onclick="go(\'landing\')">← Retour au site</button>';
+    if(tab)switchTab(tab);
+  } else if(page==='dashboard'){
+    el.style.display='flex';
+    nav.style.background='var(--wht)';
+    links.style.display='none';
+    navr.innerHTML='<span style="font-size:.82rem;color:var(--ink2)">Plan <strong style="color:var(--acc)">Pro</strong></span><button class="btn-sm" onclick="go(\'landing\')">← Site</button><button class="btn-sm" onclick="go(\'auth\',\'login\')">Déconnexion</button>';
+    buildBars();
+  }
+}
+function switchTab(t){
+  document.getElementById('tab-login').className='atab'+(t==='login'?' on':'');
+  document.getElementById('tab-register').className='atab'+(t==='register'?' on':'');
+  document.getElementById('fp-login').className='fp'+(t==='login'?' on':'');
+  document.getElementById('fp-register').className='fp'+(t==='register'?' on':'');
+  document.getElementById('suc-scr').className='suc-scr';
+}
+function togglePw(id,btn){var inp=document.getElementById(id);inp.type=inp.type==='password'?'text':'password';btn.textContent=inp.type==='password'?'👁':'🙈';}
+function checkStr(v){
+  var ss=['s1','s2','s3','s4'].map(function(x){return document.getElementById(x);});
+  var lb=document.getElementById('slbl');
+  ss.forEach(function(s){s.className='str-s';});
+  if(!v){lb.textContent='Saisissez un mot de passe';return;}
+  var sc=0;if(v.length>=8)sc++;if(/[A-Z]/.test(v))sc++;if(/[0-9]/.test(v))sc++;if(/[^A-Za-z0-9]/.test(v))sc++;
+  var cl=sc<=1?'w':sc<=2?'m':'s';
+  for(var i=0;i<sc;i++)ss[i].classList.add(cl);
+  lb.textContent=['','Faible','Faible','Moyen','Fort'][sc]||'';
+}
+function pickPlan(el){document.querySelectorAll('.pp').forEach(function(p){p.classList.remove('on');});el.classList.add('on');}
+function ferr(id,show){var e=document.getElementById(id);if(e)e.className='ferr'+(show?' on':'');}
+function doLogin(){
+  var em=document.getElementById('l-email').value.trim();
+  var pw=document.getElementById('l-pwd').value;
+  ferr('e-lemail',!em);ferr('e-lpwd',!pw);
+  if(!em||!pw)return;
+  go('dashboard');toast('Connexion réussie ! Bienvenue 👋','grn');
+}
+function doRegister(){
+  var pr=document.getElementById('r-prenom').value.trim();
+  var no=document.getElementById('r-nom').value.trim();
+  var en=document.getElementById('r-ent').value.trim();
+  var em=document.getElementById('r-email').value.trim();
+  var pw=document.getElementById('r-pwd').value;
+  var ok=true;
+  ferr('e-rprenom',!pr);if(!pr)ok=false;
+  ferr('e-rnom',!no);if(!no)ok=false;
+  ferr('e-rent',!en);if(!en)ok=false;
+  ferr('e-remail',!em||!em.includes('@'));if(!em||!em.includes('@'))ok=false;
+  ferr('e-rpwd',pw.length<8);if(pw.length<8)ok=false;
+  if(!ok)return;
+  var init=(pr[0]||'')+(no[0]||'');
+  document.getElementById('sb-av').textContent=init.toUpperCase();
+  document.getElementById('sb-un').textContent=pr+' '+no;
+  document.getElementById('sb-ur').textContent=en;
+  document.getElementById('dash-greet').textContent='Bonjour, '+pr+' \uD83D\uDC4B';
+  document.getElementById('fp-register').className='fp';
+  document.getElementById('suc-scr').className='suc-scr on';
+}
+function setSb(el){document.querySelectorAll('.sb-a').forEach(function(a){a.classList.remove('on');});el.classList.add('on');}
+function buildBars(){
+  var data=[{m:'Oct',v:22},{m:'Nov',v:27},{m:'Déc',v:19},{m:'Jan',v:26},{m:'Fév',v:29},{m:'Mar',v:34},{m:'Avr',v:31,hi:true}];
+  var max=Math.max.apply(null,data.map(function(d){return d.v;}));
+  var c=document.getElementById('bars');if(!c)return;
+  c.innerHTML=data.map(function(d){
+    var h=Math.round(d.v/max*100);
+    return '<div class="bw"><div class="bar'+(d.hi?' hi':'')+'" style="height:'+h+'%" title="'+d.v+'k €"></div><div class="bar-l">'+d.m+'</div></div>';
+  }).join('');
+}
+function openModal(){
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('lg-wrap').innerHTML='';
+  lids=[];lcnt=0;
+  addLg('Vérification extincteurs','1','forfait','320');
+  addLg('Contrôle SSI / alarme','1','forfait','480');
+  calcTot();
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+function addLg(desc,q,u,p){
+  lcnt++;var id=lcnt;lids.push(id);
+  var w=document.getElementById('lg-wrap');
+  var d=document.createElement('div');d.className='lg-row';d.id='lg'+id;
+  var units=['forfait','u','site','h','jour'];
+  var opts=units.map(function(x){return '<option'+(x===(u||'forfait')?' selected':'')+'>'+x+'</option>';}).join('');
+  d.innerHTML='<input type="text" placeholder="Prestation" value="'+(desc||'')+'" oninput="calcTot()"/>'+
+    '<input type="number" id="q'+id+'" value="'+(q||'1')+'" min="0" step="0.01" oninput="calcTot()" style="text-align:right"/>'+
+    '<select id="u'+id+'">'+opts+'</select>'+
+    '<input type="number" id="p'+id+'" value="'+(p||'')+'" min="0" step="0.01" oninput="calcTot()" placeholder="0" style="text-align:right"/>'+
+    '<button class="del-btn" onclick="delLg('+id+')">×</button>';
+  w.appendChild(d);calcTot();
+}
+function delLg(id){var e=document.getElementById('lg'+id);if(e)e.remove();lids=lids.filter(function(x){return x!==id;});calcTot();}
+function calcTot(){
+  var ht=0;
+  lids.forEach(function(id){
+    var q=parseFloat((document.getElementById('q'+id)||{}).value)||0;
+    var p=parseFloat((document.getElementById('p'+id)||{}).value)||0;
+    ht+=q*p;
+  });
+  var tv=parseFloat(document.getElementById('dv-tva').value)||0;
+  var tva=ht*tv/100;
+  var fmt=function(n){return n.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';};
+  document.getElementById('t-ht').textContent=fmt(ht);
+  document.getElementById('t-tva').textContent=fmt(tva);
+  document.getElementById('t-ttc').textContent=fmt(ht+tva);
+  document.getElementById('t-tpct').textContent=tv;
+}
+function saveDevis(send){
+  var cl=document.getElementById('dv-client').value.trim();
+  if(!cl){document.getElementById('dv-client').focus();toast('Veuillez renseigner le client');return;}
+  var num='INT-2026-0'+dvcnt++;
+  var tb=document.getElementById('dtbody');
+  var type=document.getElementById('dv-chantier').value;
+  var tr=document.createElement('tr');
+  tr.innerHTML='<td>'+num+'</td><td>'+cl+'</td><td>'+type+'</td>'+
+    '<td><span class="badge '+(send?'b-org':'b-gry')+'">'+(send?'Planifiée':'Brouillon')+'</span></td><td>Auj.</td>';
+  tb.insertBefore(tr,tb.firstChild);
+  closeModal();
+  toast(send?'Intervention '+num+' créée et assignée !':'Brouillon '+num+' sauvegardé','grn');
+}
+var tt;
+function toast(msg,type){
+  var el=document.getElementById('toastEl');
+  el.textContent=msg;el.className='toast on'+(type==='grn'?' grn':'');
+  clearTimeout(tt);tt=setTimeout(function(){el.className='toast';},3200);
+}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+go('landing');
+</script>
+</body>
+</html>
