@@ -49,5 +49,6 @@ Thumbs.db
 supabase/.temp/
 supabase/.branches/
 
-# Claude Code local settings (do not commit)
+# Claude Code local settings + internal worktrees (do not commit)
 .claude/settings.local.json
+.claude/worktrees/
