@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <title>Firovia — Logiciel de gestion maintenance sécurité incendie</title>
-<meta name="description" content="Firovia : logiciel de gestion pour les entreprises de maintenance en sécurité incendie (3 à 20 techniciens). Planifiez vos interventions extincteurs, RIA, SSI, désenfumage et restez conforme sans effort."/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<meta name="description" content="Firovia : le SaaS de gestion pour les PME de maintenance en sécurité incendie. Planning, rapports mobiles, conformité réglementaire — depuis le bureau et le terrain."/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -23,9 +23,9 @@
   --r:10px;--rlg:18px;
 }
 html{scroll-behavior:smooth;}
-html,body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;}
+html,body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;}
 h1,h2,h3,h4{font-family:'Syne',sans-serif;}
-button,input,select,textarea{font-family:'DM Sans',sans-serif;}
+button,input,select,textarea{font-family:'Inter',sans-serif;}
 a{text-decoration:none;color:inherit;cursor:pointer;}
 
 /* ── NAV ── */
@@ -36,7 +36,7 @@ a{text-decoration:none;color:inherit;cursor:pointer;}
 .logo-txt{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--ink);}
 .logo-txt span{color:var(--acc);}
 .nav-links{display:flex;gap:1.8rem;list-style:none;}
-.nav-links a{font-size:.88rem;color:var(--ink2);}
+.nav-links a{font-size:.88rem;color:var(--ink2);font-weight:500;}
 .nav-links a:hover{color:var(--ink);}
 .nav-r{display:flex;gap:.6rem;align-items:center;}
 .btn-sm{display:inline-block;padding:.48rem 1.1rem;border-radius:100px;font-size:.85rem;font-weight:500;cursor:pointer;border:1px solid var(--brd2);background:transparent;color:var(--ink);transition:background .15s;}
@@ -47,164 +47,227 @@ a{text-decoration:none;color:inherit;cursor:pointer;}
 /* ── LANDING ── */
 body{padding-top:65px;}
 
-/* HERO */
-.hero{min-height:calc(100vh - 65px);display:flex;flex-direction:column;justify-content:center;padding:4rem 4%;position:relative;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 50% at 80% 20%,rgba(58,92,168,.10),transparent 65%),radial-gradient(ellipse 40% 40% at 5% 80%,rgba(122,92,68,.07),transparent 60%);}
-.hero-grid{position:absolute;inset:0;opacity:.03;background-image:linear-gradient(var(--ink) 1px,transparent 1px),linear-gradient(90deg,var(--ink) 1px,transparent 1px);background-size:54px 54px;}
-.hero-badge{display:inline-flex;align-items:center;gap:7px;background:var(--gry-lt);color:var(--acc);font-size:.76rem;font-weight:500;padding:5px 12px;border-radius:100px;margin-bottom:1.6rem;width:fit-content;}
+/* ── HERO COMPACT ── */
+.hero{min-height:auto;display:flex;flex-direction:column;justify-content:center;padding:3.5rem 4% 2.5rem;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at top right, rgba(58,92,168,.08), transparent 60%),linear-gradient(180deg, transparent 0%, rgba(58,92,168,.03) 100%);pointer-events:none;}
+.hero-grid{position:absolute;top:0;left:0;right:0;bottom:0;background-image:linear-gradient(rgba(28,33,48,.04) 1px, transparent 1px),linear-gradient(90deg, rgba(28,33,48,.04) 1px, transparent 1px);background-size:40px 40px;pointer-events:none;opacity:.5;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:500;color:var(--acc);background:rgba(58,92,168,.08);padding:.4rem .9rem;border-radius:100px;margin-bottom:1.3rem;position:relative;z-index:1;align-self:flex-start;}
 .hero-badge::before{content:'';width:6px;height:6px;background:var(--acc);border-radius:50%;}
-.hero h1{font-size:clamp(2.4rem,5vw,4.4rem);font-weight:800;line-height:1.05;letter-spacing:-.025em;max-width:20ch;}
-.hero h1 .line{display:block;}
-.hero h1 .line.acc{color:var(--acc);}
-.hero-sub{font-size:1rem;color:var(--ink2);font-weight:300;max-width:54ch;line-height:1.8;margin-top:1.6rem;}
-.hero-btns{display:flex;gap:.9rem;margin-top:2.2rem;flex-wrap:wrap;align-items:center;}
-.btn-prim{display:inline-block;background:var(--acc);color:white;padding:.82rem 1.9rem;border-radius:100px;font-size:.92rem;font-weight:500;border:none;cursor:pointer;box-shadow:0 4px 18px rgba(58,92,168,.28);transition:transform .15s,box-shadow .15s;}
-.btn-prim:hover{transform:translateY(-2px);box-shadow:0 7px 24px rgba(58,92,168,.35);}
-.btn-out{display:inline-block;background:transparent;color:var(--ink);padding:.82rem 1.9rem;border-radius:100px;font-size:.92rem;font-weight:500;border:1.5px solid var(--brd2);cursor:pointer;transition:background .15s;}
-.btn-out:hover{background:rgba(28,33,48,.05);}
-.hero-reassurance{font-size:.76rem;color:var(--ink3);margin-top:.9rem;}
-.hero-tags{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:2.6rem;padding-top:2rem;border-top:.5px solid var(--brd);}
-.htag{display:flex;align-items:center;gap:7px;background:var(--wht);border:.5px solid var(--brd2);border-radius:100px;padding:.38rem .9rem;font-size:.78rem;color:var(--ink2);}
-.htag-dot{width:7px;height:7px;border-radius:50%;background:var(--acc);flex-shrink:0;}
+.hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.4rem, 5.5vw, 4.4rem);line-height:1.05;letter-spacing:-.02em;color:var(--ink);max-width:1100px;position:relative;z-index:1;}
+.hero h1 .acc{color:var(--acc);}
+.hero-sub{font-size:1.05rem;color:var(--ink2);max-width:680px;margin-top:1.2rem;line-height:1.55;font-weight:400;position:relative;z-index:1;}
+.hero-btns{display:flex;gap:.8rem;margin-top:1.8rem;flex-wrap:wrap;position:relative;z-index:1;}
+.btn-prim{display:inline-flex;align-items:center;gap:6px;background:var(--acc);color:white;padding:.85rem 1.6rem;border-radius:100px;font-size:.95rem;font-weight:600;cursor:pointer;border:none;transition:all .15s;}
+.btn-prim:hover{background:var(--acc2);transform:translateY(-1px);box-shadow:0 6px 18px rgba(58,92,168,.3);}
+.btn-out{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--ink);padding:.85rem 1.6rem;border-radius:100px;font-size:.95rem;font-weight:500;cursor:pointer;border:1px solid var(--brd2);transition:background .15s;}
+.btn-out:hover{background:var(--bg2);}
+.hero-reassurance{font-size:.78rem;color:var(--ink3);margin-top:1rem;position:relative;z-index:1;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.8rem;position:relative;z-index:1;}
+.htag{display:inline-flex;align-items:center;gap:7px;background:white;border:1px solid var(--brd);padding:.42rem .85rem;border-radius:100px;font-size:.74rem;color:var(--ink2);font-weight:500;}
+.htag-dot{width:5px;height:5px;background:var(--grn);border-radius:50%;}
 
-/* POUR QUI */
-.pour-qui{background:var(--ink);padding:3.5rem 4%;}
-.pq-inner{display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:center;}
-.pq-left .sec-tag{color:rgba(85,120,200,.85);}
-.pq-left .sec-h{color:white;font-size:clamp(1.5rem,2.5vw,2rem);}
-.pq-left p{font-size:.9rem;color:rgba(255,255,255,.42);line-height:1.75;font-weight:300;margin-top:.7rem;}
-.pq-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;}
-.pq-card{background:rgba(255,255,255,.06);border:.5px solid rgba(255,255,255,.1);border-radius:var(--rlg);padding:1.2rem 1.3rem;}
-.pq-card.hi{background:var(--acc);border-color:var(--acc);}
-.pq-ico{font-size:1.3rem;margin-bottom:.7rem;}
-.pq-card h4{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:800;color:white;margin-bottom:.4rem;}
-.pq-card p{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.6;font-weight:300;}
-.pq-card.hi p{color:rgba(255,255,255,.72);}
-.pq-not{margin-top:1.2rem;font-size:.78rem;color:rgba(255,255,255,.22);padding-top:1rem;border-top:.5px solid rgba(255,255,255,.08);}
+/* ── SCREENSHOT ── */
+.screenshot-sec{padding:1rem 4% 3.5rem;background:var(--bg);}
+.screenshot-wrap{max-width:1200px;margin:0 auto;}
+.screenshot-frame{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 28px 80px rgba(28,33,48,.18), 0 8px 20px rgba(28,33,48,.06);border:1px solid var(--brd);background:linear-gradient(135deg, #2b3245 0%, #1c2130 100%);}
+.screenshot-toolbar{display:flex;align-items:center;gap:7px;padding:.7rem 1rem;background:rgba(0,0,0,.18);border-bottom:1px solid rgba(255,255,255,.04);}
+.screenshot-dot{width:11px;height:11px;border-radius:50%;}
+.screenshot-dot.r{background:#FF5F57;}
+.screenshot-dot.y{background:#FFBD2E;}
+.screenshot-dot.g{background:#28C940;}
+.screenshot-url{margin-left:.8rem;font-size:.74rem;color:rgba(255,255,255,.4);font-family:'Inter',monospace;}
+.screenshot-placeholder{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.55);background:#0f1420;padding:2rem;text-align:center;}
+.screenshot-placeholder-ico{font-size:3.5rem;margin-bottom:1rem;opacity:.5;}
+.screenshot-placeholder strong{font-family:'Syne',sans-serif;font-size:1.4rem;color:rgba(255,255,255,.85);margin-bottom:.5rem;}
+.screenshot-placeholder span{font-size:.85rem;color:rgba(255,255,255,.4);}
+.screenshot-img{width:100%;display:block;}
 
-/* MARQUEE */
-.logos-bar{background:var(--acc);padding:.9rem 4%;display:flex;align-items:center;gap:2rem;overflow:hidden;}
-.logos-lbl{font-size:.7rem;color:rgba(255,255,255,.55);white-space:nowrap;font-weight:500;text-transform:uppercase;letter-spacing:.08em;}
-.logos-scroll{display:flex;gap:3rem;animation:marquee 26s linear infinite;white-space:nowrap;}
-.litem{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.35);}
-@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+/* ── BLOC VALEUR ── */
+.value-sec{padding:5rem 4% 4rem;text-align:center;background:var(--wht);}
+.value-sec .sec-tag{margin-bottom:1.2rem;}
+.value-sec h2{font-size:clamp(2rem, 4.5vw, 3.4rem);line-height:1.05;letter-spacing:-.02em;max-width:1000px;margin:0 auto;}
+.value-sec h2 .strike{color:var(--ink3);text-decoration:line-through;text-decoration-thickness:3px;}
+.value-sub{font-size:1.05rem;color:var(--ink2);max-width:620px;margin:1.4rem auto 0;line-height:1.55;}
 
-/* SECTIONS */
-.lsec{padding:5rem 4%;}
-.sec-tag{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--acc);margin-bottom:.65rem;}
-.sec-h{font-size:clamp(1.8rem,3.2vw,2.7rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:.85rem;}
-.sec-p{font-size:.98rem;color:var(--ink2);max-width:52ch;line-height:1.8;font-weight:300;}
+/* ── COMMON SECTIONS ── */
+.lsec{padding:5rem 4% 4rem;}
+.sec-tag{display:inline-block;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--acc);background:rgba(58,92,168,.08);padding:.3rem .8rem;border-radius:100px;margin-bottom:1rem;}
+.sec-h{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.7rem, 3.8vw, 2.8rem);line-height:1.1;letter-spacing:-.02em;color:var(--ink);max-width:900px;}
+.sec-p{font-size:1rem;color:var(--ink2);margin-top:.9rem;max-width:680px;line-height:1.55;}
 
-/* FEATURES */
-.feat-main{background:var(--wht);border:.5px solid var(--brd2);border-radius:var(--rlg);overflow:hidden;display:grid;grid-template-columns:1fr 1fr;margin-bottom:1.5px;}
-.feat-main-left{padding:2.2rem 2.5rem;background:var(--ink);position:relative;overflow:hidden;}
-.feat-main-left::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(58,92,168,.15);}
-.feat-main-left::after{content:'';position:absolute;bottom:-60px;left:-30px;width:160px;height:160px;border-radius:50%;background:rgba(58,92,168,.07);}
-.feat-rank{font-family:'Syne',sans-serif;font-size:4rem;font-weight:800;color:rgba(255,255,255,.05);line-height:1;margin-bottom:.5rem;position:relative;z-index:1;}
-.feat-tag{display:inline-flex;align-items:center;gap:6px;background:var(--acc);color:white;font-size:.68rem;font-weight:600;padding:4px 10px;border-radius:100px;margin-bottom:1rem;position:relative;z-index:1;}
-.feat-main-left h3{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:white;line-height:1.2;margin-bottom:.75rem;position:relative;z-index:1;}
-.feat-main-left p{font-size:.87rem;color:rgba(255,255,255,.48);line-height:1.78;font-weight:300;position:relative;z-index:1;}
-.feat-mobile-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);font-size:.74rem;font-weight:500;padding:5px 11px;border-radius:100px;margin-top:1.1rem;position:relative;z-index:1;}
-.feat-main-right{padding:2rem 2.2rem;background:var(--wht);}
-.feat-sub-title{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--ink3);margin-bottom:1.1rem;}
-.feat-item{display:flex;align-items:flex-start;gap:10px;padding:.72rem 0;border-bottom:.5px solid var(--brd);}
-.feat-item:last-child{border-bottom:none;}
-.feat-item-ico{width:30px;height:30px;border-radius:8px;background:var(--gry-lt);display:flex;align-items:center;justify-content:center;font-size:.82rem;flex-shrink:0;margin-top:1px;}
-.feat-item-txt{font-size:.86rem;font-weight:500;color:var(--ink);}
-.feat-item-sub{font-size:.76rem;color:var(--ink2);margin-top:3px;font-weight:300;line-height:1.55;}
+/* ── POUR QUI ── */
+.pour-qui{background:var(--wht);padding:5rem 4%;}
+.pq-inner{display:grid;grid-template-columns:1fr 1.5fr;gap:3rem;align-items:start;max-width:1200px;margin:0 auto;}
+.pq-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.pq-card{background:white;border:1px solid var(--brd);border-radius:14px;padding:1.5rem;text-align:left;}
+.pq-card.hi{background:var(--ink);color:white;border-color:var(--ink);}
+.pq-card.hi h4{color:white;}
+.pq-card.hi p{color:rgba(255,255,255,.65);}
+.pq-ico{font-size:1.6rem;margin-bottom:.7rem;}
+.pq-card h4{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.4rem;}
+.pq-card p{font-size:.86rem;color:var(--ink2);line-height:1.5;}
+.pq-not{margin-top:1.4rem;font-size:.82rem;color:var(--ink3);padding:.85rem 1rem;background:var(--bg2);border-left:3px solid var(--ink3);border-radius:6px;}
 
-.feat-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;margin-top:1.5px;}
-.fc{background:var(--wht);padding:1.8rem;position:relative;border:.5px solid var(--brd2);border-radius:var(--rlg);transition:background .2s;}
-.fc:hover{background:var(--bg);}
-.fc-rank{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:rgba(28,33,48,.05);line-height:1;margin-bottom:.4rem;}
-.fc-tag{display:inline-flex;align-items:center;gap:5px;background:var(--gry-lt);color:var(--acc);font-size:.68rem;font-weight:600;padding:3px 10px;border-radius:100px;margin-bottom:.9rem;}
-.fc-ico{font-size:1.2rem;margin-bottom:.8rem;}
-.fc h3{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;margin-bottom:.5rem;color:var(--ink);}
-.fc p{font-size:.85rem;color:var(--ink2);line-height:1.68;font-weight:300;margin-bottom:1rem;}
-.fc-items{display:flex;flex-direction:column;gap:.42rem;}
-.fc-item{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink2);}
-.fc-item::before{content:'✓';font-weight:700;color:var(--acc);flex-shrink:0;}
-.fc-pdf{display:inline-flex;align-items:center;gap:6px;margin-top:.8rem;background:var(--acc);color:white;font-size:.75rem;font-weight:500;padding:5px 12px;border-radius:100px;}
+/* ── FEATURES ENRICHIES (3 colonnes) ── */
+.feat-tri{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.6rem;}
+.feat-col{background:white;border:1px solid var(--brd);border-radius:18px;padding:1.8rem;display:flex;flex-direction:column;}
+.feat-col-tag{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:.32rem .75rem;border-radius:100px;margin-bottom:1rem;align-self:flex-start;}
+.feat-col-tag.t1{background:var(--grn-lt);color:var(--grn);}
+.feat-col-tag.t2{background:rgba(58,92,168,.1);color:var(--acc);}
+.feat-col-tag.t3{background:var(--org-lt);color:var(--org);}
+.feat-col-ico{font-size:1.8rem;margin-bottom:.6rem;}
+.feat-col h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;margin-bottom:.6rem;line-height:1.15;}
+.feat-col-desc{font-size:.86rem;color:var(--ink2);line-height:1.5;margin-bottom:1.2rem;}
+.feat-col-list{display:flex;flex-direction:column;gap:.55rem;margin-top:auto;padding-top:1rem;border-top:1px solid var(--brd);}
+.feat-col-list .feat-li{display:flex;align-items:flex-start;gap:8px;font-size:.84rem;color:var(--ink);}
+.feat-col-list .feat-li::before{content:'✓';color:var(--grn);font-weight:700;flex-shrink:0;}
 
-/* CONFORMITÉ */
-.conformite-sec{background:var(--acc);padding:5rem 4%;position:relative;overflow:hidden;}
-.conformite-sec::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 1px,transparent 1px,transparent 14px);}
-.conf-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-.conf-left .sec-tag{color:rgba(255,255,255,.6);}
+/* ── BLOC TERRAIN ── */
+.terrain-sec{padding:5rem 4%;background:var(--ink);color:white;}
+.terrain-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+.terrain-left .sec-tag{background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);}
+.terrain-left h2{font-family:'Syne',sans-serif;font-size:clamp(1.9rem, 4vw, 2.8rem);line-height:1.1;color:white;margin-bottom:1rem;}
+.terrain-left .sec-p{color:rgba(255,255,255,.7);}
+.terrain-list{margin-top:1.6rem;display:flex;flex-direction:column;gap:.7rem;}
+.terrain-li{display:flex;align-items:flex-start;gap:10px;font-size:.94rem;color:rgba(255,255,255,.88);}
+.terrain-li-ico{width:24px;height:24px;background:rgba(255,255,255,.08);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.85rem;}
+.terrain-right{display:flex;justify-content:center;}
+.terrain-phone{background:linear-gradient(135deg, #2b3245 0%, #181d2b 100%);border-radius:24px;padding:1.6rem 1.4rem;border:1px solid rgba(255,255,255,.08);max-width:300px;}
+.terrain-phone-tag{font-size:.7rem;font-weight:600;color:var(--acc2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.terrain-phone h4{font-family:'Syne',sans-serif;font-size:1.05rem;color:white;margin-bottom:1rem;}
+.terrain-phone-item{display:flex;align-items:center;gap:9px;padding:.65rem 0;border-top:1px solid rgba(255,255,255,.06);font-size:.82rem;color:rgba(255,255,255,.7);}
+.terrain-phone-item:first-of-type{border-top:none;}
+.terrain-check{width:18px;height:18px;border-radius:50%;background:var(--grn);color:white;display:flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0;}
+
+/* ── BLOC IMPORT ── */
+.import-sec{padding:5rem 4%;background:var(--wht);}
+.import-inner{max-width:1000px;margin:0 auto;text-align:center;}
+.import-inner h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem, 3.8vw, 2.6rem);line-height:1.1;margin-bottom:1rem;}
+.import-inner .sec-p{margin:1rem auto 0;}
+.import-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.6rem;}
+.import-card{background:white;border:1px solid var(--brd);border-radius:14px;padding:1.4rem 1rem;text-align:center;}
+.import-card-ico{font-size:1.8rem;margin-bottom:.5rem;}
+.import-card-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:.3rem;}
+.import-card-desc{font-size:.78rem;color:var(--ink2);line-height:1.4;}
+
+/* ── CONFORMITÉ ── */
+.conformite-sec{padding:5rem 4%;background:var(--ink);color:white;}
+.conf-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.conf-left .sec-tag{background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);}
 .conf-left .sec-h{color:white;}
-.conf-left .sec-p{color:rgba(255,255,255,.68);}
-.conf-items{display:flex;flex-direction:column;gap:.8rem;margin-top:2rem;}
-.conf-item{background:rgba(255,255,255,.12);border:.5px solid rgba(255,255,255,.18);border-radius:var(--rlg);padding:1.1rem 1.3rem;display:flex;gap:12px;align-items:flex-start;}
-.conf-ico{font-size:1rem;flex-shrink:0;margin-top:2px;}
-.conf-txt strong{display:block;font-size:.88rem;font-weight:500;color:white;margin-bottom:3px;}
-.conf-txt span{font-size:.78rem;color:rgba(255,255,255,.62);line-height:1.6;}
-.equip-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
-.equip-card{background:rgba(255,255,255,.1);border:.5px solid rgba(255,255,255,.15);border-radius:var(--rlg);padding:1.1rem;text-align:center;}
-.equip-ico{font-size:1.6rem;margin-bottom:.5rem;}
-.equip-name{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:800;color:white;margin-bottom:.25rem;}
-.equip-freq{font-size:.72rem;color:rgba(255,255,255,.5);}
-.conf-note{margin-top:1rem;font-size:.78rem;color:rgba(255,255,255,.5);text-align:center;padding-top:.9rem;border-top:.5px solid rgba(255,255,255,.12);}
+.conf-left .sec-p{color:rgba(255,255,255,.65);}
+.conf-items{margin-top:1.8rem;display:flex;flex-direction:column;gap:1.2rem;}
+.conf-item{display:flex;gap:1rem;align-items:flex-start;}
+.conf-ico{width:38px;height:38px;background:rgba(58,92,168,.2);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;}
+.conf-txt strong{display:block;font-family:'Inter',sans-serif;font-weight:600;font-size:.94rem;color:white;margin-bottom:.2rem;}
+.conf-txt span{font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.45;}
+.conf-right{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:1.6rem;}
+.equip-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.85rem;}
+.equip-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.1rem;text-align:center;}
+.equip-ico{font-size:1.8rem;margin-bottom:.4rem;}
+.equip-name{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:700;color:white;margin-bottom:.2rem;}
+.equip-freq{font-size:.7rem;color:rgba(255,255,255,.5);}
+.conf-note{margin-top:1rem;font-size:.74rem;color:rgba(255,255,255,.45);text-align:center;}
 
-/* HOW */
-.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;margin-top:2.8rem;}
-.step-n{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:rgba(28,33,48,.08);line-height:1;}
-.step-ln{width:28px;height:2px;background:var(--acc);border-radius:1px;margin:.9rem 0;}
-.step h3{font-family:'Syne',sans-serif;font-size:.97rem;font-weight:700;margin-bottom:.45rem;}
-.step p{font-size:.85rem;color:var(--ink2);line-height:1.65;font-weight:300;}
+/* ── HOW ── */
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.6rem;}
+.step{position:relative;}
+.step-n{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--acc);margin-bottom:.4rem;}
+.step-ln{display:none;}
+.step h3{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.4rem;}
+.step p{font-size:.88rem;color:var(--ink2);line-height:1.5;}
 
-/* PRICING */
-.pricing-sec{background:var(--ink);padding:5rem 4%;}
-.pricing-sec .sec-tag{color:rgba(85,120,200,.85);}
-.pricing-sec .sec-h{color:white;}
-.pricing-sec .sec-p{color:rgba(255,255,255,.42);}
-.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:2.8rem;}
-.plan{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:var(--rlg);padding:1.7rem;display:flex;flex-direction:column;gap:1.1rem;transition:background .2s;}
-.plan:hover{background:rgba(255,255,255,.08);}
-.plan.featured{background:var(--acc);border-color:var(--acc);transform:translateY(-5px);}
-.plan.featured:hover{background:var(--acc2);}
-.plan-pop{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:rgba(255,255,255,.2);color:white;padding:3px 9px;border-radius:100px;width:fit-content;}
-.plan-name{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:white;}
-.plan-price{display:flex;align-items:baseline;gap:4px;}
-.plan-price strong{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:white;}
-.plan-price span{font-size:.82rem;color:rgba(255,255,255,.45);}
-.plan-desc{font-size:.82rem;color:rgba(255,255,255,.48);line-height:1.65;font-weight:300;}
-.plan-roi{background:rgba(255,255,255,.1);border-radius:8px;padding:.6rem .8rem;font-size:.76rem;color:rgba(255,255,255,.72);line-height:1.5;}
-.plan-roi strong{color:white;font-weight:600;}
-.plan-feats{list-style:none;display:flex;flex-direction:column;gap:.5rem;flex:1;}
-.plan-feats li{font-size:.82rem;color:rgba(255,255,255,.7);display:flex;gap:8px;}
-.plan-feats li::before{content:'✓';font-weight:700;flex-shrink:0;}
-.plan-feats li.off{color:rgba(255,255,255,.26);}
-.plan-feats li.off::before{content:'—';font-weight:400;}
-.plan-btn{display:block;text-align:center;padding:.72rem;border-radius:100px;font-size:.88rem;font-weight:500;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;margin-top:auto;transition:background .15s;}
-.plan-btn.lt{background:rgba(255,255,255,.1);color:white;border:1px solid rgba(255,255,255,.15);}
-.plan-btn.lt:hover{background:rgba(255,255,255,.18);}
-.plan-btn.dk{background:var(--ink);color:white;}
-.plan-btn.dk:hover{background:#2a3040;}
-.pricing-note{margin-top:1.5rem;font-size:.78rem;color:rgba(255,255,255,.24);text-align:center;}
+/* ── PRICING ── */
+.pricing-sec{padding:5rem 4%;background:var(--bg2);}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.8rem;max-width:1200px;margin-left:auto;margin-right:auto;}
+.plan{background:white;border:1px solid var(--brd);border-radius:18px;padding:2rem 1.8rem;display:flex;flex-direction:column;position:relative;}
+.plan.featured{background:var(--ink);border-color:var(--ink);color:white;transform:scale(1.02);}
+.plan.featured .plan-name,.plan.featured .plan-price strong,.plan.featured .plan-price span{color:white;}
+.plan.featured .plan-desc,.plan.featured .plan-feats li{color:rgba(255,255,255,.85);}
+.plan.featured .plan-feats li.off{color:rgba(255,255,255,.3);}
+.plan-pop{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--acc);color:white;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.35rem .9rem;border-radius:100px;}
+.plan-name{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;}
+.plan-price{margin-bottom:.5rem;}
+.plan-price strong{font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;color:var(--ink);}
+.plan-price span{font-size:.86rem;color:var(--ink2);margin-left:5px;}
+.plan-desc{font-size:.86rem;color:var(--ink2);line-height:1.5;margin-bottom:1rem;}
+.plan-roi{background:rgba(58,92,168,.08);border-left:3px solid var(--acc);padding:.75rem .9rem;border-radius:6px;font-size:.8rem;color:var(--ink2);line-height:1.5;margin-bottom:1.2rem;}
+.plan.featured .plan-roi{background:rgba(255,255,255,.08);border-left-color:var(--acc2);color:rgba(255,255,255,.85);}
+.plan-feats{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.4rem;flex:1;}
+.plan-feats li{font-size:.86rem;color:var(--ink);display:flex;align-items:flex-start;gap:7px;}
+.plan-feats li::before{content:'✓';color:var(--grn);font-weight:700;}
+.plan-feats li.off{color:var(--ink3);}
+.plan-feats li.off::before{content:'—';color:var(--ink3);}
+.plan.featured .plan-feats li::before{color:var(--grn-lt);}
+.plan-techs{font-size:.86rem;font-weight:600;color:var(--acc);background:rgba(58,92,168,.08);padding:.7rem 1rem;border-radius:8px;margin-bottom:1.4rem;text-align:center;}
+.plan.featured .plan-techs{color:white;background:rgba(255,255,255,.1);}
+.plan-btn{display:block;text-align:center;padding:.85rem 1.4rem;border-radius:100px;font-size:.92rem;font-weight:600;cursor:pointer;border:none;transition:all .15s;}
+.plan-btn.lt{background:var(--bg2);color:var(--ink);}
+.plan-btn.lt:hover{background:var(--bg3);}
+.plan-btn.dk{background:var(--acc);color:white;}
+.plan-btn.dk:hover{background:var(--acc2);}
+.pricing-note{text-align:center;font-size:.82rem;color:var(--ink2);margin-top:2rem;}
 
-/* TESTIMONIALS */
-.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:2.5rem;}
-.testi{background:var(--wht);border-radius:var(--rlg);padding:1.5rem;border:.5px solid var(--brd);}
-.testi-label{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);margin-bottom:.6rem;}
-.testi-stars{color:var(--acc);font-size:.82rem;margin-bottom:.65rem;}
-.testi-txt{font-size:.9rem;line-height:1.72;font-style:italic;font-weight:300;margin-bottom:.9rem;color:var(--ink);}
-.testi-av{width:34px;height:34px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;color:var(--ink2);}
-.testi-name{font-size:.84rem;font-weight:500;}
-.testi-role{font-size:.73rem;color:var(--ink2);}
+/* ── FAQ ── */
+.faq-sec{padding:5rem 4%;background:var(--bg);}
+.faq-inner{max-width:820px;margin:0 auto;}
+.faq-list{margin-top:2.4rem;display:flex;flex-direction:column;gap:.7rem;}
+.faq-item{background:white;border:1px solid var(--brd);border-radius:12px;overflow:hidden;transition:border-color .15s;}
+.faq-item[open]{border-color:var(--acc);}
+.faq-q{padding:1.1rem 1.4rem;font-weight:600;font-size:.96rem;color:var(--ink);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;}
+.faq-q::-webkit-details-marker{display:none;}
+.faq-q::after{content:'+';font-size:1.4rem;color:var(--acc);font-weight:300;transition:transform .2s;}
+.faq-item[open] .faq-q::after{content:'−';}
+.faq-a{padding:0 1.4rem 1.2rem;font-size:.9rem;color:var(--ink2);line-height:1.6;}
 
-/* CTA */
-.cta-band{background:var(--acc);padding:5rem 4%;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.3rem;}
-.cta-band h2{font-size:clamp(1.8rem,3.8vw,2.8rem);font-weight:800;color:white;max-width:24ch;line-height:1.1;letter-spacing:-.02em;}
-.cta-band p{font-size:.97rem;color:rgba(255,255,255,.7);max-width:48ch;font-weight:300;}
-.btn-wht{display:inline-block;background:white;color:var(--acc);padding:.88rem 2.1rem;border-radius:100px;font-size:.95rem;font-weight:600;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;}
+/* ── CTA FINAL ── */
+.cta-band{background:linear-gradient(135deg, var(--acc) 0%, #2A4B8A 100%);color:white;padding:4.5rem 4%;text-align:center;position:relative;overflow:hidden;}
+.cta-band::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 30% 50%, rgba(255,255,255,.06), transparent 60%);pointer-events:none;}
+.cta-band h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem, 4vw, 2.8rem);font-weight:800;line-height:1.1;margin-bottom:1rem;position:relative;z-index:1;color:white;}
+.cta-band p{font-size:1.02rem;color:rgba(255,255,255,.85);max-width:680px;margin:0 auto 1.8rem;line-height:1.5;position:relative;z-index:1;}
+.btn-wht{display:inline-flex;align-items:center;gap:8px;background:white;color:var(--acc);padding:1rem 2rem;border-radius:100px;font-size:1rem;font-weight:700;cursor:pointer;border:none;transition:all .15s;position:relative;z-index:1;}
 .btn-wht:hover{transform:translateY(-2px);box-shadow:0 7px 22px rgba(0,0,0,.18);}
-.cta-reassurance{font-size:.75rem;color:rgba(255,255,255,.48);}
+.cta-reassurance{display:flex;flex-wrap:wrap;justify-content:center;gap:1.4rem;margin-top:1.6rem;position:relative;z-index:1;}
+.cta-rb{font-size:.82rem;color:rgba(255,255,255,.78);display:flex;align-items:center;gap:6px;}
 
+/* ── FOOTER ── */
 footer{background:var(--ink);padding:2.2rem 4%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
 footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
 .flinks{display:flex;gap:1.4rem;list-style:none;}
 .flinks a{font-size:.76rem;color:rgba(255,255,255,.35);}
 .flinks a:hover{color:rgba(255,255,255,.7);}
+
+/* ── MODAL FORM ── */
+.modal-bg{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(28,33,48,.7);backdrop-filter:blur(6px);z-index:1000;align-items:center;justify-content:center;padding:1rem;}
+.modal-bg.on{display:flex;}
+.modal{background:white;border-radius:18px;padding:2rem;max-width:480px;width:100%;position:relative;max-height:90vh;overflow-y:auto;}
+.modal-close{position:absolute;top:1rem;right:1rem;background:var(--bg2);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1.2rem;color:var(--ink2);display:flex;align-items:center;justify-content:center;}
+.modal-close:hover{background:var(--bg3);}
+.modal h3{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:.4rem;color:var(--ink);}
+.modal-sub{font-size:.88rem;color:var(--ink2);margin-bottom:1.4rem;line-height:1.5;}
+.modal-form{display:flex;flex-direction:column;gap:.8rem;}
+.modal-form-row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;}
+.modal-form label{font-size:.78rem;font-weight:500;color:var(--ink2);margin-bottom:.3rem;display:block;}
+.modal-form input,.modal-form select{width:100%;padding:.7rem .9rem;border:1px solid var(--brd2);border-radius:9px;font-size:.92rem;color:var(--ink);background:white;outline:none;transition:border-color .15s;}
+.modal-form input:focus,.modal-form select:focus{border-color:var(--acc);}
+.modal-submit{background:var(--acc);color:white;padding:.85rem;border:none;border-radius:9px;font-size:.95rem;font-weight:600;cursor:pointer;margin-top:.5rem;transition:background .15s;}
+.modal-submit:hover{background:var(--acc2);}
+.modal-note{font-size:.74rem;color:var(--ink3);text-align:center;margin-top:.6rem;line-height:1.4;}
+.modal-success{display:none;text-align:center;padding:1.5rem 0;}
+.modal-success.on{display:block;}
+.modal-success-ico{font-size:3rem;margin-bottom:.8rem;}
+.modal-success h3{margin-bottom:.5rem;color:var(--grn);}
+.modal-success p{font-size:.9rem;color:var(--ink2);line-height:1.5;}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px){
+  .nav-links{display:none;}
+  .hero h1{font-size:2.2rem;}
+  .pq-inner,.conf-inner,.terrain-inner{grid-template-columns:1fr;}
+  .pq-cards,.feat-tri,.steps-grid,.plans,.import-grid{grid-template-columns:1fr;}
+  .plan.featured{transform:none;}
+  .modal-form-row{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
@@ -219,35 +282,53 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
     <li><a href="#sec-features">Fonctionnalités</a></li>
     <li><a href="#sec-pour-qui">Pour qui</a></li>
     <li><a href="#sec-pricing">Tarifs</a></li>
-    <li><a href="#sec-reviews">Avis</a></li>
+    <li><a href="#sec-faq">FAQ</a></li>
   </ul>
   <div class="nav-r">
-    <a class="btn-sm" href="https://app.firovia.fr/login">Connexion</a>
-    <a class="btn-sm acc" href="https://app.firovia.fr/register">Essai gratuit</a>
+    <a class="btn-sm" href="https://app.firovia.fr">Connexion</a>
+    <button class="btn-sm acc" onclick="openModal()">Essai gratuit</button>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO COMPACT -->
 <section class="hero">
   <div class="hero-bg"></div><div class="hero-grid"></div>
   <div class="hero-badge">Logiciel de gestion maintenance sécurité incendie</div>
-  <h1>
-    <span class="line">Planifiez vos interventions incendie.</span>
-    <span class="line">Générez vos rapports <span class="acc">automatiquement.</span></span>
-    <span class="line">Restez conforme sans effort.</span>
-  </h1>
-  <p class="hero-sub">Firovia aide les entreprises de maintenance incendie à organiser leurs techniciens, suivre chaque intervention et anticiper les échéances réglementaires — extincteurs, RIA, désenfumage, SSI.</p>
+  <h1>Gérez vos interventions incendie <span class="acc">sans perdre de temps.</span></h1>
+  <p class="hero-sub">Le SaaS pensé pour les PME de sécurité incendie : planning, rapports terrain et conformité réglementaire — depuis le bureau ou le mobile.</p>
   <div class="hero-btns">
-    <a class="btn-prim" href="https://app.firovia.fr/register">Créer mon compte et planifier mes premières interventions</a>
+    <button class="btn-prim" onclick="openModal()">Essai gratuit 14 jours →</button>
     <a class="btn-out" href="#sec-features">Voir comment ça marche</a>
   </div>
-  <p class="hero-reassurance">Essai gratuit 14 jours · Sans carte bancaire · Sans engagement</p>
+  <p class="hero-reassurance">Sans carte bancaire · Sans engagement · Opérationnel en 48h</p>
   <div class="hero-tags">
-    <div class="htag"><div class="htag-dot"></div>Conçu pour les entreprises de maintenance incendie</div>
-    <div class="htag"><div class="htag-dot"></div>Testé avec des professionnels du secteur</div>
-    <div class="htag"><div class="htag-dot"></div>Équipes de 3 à 20 techniciens</div>
-    <div class="htag"><div class="htag-dot"></div>Opérationnel en 48h</div>
+    <div class="htag"><div class="htag-dot"></div>Conçu avec des professionnels du secteur</div>
+    <div class="htag"><div class="htag-dot"></div>Testé sur le terrain</div>
+    <div class="htag"><div class="htag-dot"></div>3 à 20 techniciens</div>
+    <div class="htag"><div class="htag-dot"></div>Données hébergées en France</div>
   </div>
+</section>
+
+<!-- SCREENSHOT -->
+<section class="screenshot-sec">
+  <div class="screenshot-wrap">
+    <div class="screenshot-frame">
+      <div class="screenshot-toolbar">
+        <div class="screenshot-dot r"></div>
+        <div class="screenshot-dot y"></div>
+        <div class="screenshot-dot g"></div>
+        <span class="screenshot-url">app.firovia.fr/dashboard</span>
+      </div>
+      <img src="/dashboard.png" alt="Dashboard Firovia — Vue d'ensemble de votre activité maintenance incendie" class="screenshot-img" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<!-- BLOC VALEUR -->
+<section class="value-sec">
+  <div class="sec-tag">Le quotidien Firovia</div>
+  <h2>Plus de paperasse. Plus d'oublis. Plus de stress conformité.</h2>
+  <p class="value-sub">Sachez à tout moment ce qui est fait, ce qu'il reste à faire, et restez conforme sans y penser.</p>
 </section>
 
 <!-- POUR QUI -->
@@ -256,7 +337,7 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
     <div class="pq-left">
       <div class="sec-tag">Pour qui</div>
       <h2 class="sec-h">Firovia est fait pour vous si…</h2>
-      <p>Vous gérez des techniciens sur le terrain, des clients multi-sites et des obligations réglementaires à respecter. Et vous perdez trop de temps sur la paperasse.</p>
+      <p class="sec-p">Vous gérez des techniciens sur le terrain, des clients multi-sites et des obligations réglementaires à respecter. Et vous perdez trop de temps sur la paperasse.</p>
     </div>
     <div>
       <div class="pq-cards">
@@ -281,93 +362,117 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="logos-bar">
-  <span class="logos-lbl">Bêta utilisateurs</span>
-  <div class="logos-scroll">
-    <span class="litem">SÉCURITÉ PRO ÎLE-DE-FRANCE</span>
-    <span class="litem">INCENDIE SERVICES LYON</span>
-    <span class="litem">PROTECT FIRE NORD</span>
-    <span class="litem">FEU PROTECT SUD</span>
-    <span class="litem">SÉCURIS BRETAGNE</span>
-    <span class="litem">FIRE EXPERT BORDEAUX</span>
-    <span class="litem">SÉCURITÉ PRO ÎLE-DE-FRANCE</span>
-    <span class="litem">INCENDIE SERVICES LYON</span>
-    <span class="litem">PROTECT FIRE NORD</span>
-    <span class="litem">FEU PROTECT SUD</span>
-    <span class="litem">SÉCURIS BRETAGNE</span>
-    <span class="litem">FIRE EXPERT BORDEAUX</span>
-  </div>
-</div>
-
-<!-- FEATURES -->
+<!-- FEATURES ENRICHIES -->
 <section class="lsec" id="sec-features" style="background:var(--wht)">
   <div class="sec-tag">Fonctionnalités</div>
-  <h2 class="sec-h">Ce que fait Firovia concrètement</h2>
-  <p class="sec-p">Trois modules pour le terrain. Vos techniciens travaillent directement depuis leur téléphone, sur site.</p>
+  <h2 class="sec-h">Tout ce dont votre équipe a besoin.</h2>
+  <p class="sec-p">Du planning au paiement client : Firovia gère votre activité de bout en bout. Pensé pour le terrain, optimisé pour le bureau.</p>
 
-  <!-- MODULE 1 -->
-  <div class="feat-main" style="margin-top:2.8rem;">
-    <div class="feat-main-left">
-      <div class="feat-rank">01</div>
-      <div class="feat-tag">🥇 Priorité principale</div>
-      <h3>Planning des interventions</h3>
-      <p>Planifiez les vérifications de vos extincteurs, RIA, systèmes de désenfumage et SSI. Assignez chaque mission au bon technicien. Suivez l'avancement en temps réel depuis le bureau.</p>
-      <div class="feat-mobile-badge">📱 Vos techniciens accèdent au planning depuis leur téléphone</div>
+  <div class="feat-tri">
+    <!-- COL 1 : TERRAIN -->
+    <div class="feat-col">
+      <div class="feat-col-tag t1">🛠️ Terrain</div>
+      <div class="feat-col-ico">📱</div>
+      <h3>Vos techniciens sur le terrain</h3>
+      <p class="feat-col-desc">L'app mobile pour faire le boulot sur place, sans paperasse ni ressaisie au bureau.</p>
+      <div class="feat-col-list">
+        <div class="feat-li">Planning des interventions</div>
+        <div class="feat-li">Rapports avec photos & signature</div>
+        <div class="feat-li">Multi-équipements par intervention</div>
+        <div class="feat-li">Tampon Conforme / Non-conforme</div>
+        <div class="feat-li">PDF généré automatiquement</div>
+        <div class="feat-li">Notes de frais & heures sup</div>
+      </div>
     </div>
-    <div class="feat-main-right">
-      <div class="feat-sub-title">En pratique</div>
-      <div class="feat-item">
-        <div class="feat-item-ico">➕</div>
-        <div>
-          <div class="feat-item-txt">Créer une intervention</div>
-          <div class="feat-item-sub">Type d'équipement, site client, priorité, notes pour le technicien. Prêt en moins d'une minute.</div>
-        </div>
+
+    <!-- COL 2 : BUREAU -->
+    <div class="feat-col">
+      <div class="feat-col-tag t2">🏢 Bureau</div>
+      <div class="feat-col-ico">📋</div>
+      <h3>Pilotez depuis le bureau</h3>
+      <p class="feat-col-desc">Centralisez vos clients, vos sites et toutes leurs interventions au même endroit.</p>
+      <div class="feat-col-list">
+        <div class="feat-li">Fiches clients multi-sites</div>
+        <div class="feat-li">Alertes réglementaires automatiques</div>
+        <div class="feat-li">Archivage des rapports illimité</div>
+        <div class="feat-li">Gestion des techniciens</div>
+        <div class="feat-li">Suivi des véhicules</div>
+        <div class="feat-li">Équipe multi-utilisateurs (rôles)</div>
       </div>
-      <div class="feat-item">
-        <div class="feat-item-ico">👷</div>
-        <div>
-          <div class="feat-item-txt">Assigner à un technicien</div>
-          <div class="feat-item-sub">Le technicien reçoit une notification sur son téléphone. Il voit l'adresse, le type d'intervention et les équipements à vérifier.</div>
-        </div>
-      </div>
-      <div class="feat-item">
-        <div class="feat-item-ico">📅</div>
-        <div>
-          <div class="feat-item-txt">Date / client / site</div>
-          <div class="feat-item-sub">Chaque intervention est liée à la fiche client. L'historique se remplit automatiquement à chaque passage.</div>
-        </div>
+    </div>
+
+    <!-- COL 3 : BUSINESS -->
+    <div class="feat-col">
+      <div class="feat-col-tag t3">💼 Business</div>
+      <div class="feat-col-ico">📈</div>
+      <h3>Gérez votre activité</h3>
+      <p class="feat-col-desc">Devis, factures, encaissement, portail client : facturez vite et bien, suivez vos KPIs.</p>
+      <div class="feat-col-list">
+        <div class="feat-li">Devis & factures avec PDF auto</div>
+        <div class="feat-li">Transformation devis → facture</div>
+        <div class="feat-li">Portail client sécurisé</div>
+        <div class="feat-li">Tableau de bord business (CA, impayés)</div>
+        <div class="feat-li">Export Excel paie pour comptable</div>
+        <div class="feat-li">Relances clients simplifiées</div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- MODULES 2 & 3 -->
-  <div class="feat-row">
-    <div class="fc">
-      <div class="fc-rank">02</div>
-      <div class="fc-tag">🥈 Sur le terrain</div>
-      <div class="fc-ico">📱</div>
-      <h3>Rapport d'intervention mobile</h3>
-      <p>Le technicien remplit le rapport sur son téléphone pendant l'intervention. Pas de papier, pas de ressaisie au bureau. Le client reçoit son PDF avant que le technicien reparte.</p>
-      <div class="fc-items">
-        <div class="fc-item">Checklist de contrôle par type d'équipement</div>
-        <div class="fc-item">Commentaires et observations libres</div>
-        <div class="fc-item">Photos des équipements vérifiés</div>
-        <div class="fc-item">Signature client sur l'écran du téléphone</div>
+<!-- BLOC TERRAIN -->
+<section class="terrain-sec">
+  <div class="terrain-inner">
+    <div class="terrain-left">
+      <div class="sec-tag">Mode terrain</div>
+      <h2>Pensé pour le terrain.</h2>
+      <p class="sec-p">Vos techniciens remplissent leurs rapports directement depuis leur téléphone, sur site. Pas de papier, pas de ressaisie au bureau. Le client reçoit son PDF avant que le technicien reparte.</p>
+      <div class="terrain-list">
+        <div class="terrain-li"><div class="terrain-li-ico">📸</div>Photos illimitées des équipements</div>
+        <div class="terrain-li"><div class="terrain-li-ico">✍️</div>Signature client sur l'écran</div>
+        <div class="terrain-li"><div class="terrain-li-ico">📋</div>Checklist intégrée par type d'équipement</div>
+        <div class="terrain-li"><div class="terrain-li-ico">📄</div>PDF envoyé automatiquement au client</div>
       </div>
-      <div class="fc-pdf">📄 Génération PDF automatique</div>
     </div>
-    <div class="fc">
-      <div class="fc-rank">03</div>
-      <div class="fc-tag">🥉 Base clients</div>
-      <div class="fc-ico">🏢</div>
-      <h3>Fiche client</h3>
-      <p>Une fiche par client et par site. Retrouvez en quelques secondes tout l'historique d'un équipement lors d'un contrôle ou d'une relance commerciale.</p>
-      <div class="fc-items">
-        <div class="fc-item">Nom, adresse, contact du site</div>
-        <div class="fc-item">Liste des équipements avec fréquences réglementaires</div>
-        <div class="fc-item">Historique complet de toutes les interventions</div>
-        <div class="fc-item">Documents archivés accessibles en un clic</div>
+    <div class="terrain-right">
+      <div class="terrain-phone">
+        <div class="terrain-phone-tag">Vue technicien</div>
+        <h4>Rapport en cours</h4>
+        <div class="terrain-phone-item"><div class="terrain-check">✓</div>Extincteur n°1 — Conforme</div>
+        <div class="terrain-phone-item"><div class="terrain-check">✓</div>Extincteur n°2 — Conforme</div>
+        <div class="terrain-phone-item"><div class="terrain-check">✓</div>RIA niveau 1 — Conforme</div>
+        <div class="terrain-phone-item"><div class="terrain-check">✓</div>Photos prises (3)</div>
+        <div class="terrain-phone-item"><div class="terrain-check">✓</div>Signature client</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOC IMPORT -->
+<section class="import-sec">
+  <div class="import-inner">
+    <div class="sec-tag">Démarrage rapide</div>
+    <h2>Importez vos données en quelques clics.</h2>
+    <p class="sec-p">Planning Excel, fiches clients, techniciens ou interventions : démarrez sur Firovia sans repartir de zéro.</p>
+    <div class="import-grid">
+      <div class="import-card">
+        <div class="import-card-ico">👥</div>
+        <div class="import-card-title">Clients</div>
+        <div class="import-card-desc">Import Excel / CSV</div>
+      </div>
+      <div class="import-card">
+        <div class="import-card-ico">🔧</div>
+        <div class="import-card-title">Techniciens</div>
+        <div class="import-card-desc">Compatible Batigest, Optim-BTP</div>
+      </div>
+      <div class="import-card">
+        <div class="import-card-ico">📅</div>
+        <div class="import-card-title">Interventions</div>
+        <div class="import-card-desc">Historique + planning à venir</div>
+      </div>
+      <div class="import-card">
+        <div class="import-card-ico">🚐</div>
+        <div class="import-card-title">Véhicules</div>
+        <div class="import-card-desc">Parc auto complet</div>
       </div>
     </div>
   </div>
@@ -378,8 +483,8 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
   <div class="conf-inner">
     <div class="conf-left">
       <div class="sec-tag">Conformité réglementaire</div>
-      <h2 class="sec-h">Conservez une traçabilité complète. En cas de contrôle, vous êtes prêt.</h2>
-      <p class="sec-p">Les obligations réglementaires dans la sécurité incendie sont précises et contraignantes. Firovia vous aide à les respecter sans y penser.</p>
+      <h2 class="sec-h">Ne ratez plus aucun contrôle.</h2>
+      <p class="sec-p">Firovia centralise vos échéances réglementaires et vous alerte automatiquement avant chaque vérification. En cas de contrôle, vous êtes prêt.</p>
       <div class="conf-items">
         <div class="conf-item">
           <div class="conf-ico">📋</div>
@@ -391,14 +496,14 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
         <div class="conf-item">
           <div class="conf-ico">🔔</div>
           <div class="conf-txt">
-            <strong>Alertes avant les échéances réglementaires</strong>
-            <span>Firovia vous prévient avant les vérifications obligatoires. Vous planifiez à l'avance, sans urgence.</span>
+            <strong>Alertes avant les échéances</strong>
+            <span>Firovia vous prévient avant chaque vérification obligatoire. Vous planifiez à l'avance, sans urgence.</span>
           </div>
         </div>
         <div class="conf-item">
           <div class="conf-ico">🗂️</div>
           <div class="conf-txt">
-            <strong>Historique complet par site et par équipement</strong>
+            <strong>Historique par site et équipement</strong>
             <span>En cas de contrôle imprévu, retrouvez tous les rapports d'un site en moins de 10 secondes.</span>
           </div>
         </div>
@@ -443,117 +548,127 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
 <!-- HOW -->
 <section class="lsec" id="sec-how">
   <div class="sec-tag">Comment ça marche</div>
-  <h2 class="sec-h">Opérationnel en moins de 48h</h2>
+  <h2 class="sec-h">Opérationnel en moins de 48h.</h2>
   <p class="sec-p">Importez vos clients. Vos techniciens reçoivent leur planning le lendemain matin.</p>
   <div class="steps-grid">
-    <div class="step"><div class="step-n">01</div><div class="step-ln"></div><h3>Créez votre compte</h3><p>2 minutes. Renseignez votre entreprise et choisissez votre plan. Aucune carte bancaire requise pour l'essai.</p></div>
-    <div class="step"><div class="step-n">02</div><div class="step-ln"></div><h3>Importez vos clients et sites</h3><p>Adresses, équipements, fréquences réglementaires — importez votre base Excel existante en un clic.</p></div>
-    <div class="step"><div class="step-n">03</div><div class="step-ln"></div><h3>Planifiez vos techniciens</h3><p>Créez vos premières interventions et assignez-les. Les alertes d'échéance se configurent automatiquement.</p></div>
-    <div class="step"><div class="step-n">04</div><div class="step-ln"></div><h3>Vos techniciens travaillent sur mobile</h3><p>Rapport, photos, signature client — tout depuis leur téléphone. Le client reçoit son PDF dans la minute.</p></div>
+    <div class="step"><div class="step-n">01</div><h3>Créez votre compte</h3><p>2 minutes. Renseignez votre entreprise et choisissez votre plan. Aucune carte bancaire requise pour l'essai.</p></div>
+    <div class="step"><div class="step-n">02</div><h3>Importez vos clients et sites</h3><p>Adresses, équipements, fréquences réglementaires — importez votre base Excel existante en un clic.</p></div>
+    <div class="step"><div class="step-n">03</div><h3>Planifiez vos techniciens</h3><p>Créez vos premières interventions et assignez-les. Les alertes d'échéance se configurent automatiquement.</p></div>
+    <div class="step"><div class="step-n">04</div><h3>Vos techniciens sur mobile</h3><p>Rapport, photos, signature client — tout depuis leur téléphone. Le client reçoit son PDF dans la minute.</p></div>
   </div>
 </section>
 
 <!-- PRICING -->
 <section class="pricing-sec" id="sec-pricing">
   <div class="sec-tag">Tarifs</div>
-  <h2 class="sec-h">Simple, transparent, sans surprise</h2>
+  <h2 class="sec-h">Simple, transparent, sans surprise.</h2>
   <p class="sec-p">14 jours d'essai gratuit. Sans carte bancaire. Vous choisissez votre plan après.</p>
   <div class="plans">
+    <!-- STARTER -->
     <div class="plan">
       <div class="plan-name">Starter</div>
-      <div class="plan-price"><strong>149</strong><span>€ / mois HT</span></div>
-      <p class="plan-desc">Pour les artisans et petites équipes qui veulent s'organiser et ne plus rater d'échéances.</p>
-      <div class="plan-roi"><strong>Rentabilisé dès 1 intervention supplémentaire par mois.</strong> Réduisez le temps administratif et évitez les oublis coûteux.</div>
+      <div class="plan-price"><strong>299</strong><span>€ HT / mois</span></div>
+      <p class="plan-desc">Pour les TPE qui veulent professionnaliser leur gestion d'interventions incendie.</p>
+      <div class="plan-roi"><strong>Rentabilisé dès 1 intervention supplémentaire / mois.</strong> Économisez ~10h/semaine d'administratif.</div>
+      <div class="plan-techs">👥 Jusqu'à 3 techniciens</div>
       <ul class="plan-feats">
-        <li>Jusqu'à 2 techniciens</li>
-        <li>50 sites gérés</li>
         <li>Planning des interventions</li>
+        <li>Rapports PDF automatiques</li>
         <li>Alertes réglementaires</li>
-        <li>Rapports automatiques</li>
-        <li class="off">Signature électronique</li>
-        <li class="off">Archivage illimité</li>
+        <li>Fiches clients</li>
+        <li>Gestion des techniciens</li>
+        <li>Archivage des rapports</li>
       </ul>
-      <a class="plan-btn lt" href="https://app.firovia.fr/register?plan=starter">Démarrer l'essai gratuit</a>
+      <button class="plan-btn lt" onclick="openModal('starter')">Démarrer l'essai gratuit</button>
     </div>
+
+    <!-- PRO -->
     <div class="plan featured">
-      <div class="plan-pop">Le plus populaire</div>
+      <div class="plan-pop">Le plus choisi</div>
       <div class="plan-name">Pro</div>
-      <div class="plan-price"><strong>349</strong><span>€ / mois HT</span></div>
-      <p class="plan-desc">Pour les PME qui gèrent un portefeuille de sites actif avec plusieurs techniciens.</p>
-      <div class="plan-roi"><strong>Rentabilisé dès 2 interventions supplémentaires par mois.</strong> Vos techniciens gagnent du temps sur chaque rapport terrain.</div>
+      <div class="plan-price"><strong>499</strong><span>€ HT / mois</span></div>
+      <p class="plan-desc">Pour les PME qui gèrent plusieurs techniciens et veulent un suivi complet.</p>
+      <div class="plan-roi"><strong>Rentabilisé dès 2 interventions / mois.</strong> Devis, factures et signature client : vous facturez plus vite.</div>
+      <div class="plan-techs">👥 Jusqu'à 10 techniciens</div>
       <ul class="plan-feats">
-        <li>Jusqu'à 10 techniciens</li>
-        <li>Sites illimités</li>
-        <li>Planning des interventions</li>
-        <li>Alertes réglementaires</li>
-        <li>Rapports + signature électronique</li>
-        <li>Fiches clients complètes</li>
-        <li>Archivage illimité</li>
+        <li>Tout le plan Starter</li>
+        <li>Devis & factures automatiques</li>
+        <li>Signature client sur mobile</li>
+        <li>Portail client sécurisé</li>
+        <li>Relances clients automatiques</li>
+        <li>Historique complet</li>
+        <li>Export planning Google / Outlook</li>
+        <li>Import Excel / ancien logiciel</li>
       </ul>
-      <a class="plan-btn dk" href="https://app.firovia.fr/register?plan=pro">Démarrer l'essai gratuit</a>
+      <button class="plan-btn dk" onclick="openModal('pro')">Démarrer l'essai gratuit</button>
     </div>
+
+    <!-- ENTERPRISE -->
     <div class="plan">
-      <div class="plan-name">Business</div>
-      <div class="plan-price"><strong>699</strong><span>€ / mois HT</span></div>
-      <p class="plan-desc">Pour les structures multi-agences ou à fort volume de sites et techniciens.</p>
-      <div class="plan-roi"><strong>Adaptez Firovia à votre organisation.</strong> Intégrations comptables et account manager dédié inclus.</div>
+      <div class="plan-name">Enterprise</div>
+      <div class="plan-price"><strong>799</strong><span>€ HT / mois</span></div>
+      <p class="plan-desc">Pour les structures multi-sites ou à fort volume d'interventions.</p>
+      <div class="plan-roi"><strong>Adaptez Firovia à votre organisation.</strong> Support prioritaire et onboarding inclus.</div>
+      <div class="plan-techs">👥 Techniciens illimités</div>
       <ul class="plan-feats">
-        <li>Techniciens illimités</li>
-        <li>Sites illimités</li>
         <li>Tout le plan Pro</li>
-        <li>Tableau de bord conformité</li>
-        <li>API & intégrations (Sage, EBP…)</li>
-        <li>Account manager dédié</li>
+        <li>Gestion multi-agences</li>
+        <li>Support prioritaire</li>
+        <li>Accompagnement onboarding</li>
+        <li>Personnalisation avancée</li>
+        <li>Administrateurs multiples</li>
+        <li>Statistiques & KPI avancés</li>
       </ul>
-      <a class="plan-btn lt" href="https://app.firovia.fr/register?plan=business">Démarrer l'essai gratuit</a>
+      <button class="plan-btn lt" onclick="openModal('enterprise')">Démarrer l'essai gratuit</button>
     </div>
   </div>
   <p class="pricing-note">Tous les plans incluent les alertes réglementaires · Facturation annuelle : −15% · Support inclus</p>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="lsec" id="sec-reviews" style="background:var(--bg2)">
-  <div class="sec-tag">Retours utilisateurs</div>
-  <h2 class="sec-h">Ce qu'on entend sur le terrain</h2>
-  <div class="testi-grid">
-    <div class="testi">
-      <div class="testi-label">Bêta utilisateur · 8 techniciens</div>
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-txt">"On a gagné du temps sur les rapports. Avant, les techniciens remplissaient des papiers et je ressaisissais tout le soir. Maintenant c'est fait directement sur le terrain."</p>
-      <div style="display:flex;align-items:center;gap:9px">
-        <div class="testi-av">TM</div>
-        <div><div class="testi-name">Thomas M.</div><div class="testi-role">Gérant · Sécurité Pro IDF</div></div>
-      </div>
-    </div>
-    <div class="testi">
-      <div class="testi-label">Bêta utilisateur · 12 techniciens</div>
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-txt">"Plus simple pour organiser les interventions. Avant j'envoyais les plannings par WhatsApp. Maintenant chacun voit ce qu'il a à faire directement sur son téléphone."</p>
-      <div style="display:flex;align-items:center;gap:9px">
-        <div class="testi-av">SL</div>
-        <div><div class="testi-name">Sophie L.</div><div class="testi-role">Directrice · Incendie Services Lyon</div></div>
-      </div>
-    </div>
-    <div class="testi">
-      <div class="testi-label">Bêta utilisateur · 4 techniciens</div>
-      <div class="testi-stars">★★★★☆</div>
-      <p class="testi-txt">"Ce qui m'a convaincu c'est les alertes réglementaires. J'avais déjà eu un problème avec une vérification SSI oubliée. Là, on est prévenu bien à l'avance."</p>
-      <div style="display:flex;align-items:center;gap:9px">
-        <div class="testi-av">RB</div>
-        <div><div class="testi-name">Romain B.</div><div class="testi-role">Artisan · Protect Fire Nord</div></div>
-      </div>
+<!-- FAQ -->
+<section class="faq-sec" id="sec-faq">
+  <div class="faq-inner">
+    <div class="sec-tag" style="margin-bottom:.6rem;">FAQ</div>
+    <h2 class="sec-h">Questions fréquentes</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q">Comment migrer mes données depuis Excel ou un ancien logiciel ?</summary>
+        <p class="faq-a">Firovia accepte les imports Excel/CSV pour vos clients, techniciens, véhicules et interventions. Compatible avec les exports Batigest, Optim-BTP, Tolteck, etc. Nous vous accompagnons gratuitement dans la migration des 100 premiers contacts.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Mes techniciens peuvent-ils utiliser Firovia sans formation ?</summary>
+        <p class="faq-a">Oui. L'interface mobile a été pensée pour le terrain : 3 boutons par écran, pictogrammes clairs, fonctionne sans connexion. Vos techniciens sont opérationnels en 15 minutes. Une vidéo de prise en main de 5 min est fournie.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Mes données sont-elles sécurisées ? Que dit le RGPD ?</summary>
+        <p class="faq-a">Toutes vos données sont hébergées en France (UE), conformément au RGPD. Chiffrement TLS de bout en bout. Vous gardez la propriété totale de vos données et pouvez les exporter à tout moment. Aucune publicité, aucun partage avec des tiers.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Y a-t-il un engagement de durée ?</summary>
+        <p class="faq-a">Aucun. Vous payez au mois, vous résiliez quand vous voulez avec un préavis d'un mois. Vous récupérez l'intégralité de vos données en .xlsx et .pdf.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Que se passe-t-il après l'essai gratuit de 14 jours ?</summary>
+        <p class="faq-a">Aucun prélèvement automatique : nous vous contactons pour valider ensemble que Firovia répond à vos besoins. Si oui, vous choisissez votre plan et nous démarrons. Si non, votre compte se met en pause sans frais.</p>
+      </details>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- CTA FINAL -->
 <div class="cta-band">
-  <h2>Planifiez vos interventions incendie. Restez conforme. Sans effort.</h2>
+  <h2>Simplifiez votre gestion. Gardez le contrôle sur votre conformité.</h2>
   <p>Firovia est conçu pour les entreprises de maintenance incendie de 3 à 20 techniciens. Testé avec des professionnels du secteur.</p>
-  <a class="btn-wht" href="https://app.firovia.fr/register">Créer mon compte et planifier mes premières interventions</a>
-  <span class="cta-reassurance">14 jours gratuits · Sans carte bancaire · Sans engagement · Opérationnel en 48h</span>
+  <button class="btn-wht" onclick="openModal()">Créer mon compte et planifier mes premières interventions →</button>
+  <div class="cta-reassurance">
+    <div class="cta-rb">🔒 Données hébergées en France</div>
+    <div class="cta-rb">💳 Sans carte bancaire</div>
+    <div class="cta-rb">🚪 Sans engagement</div>
+    <div class="cta-rb">📞 Support inclus</div>
+  </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
   <a class="logo" href="/">
     <div class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><path d="M12 2L4 5v6c0 5.25 3.5 9 8 10.5 4.5-1.5 8-5.25 8-10.5V5l-8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
@@ -564,9 +679,102 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
     <li><a href="#">Mentions légales</a></li>
     <li><a href="#">CGU</a></li>
     <li><a href="#">Confidentialité</a></li>
-    <li><a href="#">Contact</a></li>
+    <li><a href="mailto:contact@firovia.fr">Contact</a></li>
   </ul>
 </footer>
+
+<!-- MODAL FORM (Lead capture) -->
+<div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modalForm">
+      <h3>Démarrez votre essai gratuit</h3>
+      <p class="modal-sub">Renseignez vos coordonnées, nous vous contactons sous 24h pour activer votre compte Firovia.</p>
+      <form class="modal-form" onsubmit="return submitForm(event)">
+        <div class="modal-form-row">
+          <div><label>Prénom *</label><input type="text" id="f_firstname" required></div>
+          <div><label>Nom *</label><input type="text" id="f_lastname" required></div>
+        </div>
+        <div><label>Email pro *</label><input type="email" id="f_email" required></div>
+        <div><label>Téléphone *</label><input type="tel" id="f_phone" required></div>
+        <div><label>Nom de l'entreprise *</label><input type="text" id="f_company" required></div>
+        <div class="modal-form-row">
+          <div><label>Nombre de techniciens</label>
+            <select id="f_techs">
+              <option value="1-2">1 à 2</option>
+              <option value="3-5">3 à 5</option>
+              <option value="6-10" selected>6 à 10</option>
+              <option value="11-20">11 à 20</option>
+              <option value="20+">20+</option>
+            </select>
+          </div>
+          <div><label>Plan envisagé</label>
+            <select id="f_plan">
+              <option value="starter">Starter (299€)</option>
+              <option value="pro" selected>Pro (499€)</option>
+              <option value="enterprise">Enterprise (799€)</option>
+              <option value="">À déterminer</option>
+            </select>
+          </div>
+        </div>
+        <button class="modal-submit" type="submit">Demander un essai gratuit →</button>
+        <p class="modal-note">En soumettant ce formulaire, vous acceptez d'être contacté par notre équipe. Aucun spam, aucune carte bancaire.</p>
+      </form>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="modal-success-ico">✅</div>
+      <h3>Demande envoyée !</h3>
+      <p>Nous vous contactons sous <strong>24h ouvrées</strong> pour activer votre compte Firovia et faire une démo personnalisée.<br><br>📧 Une copie a été envoyée à votre adresse.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal(plan){
+  if(plan){document.getElementById('f_plan').value=plan;}
+  document.getElementById('modalBg').classList.add('on');
+  document.getElementById('modalForm').style.display='block';
+  document.getElementById('modalSuccess').classList.remove('on');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('modalBg').classList.remove('on');
+  document.body.style.overflow='';
+}
+function submitForm(e){
+  e.preventDefault();
+  const data={
+    firstname:document.getElementById('f_firstname').value,
+    lastname:document.getElementById('f_lastname').value,
+    email:document.getElementById('f_email').value,
+    phone:document.getElementById('f_phone').value,
+    company:document.getElementById('f_company').value,
+    techs:document.getElementById('f_techs').value,
+    plan:document.getElementById('f_plan').value,
+  };
+  // Construction du mailto: pour envoi à contact@firovia.fr
+  const subject=encodeURIComponent(`[Essai gratuit] ${data.company} - ${data.firstname} ${data.lastname}`);
+  const body=encodeURIComponent(
+    `Nouvelle demande d'essai gratuit Firovia\n\n`+
+    `Prénom : ${data.firstname}\n`+
+    `Nom : ${data.lastname}\n`+
+    `Email : ${data.email}\n`+
+    `Téléphone : ${data.phone}\n`+
+    `Entreprise : ${data.company}\n`+
+    `Nombre de techniciens : ${data.techs}\n`+
+    `Plan envisagé : ${data.plan||'À déterminer'}\n\n`+
+    `À recontacter sous 24h.`
+  );
+  // Ouvre le client mail avec le message pré-rempli
+  window.location.href=`mailto:contact@firovia.fr?subject=${subject}&body=${body}`;
+  // Affiche le message de succès
+  document.getElementById('modalForm').style.display='none';
+  document.getElementById('modalSuccess').classList.add('on');
+  return false;
+}
+// Fermer modal avec Escape
+document.addEventListener('keydown',(e)=>{if(e.key==='Escape')closeModal();});
+</script>
 
 </body>
 </html>
