@@ -28,6 +28,12 @@ h1,h2,h3,h4{font-family:'Syne',sans-serif;}
 button,input,select,textarea{font-family:'Inter',sans-serif;}
 a{text-decoration:none;color:inherit;cursor:pointer;}
 
+/* Icônes SVG (Lucide-style) — pro et cohérent */
+.ico{display:inline-block;width:1em;height:1em;vertical-align:-0.125em;flex-shrink:0;}
+svg.ico{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.ico-lg{width:1.5em;height:1.5em;}
+.ico-xl{width:2.2em;height:2.2em;}
+
 /* ── NAV ── */
 #topnav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.85rem 4%;background:rgba(242,243,245,.95);backdrop-filter:blur(14px);border-bottom:.5px solid var(--brd);}
 .logo{display:flex;align-items:center;gap:9px;cursor:pointer;}
@@ -320,34 +326,44 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
     <!-- Tabs -->
     <div class="showcase-tabs">
       <button class="showcase-tab active" data-tab="dashboard" onclick="showTab('dashboard')">
-        <span class="showcase-tab-ico">📊</span> Dashboard
+        <svg class="ico" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+        Dashboard
       </button>
       <button class="showcase-tab" data-tab="planning" onclick="showTab('planning')">
-        <span class="showcase-tab-ico">📅</span> Planning
+        <svg class="ico" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+        Planning
       </button>
       <button class="showcase-tab" data-tab="rapports" onclick="showTab('rapports')">
-        <span class="showcase-tab-ico">📄</span> Rapports
+        <svg class="ico" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+        Rapports
       </button>
       <button class="showcase-tab" data-tab="alertes" onclick="showTab('alertes')">
-        <span class="showcase-tab-ico">🔔</span> Alertes
+        <svg class="ico" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+        Alertes
       </button>
       <button class="showcase-tab" data-tab="clients" onclick="showTab('clients')">
-        <span class="showcase-tab-ico">🏢</span> Clients
+        <svg class="ico" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+        Clients
       </button>
       <button class="showcase-tab" data-tab="techniciens" onclick="showTab('techniciens')">
-        <span class="showcase-tab-ico">👷</span> Techniciens
+        <svg class="ico" viewBox="0 0 24 24"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a7 7 0 0 0-14 0v2z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/></svg>
+        Techniciens
       </button>
       <button class="showcase-tab" data-tab="devis" onclick="showTab('devis')">
-        <span class="showcase-tab-ico">📝</span> Devis
+        <svg class="ico" viewBox="0 0 24 24"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="m18 2 4 4-10 10H8v-4z"/></svg>
+        Devis
       </button>
       <button class="showcase-tab" data-tab="factures" onclick="showTab('factures')">
-        <span class="showcase-tab-ico">💰</span> Factures
+        <svg class="ico" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></svg>
+        Factures
       </button>
       <button class="showcase-tab" data-tab="archivage" onclick="showTab('archivage')">
-        <span class="showcase-tab-ico">📂</span> Archivage
+        <svg class="ico" viewBox="0 0 24 24"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+        Archivage
       </button>
       <button class="showcase-tab" data-tab="parametres" onclick="showTab('parametres')">
-        <span class="showcase-tab-ico">⚙️</span> Paramètres
+        <svg class="ico" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+        Paramètres
       </button>
     </div>
 
@@ -385,17 +401,17 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
     <div>
       <div class="pq-cards">
         <div class="pq-card hi">
-          <div class="pq-ico">🔥</div>
+          <div class="pq-ico"><svg class="ico ico-lg" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
           <h4>Maintenance incendie</h4>
           <p>Vérification extincteurs, RIA, SSI, désenfumage — un seul outil pour tout gérer.</p>
         </div>
         <div class="pq-card">
-          <div class="pq-ico">👷</div>
+          <div class="pq-ico"><svg class="ico ico-lg" viewBox="0 0 24 24"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a7 7 0 0 0-14 0v2z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/></svg></div>
           <h4>PME & ETI techniques</h4>
           <p>De 3 à 50+ techniciens. Agile ou multi-agences : Firovia s'adapte à votre organisation.</p>
         </div>
         <div class="pq-card">
-          <div class="pq-ico">🏢</div>
+          <div class="pq-ico"><svg class="ico ico-lg" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div>
           <h4>Gestion multi-sites</h4>
           <p>Plusieurs clients, plusieurs sites, des équipements différents. Firovia centralise tout.</p>
         </div>
@@ -414,8 +430,8 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
   <div class="feat-tri">
     <!-- COL 1 : TERRAIN -->
     <div class="feat-col">
-      <div class="feat-col-tag t1">🛠️ Terrain</div>
-      <div class="feat-col-ico">📱</div>
+      <div class="feat-col-tag t1"><svg class="ico" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Terrain</div>
+      <div class="feat-col-ico"><svg class="ico ico-xl" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></div>
       <h3>Vos techniciens sur le terrain</h3>
       <p class="feat-col-desc">L'app mobile pour faire le boulot sur place, sans paperasse ni ressaisie au bureau.</p>
       <div class="feat-col-list">
@@ -430,8 +446,8 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
 
     <!-- COL 2 : BUREAU -->
     <div class="feat-col">
-      <div class="feat-col-tag t2">🏢 Bureau</div>
-      <div class="feat-col-ico">📋</div>
+      <div class="feat-col-tag t2"><svg class="ico" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/></svg> Bureau</div>
+      <div class="feat-col-ico"><svg class="ico ico-xl" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></div>
       <h3>Pilotez depuis le bureau</h3>
       <p class="feat-col-desc">Centralisez vos clients, vos sites et toutes leurs interventions au même endroit.</p>
       <div class="feat-col-list">
@@ -446,8 +462,8 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
 
     <!-- COL 3 : BUSINESS -->
     <div class="feat-col">
-      <div class="feat-col-tag t3">💼 Business</div>
-      <div class="feat-col-ico">📈</div>
+      <div class="feat-col-tag t3"><svg class="ico" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Business</div>
+      <div class="feat-col-ico"><svg class="ico ico-xl" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
       <h3>Gérez votre activité</h3>
       <p class="feat-col-desc">Devis, factures, encaissement, portail client : facturez vite et bien, suivez vos KPIs.</p>
       <div class="feat-col-list">
@@ -470,10 +486,10 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
       <h2>Pensé pour le terrain.</h2>
       <p class="sec-p">Vos techniciens remplissent leurs rapports directement depuis leur téléphone, sur site. Pas de papier, pas de ressaisie au bureau. Le client reçoit son PDF avant que le technicien reparte.</p>
       <div class="terrain-list">
-        <div class="terrain-li"><div class="terrain-li-ico">📸</div>Photos illimitées des équipements</div>
-        <div class="terrain-li"><div class="terrain-li-ico">✍️</div>Signature client sur l'écran</div>
-        <div class="terrain-li"><div class="terrain-li-ico">📋</div>Checklist intégrée par type d'équipement</div>
-        <div class="terrain-li"><div class="terrain-li-ico">📄</div>PDF envoyé automatiquement au client</div>
+        <div class="terrain-li"><div class="terrain-li-ico"><svg class="ico" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>Photos illimitées des équipements</div>
+        <div class="terrain-li"><div class="terrain-li-ico"><svg class="ico" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>Signature client sur l'écran</div>
+        <div class="terrain-li"><div class="terrain-li-ico"><svg class="ico" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></div>Checklist intégrée par type d'équipement</div>
+        <div class="terrain-li"><div class="terrain-li-ico"><svg class="ico" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg></div>PDF envoyé automatiquement au client</div>
       </div>
     </div>
     <div class="terrain-right">
@@ -498,22 +514,22 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
     <p class="sec-p">Planning Excel, fiches clients, techniciens ou interventions : démarrez sur Firovia sans repartir de zéro.</p>
     <div class="import-grid">
       <div class="import-card">
-        <div class="import-card-ico">👥</div>
+        <div class="import-card-ico"><svg class="ico ico-xl" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <div class="import-card-title">Clients</div>
         <div class="import-card-desc">Import Excel / CSV</div>
       </div>
       <div class="import-card">
-        <div class="import-card-ico">🔧</div>
+        <div class="import-card-ico"><svg class="ico ico-xl" viewBox="0 0 24 24"><path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a7 7 0 0 0-14 0v2z"/><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/></svg></div>
         <div class="import-card-title">Techniciens</div>
         <div class="import-card-desc">Compatible Batigest, Optim-BTP</div>
       </div>
       <div class="import-card">
-        <div class="import-card-ico">📅</div>
+        <div class="import-card-ico"><svg class="ico ico-xl" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M17 14h-5"/><path d="M15 18H7"/></svg></div>
         <div class="import-card-title">Interventions</div>
         <div class="import-card-desc">Historique + planning à venir</div>
       </div>
       <div class="import-card">
-        <div class="import-card-ico">🚐</div>
+        <div class="import-card-ico"><svg class="ico ico-xl" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></div>
         <div class="import-card-title">Véhicules</div>
         <div class="import-card-desc">Parc auto complet</div>
       </div>
@@ -530,28 +546,28 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
       <p class="sec-p">Firovia centralise les contrôles périodiques de vos équipements (extincteurs, RIA, désenfumage, SSI, alarmes incendie) et vous alerte automatiquement avant chaque échéance. En cas de contrôle, vous êtes prêt.</p>
       <div class="conf-items">
         <div class="conf-item">
-          <div class="conf-ico">📋</div>
+          <div class="conf-ico"><svg class="ico ico-lg" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></div>
           <div class="conf-txt">
             <strong>Traçabilité de chaque intervention</strong>
             <span>Chaque passage est enregistré avec date, technicien, résultats et photos. Consultable à tout moment.</span>
           </div>
         </div>
         <div class="conf-item">
-          <div class="conf-ico">🔔</div>
+          <div class="conf-ico"><svg class="ico ico-lg" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/><path d="M4 2C2.8 3.7 2 5.7 2 8"/><path d="M22 8c0-2.3-.8-4.3-2-6"/></svg></div>
           <div class="conf-txt">
             <strong>Alertes avant les échéances</strong>
             <span>Firovia vous prévient avant chaque vérification obligatoire. Vous planifiez à l'avance, sans urgence.</span>
           </div>
         </div>
         <div class="conf-item">
-          <div class="conf-ico">🗂️</div>
+          <div class="conf-ico"><svg class="ico ico-lg" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></div>
           <div class="conf-txt">
             <strong>Historique par site et équipement</strong>
             <span>En cas de contrôle imprévu, retrouvez tous les rapports d'un site en moins de 10 secondes.</span>
           </div>
         </div>
         <div class="conf-item">
-          <div class="conf-ico">✅</div>
+          <div class="conf-ico"><svg class="ico ico-lg" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
           <div class="conf-txt">
             <strong>Preuve documentée en cas de litige</strong>
             <span>Chaque rapport PDF signé est archivé. Vous avez toujours la preuve que l'intervention a bien eu lieu.</span>
@@ -563,22 +579,22 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
       <div style="font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:1rem;">Équipements couverts</div>
       <div class="equip-grid">
         <div class="equip-card">
-          <div class="equip-ico">🧯</div>
+          <div class="equip-ico"><svg class="ico ico-xl" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
           <div class="equip-name">Extincteurs</div>
           <div class="equip-freq">Vérification annuelle</div>
         </div>
         <div class="equip-card">
-          <div class="equip-ico">🚿</div>
+          <div class="equip-ico"><svg class="ico ico-xl" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></div>
           <div class="equip-name">RIA</div>
           <div class="equip-freq">Contrôle annuel + semestriel</div>
         </div>
         <div class="equip-card">
-          <div class="equip-ico">💨</div>
+          <div class="equip-ico"><svg class="ico ico-xl" viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg></div>
           <div class="equip-name">Désenfumage</div>
           <div class="equip-freq">Vérification annuelle</div>
         </div>
         <div class="equip-card">
-          <div class="equip-ico">🔴</div>
+          <div class="equip-ico"><svg class="ico ico-xl" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
           <div class="equip-name">SSI</div>
           <div class="equip-freq">Contrôle annuel obligatoire</div>
         </div>
@@ -613,7 +629,7 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
       <div class="plan-price"><strong>299</strong><span>€ HT / mois</span></div>
       <p class="plan-desc">Pour les TPE de 1 à 5 techniciens qui veulent professionnaliser leur gestion.</p>
       <div class="plan-roi"><strong>Rentabilisé dès 1 intervention supplémentaire / mois.</strong> Économisez ~10h/semaine d'administratif.</div>
-      <div class="plan-techs">👥 Jusqu'à 5 techniciens</div>
+      <div class="plan-techs"><svg class="ico" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Jusqu'à 5 techniciens</div>
       <ul class="plan-feats">
         <li>Planning des interventions</li>
         <li>Rapports PDF automatiques</li>
@@ -632,7 +648,7 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
       <div class="plan-price"><strong>499</strong><span>€ HT / mois</span></div>
       <p class="plan-desc">Pour les PME de 6 à 20 techniciens qui veulent un suivi complet.</p>
       <div class="plan-roi"><strong>Rentabilisé dès 2 interventions / mois.</strong> Devis, factures et signature client : vous facturez plus vite.</div>
-      <div class="plan-techs">👥 Jusqu'à 20 techniciens</div>
+      <div class="plan-techs"><svg class="ico" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Jusqu'à 20 techniciens</div>
       <ul class="plan-feats">
         <li>Tout le plan Starter</li>
         <li>Devis & factures automatiques</li>
@@ -652,7 +668,7 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
       <div class="plan-price"><strong>799</strong><span>€ HT / mois</span></div>
       <p class="plan-desc">Pour les structures multi-agences ou 21+ techniciens.</p>
       <div class="plan-roi"><strong>Adaptez Firovia à votre organisation.</strong> Support prioritaire et onboarding inclus.</div>
-      <div class="plan-techs">👥 21+ techniciens (illimité)</div>
+      <div class="plan-techs"><svg class="ico" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> 21+ techniciens (illimité)</div>
       <ul class="plan-feats">
         <li>Tout le plan Pro</li>
         <li>Gestion multi-agences</li>
@@ -704,10 +720,10 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
   <p>Firovia est conçu pour les entreprises de maintenance incendie de 3 à 50+ techniciens. Testé avec des professionnels du secteur.</p>
   <button class="btn-wht" onclick="openModal()">Créer mon compte et planifier mes premières interventions →</button>
   <div class="cta-reassurance">
-    <div class="cta-rb">🔒 Données hébergées en France</div>
-    <div class="cta-rb">💳 Sans carte bancaire</div>
-    <div class="cta-rb">🚪 Sans engagement</div>
-    <div class="cta-rb">📞 Support inclus</div>
+    <div class="cta-rb"><svg class="ico" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Données hébergées en France</div>
+    <div class="cta-rb"><svg class="ico" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg> Sans carte bancaire</div>
+    <div class="cta-rb"><svg class="ico" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg> Sans engagement</div>
+    <div class="cta-rb"><svg class="ico" viewBox="0 0 24 24"><path d="M3 14a9 9 0 0 1 18 0v6"/><path d="M3 14v4a2 2 0 0 0 2 2h3v-8H5a2 2 0 0 0-2 2z"/><path d="M21 14v4a2 2 0 0 1-2 2h-3v-8h3a2 2 0 0 1 2 2z"/></svg> Support inclus</div>
   </div>
 </div>
 
@@ -757,13 +773,13 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
             </select>
           </div>
         </div>
-        <p id="planHint" class="modal-plan-hint">💡 Pour 6 à 20 techniciens, nous recommandons le plan <strong>Pro</strong>.</p>
+        <p id="planHint" class="modal-plan-hint"><svg class="ico" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg> Pour 6 à 20 techniciens, nous recommandons le plan <strong>Pro</strong>.</p>
         <button class="modal-submit" type="submit">Demander un essai gratuit →</button>
         <p class="modal-note">En soumettant ce formulaire, vous acceptez d'être contacté par notre équipe. Aucun spam, aucune carte bancaire.</p>
       </form>
     </div>
     <div class="modal-success" id="modalSuccess">
-      <div class="modal-success-ico">✅</div>
+      <div class="modal-success-ico"><svg class="ico ico-xl" viewBox="0 0 24 24" style="stroke:var(--grn);"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></div>
       <h3>Demande envoyée !</h3>
       <p>Nous vous contactons sous <strong>24h ouvrées</strong> pour activer votre compte Firovia et faire une démo personnalisée.<br><br>📧 Une copie a été envoyée à votre adresse.</p>
     </div>
@@ -798,9 +814,9 @@ function updatePlanHint(){
   const techs=document.getElementById('f_techs').value;
   const hint=document.getElementById('planHint');
   const messages={
-    '1-5':'💡 Pour 1 à 5 techniciens, nous recommandons le plan <strong>Starter</strong>.',
-    '6-20':'💡 Pour 6 à 20 techniciens, nous recommandons le plan <strong>Pro</strong>.',
-    '21+':'💡 Pour 21 techniciens et plus, nous recommandons le plan <strong>Enterprise</strong>.',
+    '1-5':'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg> Pour 1 à 5 techniciens, nous recommandons le plan <strong>Starter</strong>.',
+    '6-20':'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg> Pour 6 à 20 techniciens, nous recommandons le plan <strong>Pro</strong>.',
+    '21+':'<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg> Pour 21 techniciens et plus, nous recommandons le plan <strong>Enterprise</strong>.',
   };
   hint.innerHTML=messages[techs]||'';
 }
