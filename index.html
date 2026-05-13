@@ -69,8 +69,16 @@ body{padding-top:65px;}
 /* ── SCREENSHOT ── */
 .screenshot-sec{padding:1rem 4% 3.5rem;background:var(--bg);}
 .screenshot-wrap{max-width:1200px;margin:0 auto;}
-.screenshot-frame{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 28px 80px rgba(28,33,48,.18), 0 8px 20px rgba(28,33,48,.06);border:1px solid var(--brd);background:white;}
-.screenshot-img{width:100%;display:block;}
+.screenshot-frame{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 28px 80px rgba(28,33,48,.18), 0 8px 20px rgba(28,33,48,.06);border:1px solid var(--brd);background:white;aspect-ratio:16/9.5;}
+.screenshot-img{width:100%;display:block;position:absolute;top:0;left:0;opacity:0;transition:opacity .6s ease;pointer-events:none;}
+.screenshot-img.active{opacity:1;}
+
+/* ── SHOWCASE TABS ── */
+.showcase-tabs{display:flex;justify-content:center;gap:.4rem;margin-bottom:1.4rem;flex-wrap:wrap;}
+.showcase-tab{display:inline-flex;align-items:center;gap:7px;background:white;border:1px solid var(--brd);color:var(--ink2);padding:.55rem 1.1rem;border-radius:100px;font-size:.85rem;font-weight:500;cursor:pointer;transition:all .25s ease;font-family:'Inter',sans-serif;}
+.showcase-tab:hover{background:var(--bg2);color:var(--ink);}
+.showcase-tab.active{background:var(--acc);color:white;border-color:var(--acc);box-shadow:0 4px 14px rgba(58,92,168,.25);}
+.showcase-tab-ico{font-size:1rem;}
 
 /* ── BLOC VALEUR ── */
 .value-sec{padding:5rem 4% 4rem;text-align:center;background:var(--wht);}
@@ -306,11 +314,55 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
   <p class="hero-reassurance">Sans carte bancaire · Sans engagement · Opérationnel en 48h</p>
 </section>
 
-<!-- SCREENSHOT -->
+<!-- SHOWCASE TABS -->
 <section class="screenshot-sec">
   <div class="screenshot-wrap">
+    <!-- Tabs -->
+    <div class="showcase-tabs">
+      <button class="showcase-tab active" data-tab="dashboard" onclick="showTab('dashboard')">
+        <span class="showcase-tab-ico">📊</span> Dashboard
+      </button>
+      <button class="showcase-tab" data-tab="planning" onclick="showTab('planning')">
+        <span class="showcase-tab-ico">📅</span> Planning
+      </button>
+      <button class="showcase-tab" data-tab="rapports" onclick="showTab('rapports')">
+        <span class="showcase-tab-ico">📄</span> Rapports
+      </button>
+      <button class="showcase-tab" data-tab="alertes" onclick="showTab('alertes')">
+        <span class="showcase-tab-ico">🔔</span> Alertes
+      </button>
+      <button class="showcase-tab" data-tab="clients" onclick="showTab('clients')">
+        <span class="showcase-tab-ico">🏢</span> Clients
+      </button>
+      <button class="showcase-tab" data-tab="techniciens" onclick="showTab('techniciens')">
+        <span class="showcase-tab-ico">👷</span> Techniciens
+      </button>
+      <button class="showcase-tab" data-tab="devis" onclick="showTab('devis')">
+        <span class="showcase-tab-ico">📝</span> Devis
+      </button>
+      <button class="showcase-tab" data-tab="factures" onclick="showTab('factures')">
+        <span class="showcase-tab-ico">💰</span> Factures
+      </button>
+      <button class="showcase-tab" data-tab="archivage" onclick="showTab('archivage')">
+        <span class="showcase-tab-ico">📂</span> Archivage
+      </button>
+      <button class="showcase-tab" data-tab="parametres" onclick="showTab('parametres')">
+        <span class="showcase-tab-ico">⚙️</span> Paramètres
+      </button>
+    </div>
+
+    <!-- Screenshot frame avec slides -->
     <div class="screenshot-frame">
-      <img src="dashboard.png" alt="Dashboard Firovia — Vue d'ensemble de votre activité maintenance incendie" class="screenshot-img" loading="lazy"/>
+      <img src="dashboard.png" alt="Dashboard Firovia — Vue d'ensemble de votre activité" class="showcase-img active" data-tab="dashboard" loading="lazy"/>
+      <img src="planning.png" alt="Planning des interventions" class="showcase-img" data-tab="planning" loading="lazy"/>
+      <img src="rapports.png" alt="Rapports d'intervention avec PDF" class="showcase-img" data-tab="rapports" loading="lazy"/>
+      <img src="alertes.png" alt="Alertes réglementaires automatiques" class="showcase-img" data-tab="alertes" loading="lazy"/>
+      <img src="clients.png" alt="Fiches clients multi-sites" class="showcase-img" data-tab="clients" loading="lazy"/>
+      <img src="techniciens.png" alt="Gestion des techniciens" class="showcase-img" data-tab="techniciens" loading="lazy"/>
+      <img src="devis.png" alt="Devis avec génération PDF" class="showcase-img" data-tab="devis" loading="lazy"/>
+      <img src="factures.png" alt="Factures avec suivi paiement" class="showcase-img" data-tab="factures" loading="lazy"/>
+      <img src="archivage.png" alt="Archivage centralisé de tous vos documents" class="showcase-img" data-tab="archivage" loading="lazy"/>
+      <img src="parametres.png" alt="Paramètres organisation" class="showcase-img" data-tab="parametres" loading="lazy"/>
     </div>
   </div>
 </section>
@@ -789,6 +841,55 @@ function submitForm(e){
 }
 // Fermer modal avec Escape
 document.addEventListener('keydown',(e)=>{if(e.key==='Escape')closeModal();});
+
+// ─── SHOWCASE TABS (auto-rotate + click) ──────────────────────────
+const SHOWCASE_TABS=['dashboard','planning','rapports','alertes','clients','techniciens','devis','factures','archivage','parametres'];
+let showcaseCurrentIndex=0;
+let showcaseAutoRotate=null;
+let showcaseUserInteracted=false;
+
+function showTab(tabName, fromAuto){
+  // Désactive l'auto-rotate si l'user clique manuellement
+  if(!fromAuto){
+    showcaseUserInteracted=true;
+    if(showcaseAutoRotate){clearInterval(showcaseAutoRotate);showcaseAutoRotate=null;}
+  }
+  // Toggle tabs
+  document.querySelectorAll('.showcase-tab').forEach((t)=>{
+    t.classList.toggle('active',t.dataset.tab===tabName);
+  });
+  // Toggle images
+  document.querySelectorAll('.showcase-img').forEach((img)=>{
+    img.classList.toggle('active',img.dataset.tab===tabName);
+  });
+  // Update index for auto-rotate continuity
+  const idx=SHOWCASE_TABS.indexOf(tabName);
+  if(idx>=0)showcaseCurrentIndex=idx;
+}
+
+function startShowcaseAutoRotate(){
+  if(showcaseUserInteracted)return;
+  showcaseAutoRotate=setInterval(()=>{
+    showcaseCurrentIndex=(showcaseCurrentIndex+1)%SHOWCASE_TABS.length;
+    showTab(SHOWCASE_TABS[showcaseCurrentIndex],true);
+  },4500); // 4.5 secondes par onglet
+}
+
+// Démarre l'auto-rotate quand la section showcase est visible
+if('IntersectionObserver' in window){
+  const showcaseObserver=new IntersectionObserver((entries)=>{
+    entries.forEach((entry)=>{
+      if(entry.isIntersecting && !showcaseAutoRotate && !showcaseUserInteracted){
+        startShowcaseAutoRotate();
+      }
+    });
+  },{threshold:0.3});
+  const showcaseSec=document.querySelector('.screenshot-sec');
+  if(showcaseSec)showcaseObserver.observe(showcaseSec);
+} else {
+  // Fallback : démarre directement
+  startShowcaseAutoRotate();
+}
 </script>
 
 </body>
