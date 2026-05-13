@@ -48,12 +48,12 @@ a{text-decoration:none;color:inherit;cursor:pointer;}
 body{padding-top:65px;}
 
 /* ── HERO COMPACT ── */
-.hero{min-height:auto;display:flex;flex-direction:column;justify-content:center;padding:3.5rem 4% 2.5rem;position:relative;overflow:hidden;}
+.hero{min-height:auto;display:flex;flex-direction:column;justify-content:center;padding:2.5rem 4% 2rem;position:relative;overflow:hidden;}
 .hero-bg{position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at top right, rgba(58,92,168,.08), transparent 60%),linear-gradient(180deg, transparent 0%, rgba(58,92,168,.03) 100%);pointer-events:none;}
 .hero-grid{position:absolute;top:0;left:0;right:0;bottom:0;background-image:linear-gradient(rgba(28,33,48,.04) 1px, transparent 1px),linear-gradient(90deg, rgba(28,33,48,.04) 1px, transparent 1px);background-size:40px 40px;pointer-events:none;opacity:.5;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:500;color:var(--acc);background:rgba(58,92,168,.08);padding:.4rem .9rem;border-radius:100px;margin-bottom:1.3rem;position:relative;z-index:1;align-self:flex-start;}
 .hero-badge::before{content:'';width:6px;height:6px;background:var(--acc);border-radius:50%;}
-.hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.4rem, 5.5vw, 4.4rem);line-height:1.05;letter-spacing:-.02em;color:var(--ink);max-width:1100px;position:relative;z-index:1;}
+.hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem, 4.5vw, 3.4rem);line-height:1.05;letter-spacing:-.02em;color:var(--ink);max-width:900px;position:relative;z-index:1;}
 .hero h1 .acc{color:var(--acc);}
 .hero-sub{font-size:1.05rem;color:var(--ink2);max-width:680px;margin-top:1.2rem;line-height:1.55;font-weight:400;position:relative;z-index:1;}
 .hero-btns{display:flex;gap:.8rem;margin-top:1.8rem;flex-wrap:wrap;position:relative;z-index:1;}
@@ -69,17 +69,7 @@ body{padding-top:65px;}
 /* ── SCREENSHOT ── */
 .screenshot-sec{padding:1rem 4% 3.5rem;background:var(--bg);}
 .screenshot-wrap{max-width:1200px;margin:0 auto;}
-.screenshot-frame{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 28px 80px rgba(28,33,48,.18), 0 8px 20px rgba(28,33,48,.06);border:1px solid var(--brd);background:linear-gradient(135deg, #2b3245 0%, #1c2130 100%);}
-.screenshot-toolbar{display:flex;align-items:center;gap:7px;padding:.7rem 1rem;background:rgba(0,0,0,.18);border-bottom:1px solid rgba(255,255,255,.04);}
-.screenshot-dot{width:11px;height:11px;border-radius:50%;}
-.screenshot-dot.r{background:#FF5F57;}
-.screenshot-dot.y{background:#FFBD2E;}
-.screenshot-dot.g{background:#28C940;}
-.screenshot-url{margin-left:.8rem;font-size:.74rem;color:rgba(255,255,255,.4);font-family:'Inter',monospace;}
-.screenshot-placeholder{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,.55);background:#0f1420;padding:2rem;text-align:center;}
-.screenshot-placeholder-ico{font-size:3.5rem;margin-bottom:1rem;opacity:.5;}
-.screenshot-placeholder strong{font-family:'Syne',sans-serif;font-size:1.4rem;color:rgba(255,255,255,.85);margin-bottom:.5rem;}
-.screenshot-placeholder span{font-size:.85rem;color:rgba(255,255,255,.4);}
+.screenshot-frame{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 28px 80px rgba(28,33,48,.18), 0 8px 20px rgba(28,33,48,.06);border:1px solid var(--brd);background:white;}
 .screenshot-img{width:100%;display:block;}
 
 /* ── BLOC VALEUR ── */
@@ -253,6 +243,7 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
 .modal-submit{background:var(--acc);color:white;padding:.85rem;border:none;border-radius:9px;font-size:.95rem;font-weight:600;cursor:pointer;margin-top:.5rem;transition:background .15s;}
 .modal-submit:hover{background:var(--acc2);}
 .modal-note{font-size:.74rem;color:var(--ink3);text-align:center;margin-top:.6rem;line-height:1.4;}
+.modal-plan-hint{font-size:.78rem;color:var(--acc);background:rgba(58,92,168,.07);border-left:3px solid var(--acc);padding:.6rem .8rem;border-radius:6px;margin-top:-.3rem;line-height:1.45;}
 .modal-success{display:none;text-align:center;padding:1.5rem 0;}
 .modal-success.on{display:block;}
 .modal-success-ico{font-size:3rem;margin-bottom:.8rem;}
@@ -304,7 +295,7 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
   <div class="hero-tags">
     <div class="htag"><div class="htag-dot"></div>Conçu avec des professionnels du secteur</div>
     <div class="htag"><div class="htag-dot"></div>Testé sur le terrain</div>
-    <div class="htag"><div class="htag-dot"></div>3 à 20 techniciens</div>
+    <div class="htag"><div class="htag-dot"></div>3 à 50+ techniciens</div>
     <div class="htag"><div class="htag-dot"></div>Données hébergées en France</div>
   </div>
 </section>
@@ -313,13 +304,7 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
 <section class="screenshot-sec">
   <div class="screenshot-wrap">
     <div class="screenshot-frame">
-      <div class="screenshot-toolbar">
-        <div class="screenshot-dot r"></div>
-        <div class="screenshot-dot y"></div>
-        <div class="screenshot-dot g"></div>
-        <span class="screenshot-url">app.firovia.fr/dashboard</span>
-      </div>
-      <img src="/dashboard.png" alt="Dashboard Firovia — Vue d'ensemble de votre activité maintenance incendie" class="screenshot-img" loading="lazy"/>
+      <img src="dashboard.png" alt="Dashboard Firovia — Vue d'ensemble de votre activité maintenance incendie" class="screenshot-img" loading="lazy"/>
     </div>
   </div>
 </section>
@@ -348,8 +333,8 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
         </div>
         <div class="pq-card">
           <div class="pq-ico">👷</div>
-          <h4>3 à 20 techniciens</h4>
-          <p>Assez petit pour être agile, assez grand pour avoir besoin d'organisation.</p>
+          <h4>PME & ETI techniques</h4>
+          <p>De 3 à 50+ techniciens. Agile ou multi-agences : Firovia s'adapte à votre organisation.</p>
         </div>
         <div class="pq-card">
           <div class="pq-ico">🏢</div>
@@ -357,7 +342,7 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
           <p>Plusieurs clients, plusieurs sites, des équipements différents. Firovia centralise tout.</p>
         </div>
       </div>
-      <p class="pq-not">Firovia n'est pas adapté aux très grandes entreprises (50+ techniciens) ou aux activités sans obligation réglementaire périodique.</p>
+      <p class="pq-not">Firovia est conçu pour les activités de maintenance avec obligations réglementaires périodiques. Pour les structures multi-agences ou 50+ techniciens, un accompagnement dédié est inclus dans le plan Enterprise.</p>
     </div>
   </div>
 </section>
@@ -484,7 +469,7 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
     <div class="conf-left">
       <div class="sec-tag">Conformité réglementaire</div>
       <h2 class="sec-h">Ne ratez plus aucun contrôle.</h2>
-      <p class="sec-p">Firovia centralise vos échéances réglementaires et vous alerte automatiquement avant chaque vérification. En cas de contrôle, vous êtes prêt.</p>
+      <p class="sec-p">Firovia centralise les contrôles périodiques de vos équipements (extincteurs, RIA, désenfumage, SSI, alarmes incendie) et vous alerte automatiquement avant chaque échéance. En cas de contrôle, vous êtes prêt.</p>
       <div class="conf-items">
         <div class="conf-item">
           <div class="conf-ico">📋</div>
@@ -568,9 +553,9 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
     <div class="plan">
       <div class="plan-name">Starter</div>
       <div class="plan-price"><strong>299</strong><span>€ HT / mois</span></div>
-      <p class="plan-desc">Pour les TPE qui veulent professionnaliser leur gestion d'interventions incendie.</p>
+      <p class="plan-desc">Pour les TPE de 1 à 5 techniciens qui veulent professionnaliser leur gestion.</p>
       <div class="plan-roi"><strong>Rentabilisé dès 1 intervention supplémentaire / mois.</strong> Économisez ~10h/semaine d'administratif.</div>
-      <div class="plan-techs">👥 Jusqu'à 3 techniciens</div>
+      <div class="plan-techs">👥 Jusqu'à 5 techniciens</div>
       <ul class="plan-feats">
         <li>Planning des interventions</li>
         <li>Rapports PDF automatiques</li>
@@ -587,9 +572,9 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
       <div class="plan-pop">Le plus choisi</div>
       <div class="plan-name">Pro</div>
       <div class="plan-price"><strong>499</strong><span>€ HT / mois</span></div>
-      <p class="plan-desc">Pour les PME qui gèrent plusieurs techniciens et veulent un suivi complet.</p>
+      <p class="plan-desc">Pour les PME de 6 à 20 techniciens qui veulent un suivi complet.</p>
       <div class="plan-roi"><strong>Rentabilisé dès 2 interventions / mois.</strong> Devis, factures et signature client : vous facturez plus vite.</div>
-      <div class="plan-techs">👥 Jusqu'à 10 techniciens</div>
+      <div class="plan-techs">👥 Jusqu'à 20 techniciens</div>
       <ul class="plan-feats">
         <li>Tout le plan Starter</li>
         <li>Devis & factures automatiques</li>
@@ -607,9 +592,9 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
     <div class="plan">
       <div class="plan-name">Enterprise</div>
       <div class="plan-price"><strong>799</strong><span>€ HT / mois</span></div>
-      <p class="plan-desc">Pour les structures multi-sites ou à fort volume d'interventions.</p>
+      <p class="plan-desc">Pour les structures multi-agences ou 21+ techniciens.</p>
       <div class="plan-roi"><strong>Adaptez Firovia à votre organisation.</strong> Support prioritaire et onboarding inclus.</div>
-      <div class="plan-techs">👥 Techniciens illimités</div>
+      <div class="plan-techs">👥 21+ techniciens (illimité)</div>
       <ul class="plan-feats">
         <li>Tout le plan Pro</li>
         <li>Gestion multi-agences</li>
@@ -658,7 +643,7 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
 <!-- CTA FINAL -->
 <div class="cta-band">
   <h2>Simplifiez votre gestion. Gardez le contrôle sur votre conformité.</h2>
-  <p>Firovia est conçu pour les entreprises de maintenance incendie de 3 à 20 techniciens. Testé avec des professionnels du secteur.</p>
+  <p>Firovia est conçu pour les entreprises de maintenance incendie de 3 à 50+ techniciens. Testé avec des professionnels du secteur.</p>
   <button class="btn-wht" onclick="openModal()">Créer mon compte et planifier mes premières interventions →</button>
   <div class="cta-reassurance">
     <div class="cta-rb">🔒 Données hébergées en France</div>
@@ -699,24 +684,22 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
         <div><label>Téléphone *</label><input type="tel" id="f_phone" required></div>
         <div><label>Nom de l'entreprise *</label><input type="text" id="f_company" required></div>
         <div class="modal-form-row">
-          <div><label>Nombre de techniciens</label>
-            <select id="f_techs">
-              <option value="1-2">1 à 2</option>
-              <option value="3-5">3 à 5</option>
-              <option value="6-10" selected>6 à 10</option>
-              <option value="11-20">11 à 20</option>
-              <option value="20+">20+</option>
+          <div><label>Nombre de techniciens *</label>
+            <select id="f_techs" required onchange="suggestPlan()">
+              <option value="1-5">1 à 5 techniciens</option>
+              <option value="6-20" selected>6 à 20 techniciens</option>
+              <option value="21+">21 techniciens et +</option>
             </select>
           </div>
-          <div><label>Plan envisagé</label>
+          <div><label>Plan adapté</label>
             <select id="f_plan">
-              <option value="starter">Starter (299€)</option>
-              <option value="pro" selected>Pro (499€)</option>
-              <option value="enterprise">Enterprise (799€)</option>
-              <option value="">À déterminer</option>
+              <option value="starter">Starter — 299€/mois</option>
+              <option value="pro" selected>Pro — 499€/mois</option>
+              <option value="enterprise">Enterprise — 799€/mois</option>
             </select>
           </div>
         </div>
+        <p id="planHint" class="modal-plan-hint">💡 Pour 6 à 20 techniciens, nous recommandons le plan <strong>Pro</strong>.</p>
         <button class="modal-submit" type="submit">Demander un essai gratuit →</button>
         <p class="modal-note">En soumettant ce formulaire, vous acceptez d'être contacté par notre équipe. Aucun spam, aucune carte bancaire.</p>
       </form>
@@ -731,11 +714,37 @@ footer p{font-size:.76rem;color:rgba(255,255,255,.28);}
 
 <script>
 function openModal(plan){
-  if(plan){document.getElementById('f_plan').value=plan;}
+  if(plan){
+    document.getElementById('f_plan').value=plan;
+    // Si on ouvre depuis un bouton de plan, on adapte la tranche techs en cohérence
+    if(plan==='starter')document.getElementById('f_techs').value='1-5';
+    else if(plan==='pro')document.getElementById('f_techs').value='6-20';
+    else if(plan==='enterprise')document.getElementById('f_techs').value='21+';
+    updatePlanHint();
+  }
   document.getElementById('modalBg').classList.add('on');
   document.getElementById('modalForm').style.display='block';
   document.getElementById('modalSuccess').classList.remove('on');
   document.body.style.overflow='hidden';
+}
+function suggestPlan(){
+  const techs=document.getElementById('f_techs').value;
+  const planSelect=document.getElementById('f_plan');
+  // Auto-suggestion du plan le plus adapté
+  if(techs==='1-5')planSelect.value='starter';
+  else if(techs==='6-20')planSelect.value='pro';
+  else if(techs==='21+')planSelect.value='enterprise';
+  updatePlanHint();
+}
+function updatePlanHint(){
+  const techs=document.getElementById('f_techs').value;
+  const hint=document.getElementById('planHint');
+  const messages={
+    '1-5':'💡 Pour 1 à 5 techniciens, nous recommandons le plan <strong>Starter</strong>.',
+    '6-20':'💡 Pour 6 à 20 techniciens, nous recommandons le plan <strong>Pro</strong>.',
+    '21+':'💡 Pour 21 techniciens et plus, nous recommandons le plan <strong>Enterprise</strong>.',
+  };
+  hint.innerHTML=messages[techs]||'';
 }
 function closeModal(){
   document.getElementById('modalBg').classList.remove('on');
