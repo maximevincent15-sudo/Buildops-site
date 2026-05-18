@@ -99,10 +99,34 @@ sub_font = try_load_font(f_font_candidates, 28)
 sub = "Planning · Rapports terrain · Conformité réglementaire"
 draw.text((80, 490), sub, fill=(220, 230, 250), font=sub_font)
 
-# ─── 6. URL en bas-droite ────────────────────────────────────────────
+# ─── 6. URL en bas-gauche ────────────────────────────────────────────
 url_font = try_load_font(f_font_candidates, 24)
 url = "firovia.fr"
 draw.text((80, 555), url, fill=(220, 230, 250), font=url_font)
+
+# ─── 7. CTA "bouton" en bas-droite (Essai gratuit 14 jours) ──────────
+cta_text = "  Essai gratuit 14 jours  →  "
+cta_font = try_load_font(f_font_candidates, 26)
+# Mesure du texte pour adapter la pill
+bbox = draw.textbbox((0, 0), cta_text, font=cta_font)
+cta_w = bbox[2] - bbox[0]
+cta_h = bbox[3] - bbox[1]
+cta_pad_y = 18
+cta_pad_x = 10
+pill_w = cta_w + cta_pad_x * 2
+pill_h = cta_h + cta_pad_y * 2
+pill_x = WIDTH - pill_w - 80
+pill_y = 545 - pill_h // 2 + cta_h // 2
+# Fond blanc arrondi (pill shape)
+draw.rounded_rectangle(
+    [pill_x, pill_y, pill_x + pill_w, pill_y + pill_h],
+    radius=pill_h // 2,
+    fill=WHITE,
+)
+# Texte bleu au centre de la pill
+text_x = pill_x + cta_pad_x
+text_y = pill_y + cta_pad_y - 4
+draw.text((text_x, text_y), cta_text, fill=BLUE_1, font=cta_font)
 
 # ─── 7. Sauvegarde ───────────────────────────────────────────────────
 output_path = "/Users/macbookair/Saas BTP/og-image.png"
