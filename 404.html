@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<title>Page introuvable — Firovia</title>
+<meta name="description" content="Cette page Firovia n'existe pas ou a été déplacée. Retournez à l'accueil ou contactez-nous."/>
+<meta name="robots" content="noindex"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F2F3F5;--ink:#1C2130;--ink2:#5A6070;
+  --acc:#3A5CA8;--acc2:#5578C8;
+  --wht:#F8F9FB;
+  --brd:rgba(28,33,48,.10);
+}
+html,body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
+h1,h2{font-family:'Syne',sans-serif;letter-spacing:-.5px;}
+a{text-decoration:none;color:inherit;}
+
+.wrap{max-width:580px;text-align:center;}
+.logo{display:inline-flex;align-items:center;gap:9px;margin-bottom:48px;}
+.logo-txt{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--ink);}
+.logo-txt span{color:var(--acc);}
+
+.code{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(5rem,15vw,8rem);
+  background:linear-gradient(135deg,var(--acc) 0%,var(--acc2) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  line-height:1;
+  letter-spacing:-4px;
+}
+h1{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:800;margin-top:16px;margin-bottom:14px;}
+p{color:var(--ink2);font-size:1rem;line-height:1.6;margin-bottom:32px;}
+
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn{padding:.7rem 1.4rem;border-radius:100px;font-size:.92rem;font-weight:500;cursor:pointer;border:1px solid var(--brd);background:white;color:var(--ink);transition:all .15s;}
+.btn:hover{background:var(--wht);}
+.btn.primary{background:var(--acc);color:white;border-color:var(--acc);}
+.btn.primary:hover{background:var(--acc2);}
+
+.help{margin-top:48px;padding-top:32px;border-top:1px solid var(--brd);font-size:.85rem;color:var(--ink2);}
+.help a{color:var(--acc);font-weight:500;}
+.help a:hover{color:var(--acc2);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="logo" href="/">
+    <div class="logo-txt"><span>Fir</span>ovia</div>
+  </a>
+
+  <div class="code">404</div>
+
+  <h1>Cette page s'est volatilisée.</h1>
+  <p>
+    Le lien que vous suivez ne mène nulle part. La page a peut-être été déplacée, supprimée,
+    ou l'URL contient une coquille. Pas d'inquiétude — il y a toujours moyen de retomber sur ses pattes.
+  </p>
+
+  <div class="actions">
+    <a href="/" class="btn primary">← Retour à l'accueil</a>
+    <a href="/securite.html" class="btn">Sécurité</a>
+    <a href="mailto:contact@firovia.fr" class="btn">Nous contacter</a>
+  </div>
+
+  <div class="help">
+    Vous pensez que cette page devrait exister ?<br>
+    Envoyez-nous le lien à <a href="mailto:contact@firovia.fr">contact@firovia.fr</a>, on regarde.
+  </div>
+</div>
+
+<!-- Vercel Web Analytics -->
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
