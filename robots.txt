@@ -1,0 +1,11 @@
+# Firovia — Robots.txt
+# Autorise tous les crawlers à indexer le site public
+
+User-agent: *
+Allow: /
+
+# Bloque l'API serverless (endpoint de capture de leads)
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://firovia.fr/sitemap.xml

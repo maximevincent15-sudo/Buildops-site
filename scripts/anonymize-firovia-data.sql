@@ -67,23 +67,24 @@ update public.clients
        address       = '15 Rue de la République, 69002 Lyon'
  where name ilike '%bernard vincent%';
 
--- Résidence Le Marly → Résidence Les Tilleuls (RENNES)
+-- Résidence Le Marly → Résidence Les Tilleuls (RENNES, nouvelle adresse fictive)
 update public.clients
    set name          = 'Résidence Les Tilleuls',
        contact_name  = 'Syndic Les Tilleuls',
        contact_email = 'syndic@les-tilleuls.fr',
        contact_phone = '02 99 12 34 56',
-       address       = '8 Rue Saint-Michel, 35000 Rennes'
- where name ilike '%marly%';
+       address       = '24 Boulevard de la Liberté, 35000 Rennes'
+ where name ilike '%marly%' or name ilike '%tilleuls%';
 
 -- Soprema → Toiture Pro Nord (LILLE)
+-- (Anonymisation supplémentaire : Romain Levacher → Marc Lambert)
 update public.clients
    set name          = 'Toiture Pro Nord',
-       contact_name  = 'Romain Levacher',
+       contact_name  = 'Marc Lambert',
        contact_email = 'contact@toiture-pro-nord.fr',
        contact_phone = '03 20 45 67 89',
        address       = '42 Rue Faidherbe, 59000 Lille'
- where name ilike '%soprema%';
+ where name ilike '%soprema%' or contact_name ilike '%levacher%';
 
 -- Hopital Le Chesnay → Clinique du Parc (MARSEILLE)
 update public.clients
@@ -169,6 +170,32 @@ update public.invoices set client_name = 'Résidence Les Tilleuls',    client_em
 -- ─── 8. RAPPORTS (si client_name présent dans la table) ───────────
 -- Note : reports n'a peut-être pas de client_name direct (vient via intervention)
 -- Pas d'update nécessaire dans la plupart des cas.
+
+
+-- ─── 9. ANONYMISATION ÉMAIL PERSO (toutes tables) ──────────────────
+-- Remplace tout emploi de l'email perso maximevincent15@gmail.com
+-- par un email fictif générique pour la démo.
+
+update public.clients
+   set contact_email = 'marc.dupont@firovia-demo.fr'
+ where contact_email ilike '%maximevincent15%' or contact_email ilike '%@gmail.com';
+
+update public.quotes
+   set client_email = 'marc.dupont@firovia-demo.fr'
+ where client_email ilike '%maximevincent15%' or client_email ilike '%@gmail.com';
+
+update public.invoices
+   set client_email = 'marc.dupont@firovia-demo.fr'
+ where client_email ilike '%maximevincent15%' or client_email ilike '%@gmail.com';
+
+-- Si email perso présent dans profiles (membres de l'organisation de démo)
+update public.profiles
+   set first_name = 'Démo',
+       last_name  = 'Compte'
+ where id in (
+   select id from auth.users where email ilike '%maximevincent15%'
+ );
+
 
 -- ═══════════════════════════════════════════════════════════════════
 -- ✅ Anonymisation terminée. Tu peux re-capturer tes screenshots.

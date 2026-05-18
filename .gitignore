@@ -52,3 +52,9 @@ supabase/.branches/
 # Claude Code local settings + internal worktrees (do not commit)
 .claude/settings.local.json
 .claude/worktrees/
+
+# Backup screenshots originaux (gardés en local seulement, avant compression)
+original-screenshots/
+
+# Expérimentations design (dev only, ne pas push)
+logo-experiments/
