@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<title>Sécurité & confidentialité — Firovia</title>
+<meta name="description" content="Comment Firovia protège vos données : hébergement européen, chiffrement, isolation multi-tenant, conformité RGPD. Notre approche complète de la sécurité."/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F2F3F5;--bg2:#E6E8EC;--bg3:#D8DCE4;
+  --ink:#1C2130;--ink2:#5A6070;--ink3:#9AA0AE;
+  --acc:#3A5CA8;--acc2:#5578C8;
+  --wht:#F8F9FB;
+  --brd:rgba(28,33,48,.10);--brd2:rgba(28,33,48,.18);
+  --grn:#2E7D5E;--grn-lt:#D4EDE5;
+  --org:#C45A1A;--org-lt:#F5E0D0;
+  --r:10px;--rlg:18px;
+}
+html{scroll-behavior:smooth;}
+html,body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;letter-spacing:-.5px;}
+a{text-decoration:none;color:inherit;cursor:pointer;}
+
+.ico{display:inline-block;width:1em;height:1em;vertical-align:-0.125em;flex-shrink:0;}
+svg.ico{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.ico-lg{width:1.5em;height:1.5em;}
+
+/* ── NAV ── */
+#topnav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.85rem 4%;background:rgba(242,243,245,.95);backdrop-filter:blur(14px);border-bottom:.5px solid var(--brd);}
+.logo{display:flex;align-items:center;gap:9px;cursor:pointer;}
+.logo-txt{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--ink);}
+.logo-txt span{color:var(--acc);}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-size:.88rem;color:var(--ink2);font-weight:500;}
+.nav-links a:hover{color:var(--ink);}
+.nav-r{display:flex;gap:.6rem;align-items:center;}
+.btn-sm{display:inline-block;padding:.48rem 1.1rem;border-radius:100px;font-size:.85rem;font-weight:500;cursor:pointer;border:1px solid var(--brd2);background:transparent;color:var(--ink);transition:background .15s;}
+.btn-sm:hover{background:var(--bg2);}
+.btn-sm.acc{background:var(--acc);color:white;border-color:var(--acc);}
+.btn-sm.acc:hover{background:var(--acc2);}
+
+/* ── PAGE LAYOUT ── */
+main{padding-top:80px;padding-bottom:80px;}
+.container{max-width:920px;margin:0 auto;padding:0 4%;}
+
+/* ── HERO ── */
+.hero{padding:64px 0 48px;text-align:center;border-bottom:1px solid var(--brd);}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--grn);background:var(--grn-lt);padding:6px 14px;border-radius:100px;margin-bottom:24px;letter-spacing:.4px;text-transform:uppercase;}
+.hero-tag::before{content:"";display:inline-block;width:6px;height:6px;background:var(--grn);border-radius:50%;}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;line-height:1.1;margin-bottom:18px;}
+.hero h1 span{color:var(--acc);}
+.hero-sub{font-size:1.08rem;color:var(--ink2);max-width:620px;margin:0 auto;}
+
+/* ── KEY POINTS GRID ── */
+.kp-section{padding:64px 0 32px;}
+.kp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px;}
+.kp-card{background:white;border:1px solid var(--brd);border-radius:var(--rlg);padding:24px;display:flex;gap:16px;align-items:flex-start;transition:transform .15s,box-shadow .15s;}
+.kp-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(28,33,48,.06);}
+.kp-ico{width:42px;height:42px;border-radius:12px;background:var(--bg2);display:flex;align-items:center;justify-content:center;color:var(--acc);flex-shrink:0;}
+.kp-ico svg{width:22px;height:22px;}
+.kp-card h3{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:6px;letter-spacing:0;}
+.kp-card p{font-size:.85rem;color:var(--ink2);line-height:1.55;}
+
+/* ── SECTIONS ── */
+.section{padding:48px 0;border-bottom:1px solid var(--brd);}
+.section:last-child{border-bottom:none;}
+.section-num{display:inline-block;font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--acc);letter-spacing:1.2px;margin-bottom:8px;text-transform:uppercase;}
+.section h2{font-size:1.65rem;font-weight:800;margin-bottom:18px;line-height:1.2;}
+.section h3{font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;margin-top:24px;margin-bottom:10px;letter-spacing:0;}
+.section p{color:var(--ink2);margin-bottom:14px;font-size:.95rem;}
+.section p strong{color:var(--ink);font-weight:600;}
+.section ul{list-style:none;padding-left:0;margin:14px 0;}
+.section ul li{position:relative;padding-left:24px;color:var(--ink2);font-size:.92rem;margin-bottom:8px;}
+.section ul li::before{content:"";position:absolute;left:0;top:.55rem;width:8px;height:8px;background:var(--grn);border-radius:50%;}
+
+.callout{background:white;border:1px solid var(--brd);border-left:4px solid var(--acc);border-radius:var(--r);padding:18px 22px;margin:20px 0;font-size:.92rem;}
+.callout strong{color:var(--ink);}
+
+.tech-table{width:100%;background:white;border:1px solid var(--brd);border-radius:var(--rlg);overflow:hidden;margin:20px 0;font-size:.88rem;}
+.tech-table tr{border-bottom:1px solid var(--brd);}
+.tech-table tr:last-child{border-bottom:none;}
+.tech-table td{padding:12px 18px;vertical-align:top;}
+.tech-table td:first-child{font-weight:600;color:var(--ink);width:200px;background:var(--wht);}
+.tech-table td:last-child{color:var(--ink2);}
+
+/* ── DROITS RGPD ── */
+.rights-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px;}
+.right-card{background:white;border:1px solid var(--brd);border-radius:var(--r);padding:16px 18px;}
+.right-card h4{font-family:'Inter',sans-serif;font-size:.88rem;font-weight:700;margin-bottom:4px;letter-spacing:0;color:var(--ink);}
+.right-card p{font-size:.82rem;color:var(--ink2);line-height:1.5;margin:0;}
+
+/* ── CONTACT ── */
+.contact-box{background:var(--ink);color:white;border-radius:var(--rlg);padding:32px;margin-top:32px;}
+.contact-box h2{color:white;font-size:1.4rem;margin-bottom:8px;}
+.contact-box p{color:rgba(255,255,255,.75);margin-bottom:20px;}
+.contact-box a{color:white;font-weight:600;border-bottom:1px solid rgba(255,255,255,.4);}
+.contact-box a:hover{border-bottom-color:white;}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.6);padding:36px 4%;font-size:.82rem;margin-top:0;}
+footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+footer a{color:rgba(255,255,255,.6);transition:color .15s;}
+footer a:hover{color:white;}
+.fnav{display:flex;gap:18px;flex-wrap:wrap;}
+
+/* ── MOBILE ── */
+@media (max-width:760px){
+  .nav-links{display:none;}
+  .kp-grid{grid-template-columns:1fr;}
+  .rights-grid{grid-template-columns:1fr;}
+  .hero{padding:48px 0 36px;}
+  .hero h1{font-size:1.9rem;}
+  .section{padding:36px 0;}
+  .tech-table td:first-child{width:auto;}
+  .contact-box{padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="topnav">
+  <a class="logo" href="/">
+    <div class="logo-txt"><span>Fir</span>ovia</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#sec-features">Fonctionnalités</a></li>
+    <li><a href="/#sec-pour-qui">Pour qui</a></li>
+    <li><a href="/#sec-pricing">Tarifs</a></li>
+    <li><a href="/#sec-faq">FAQ</a></li>
+  </ul>
+  <div class="nav-r">
+    <a class="btn-sm" href="/#sec-login">Connexion</a>
+    <a class="btn-sm acc" href="/#sec-cta">Essai gratuit</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-tag">Sécurité & confidentialité</div>
+      <h1>Vos données. Vos clients.<br><span>Votre tranquillité.</span></h1>
+      <p class="hero-sub">
+        Firovia gère les données critiques de votre activité&nbsp;: plans techniques, contacts clients, registres réglementaires.
+        Voici comment nous les protégeons, concrètement.
+      </p>
+    </div>
+  </section>
+
+  <!-- KEY POINTS -->
+  <section class="kp-section">
+    <div class="container">
+      <div class="kp-grid">
+
+        <div class="kp-card">
+          <div class="kp-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <h3>Hébergement 100 % européen</h3>
+            <p>Données stockées en Irlande et Allemagne (Supabase + Vercel UE). Aucun transfert hors UE.</p>
+          </div>
+        </div>
+
+        <div class="kp-card">
+          <div class="kp-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div>
+            <h3>Chiffrement de bout en bout</h3>
+            <p>TLS 1.3 sur toutes les communications. Chiffrement au repos AES-256 pour les données stockées.</p>
+          </div>
+        </div>
+
+        <div class="kp-card">
+          <div class="kp-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M12 8v4l3 2"/></svg>
+          </div>
+          <div>
+            <h3>Isolation stricte multi-clients</h3>
+            <p>Chaque organisation est isolée par des politiques de sécurité au niveau base de données (RLS PostgreSQL).</p>
+          </div>
+        </div>
+
+        <div class="kp-card">
+          <div class="kp-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9 9 0 0 1-6-2.3L3 16"/><path d="M3 21v-5h5"/></svg>
+          </div>
+          <div>
+            <h3>Sauvegardes automatiques</h3>
+            <p>Sauvegardes quotidiennes incrémentales. Restauration possible jusqu'à 7&nbsp;jours en arrière.</p>
+          </div>
+        </div>
+
+        <div class="kp-card">
+          <div class="kp-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L9 18l-5-5"/></svg>
+          </div>
+          <div>
+            <h3>Conformité RGPD</h3>
+            <p>Droit à l'accès, à l'effacement, à la portabilité. Vous gardez le contrôle total de vos données à tout moment.</p>
+          </div>
+        </div>
+
+        <div class="kp-card">
+          <div class="kp-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <div>
+            <h3>Authentification sécurisée</h3>
+            <p>Connexion par email + mot de passe avec hash bcrypt. Authentification à deux facteurs (2FA) disponible.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 1 : Hébergement ── -->
+  <section class="section">
+    <div class="container">
+      <span class="section-num">01 — Infrastructure</span>
+      <h2>Où sont stockées vos données</h2>
+      <p>Firovia n'utilise <strong>aucun service hors Union européenne</strong> pour le stockage de vos données. Voici la liste complète de nos sous-traitants techniques&nbsp;:</p>
+
+      <table class="tech-table">
+        <tr>
+          <td>Base de données</td>
+          <td>Supabase (PostgreSQL) — région Irlande (eu-west-1)</td>
+        </tr>
+        <tr>
+          <td>Stockage fichiers (photos, PDF)</td>
+          <td>Supabase Storage — région Irlande (eu-west-1)</td>
+        </tr>
+        <tr>
+          <td>Hébergement application</td>
+          <td>Vercel — région Francfort (fra1)</td>
+        </tr>
+        <tr>
+          <td>Service d'envoi d'email</td>
+          <td>Resend — région Irlande (eu-west-1)</td>
+        </tr>
+        <tr>
+          <td>Nom de domaine</td>
+          <td>OVHcloud — France</td>
+        </tr>
+      </table>
+
+      <div class="callout">
+        <strong>Pourquoi c'est important&nbsp;:</strong> les données traitées par des prestataires américains tombent sous le <em>Cloud Act</em> qui peut contraindre l'accès aux données par les autorités US, même pour des données européennes. En restant 100&nbsp;% UE, Firovia garantit que vos données ne sortent jamais du cadre juridique européen.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 2 : Chiffrement ── -->
+  <section class="section">
+    <div class="container">
+      <span class="section-num">02 — Chiffrement</span>
+      <h2>Données protégées à chaque étape</h2>
+
+      <h3>En transit</h3>
+      <p>Toutes les communications entre votre navigateur et nos serveurs utilisent <strong>TLS 1.3</strong> (la version la plus récente du protocole HTTPS). Les certificats sont gérés automatiquement par Vercel et renouvelés tous les 90 jours.</p>
+
+      <h3>Au repos</h3>
+      <p>Les données stockées dans la base PostgreSQL et le stockage de fichiers sont chiffrées avec <strong>AES-256</strong>, le standard utilisé par les institutions bancaires et militaires. Les clés de chiffrement sont gérées par les opérateurs cloud (Supabase, Vercel) et tournées régulièrement.</p>
+
+      <h3>Mots de passe</h3>
+      <p>Les mots de passe utilisateurs ne sont jamais stockés en clair. Ils sont <strong>hashés avec bcrypt</strong> (algorithme adaptatif résistant aux attaques par GPU). Même les administrateurs Firovia n'ont aucun moyen technique de lire votre mot de passe.</p>
+    </div>
+  </section>
+
+  <!-- ── SECTION 3 : Isolation ── -->
+  <section class="section">
+    <div class="container">
+      <span class="section-num">03 — Isolation</span>
+      <h2>Étanchéité entre organisations</h2>
+
+      <p>Firovia est une application <strong>multi-tenant</strong>&nbsp;: plusieurs entreprises partagent la même infrastructure. C'est efficace, mais la <strong>séparation stricte</strong> de leurs données est critique.</p>
+
+      <p>Nous utilisons les <strong>Row Level Security (RLS) policies</strong> de PostgreSQL — une protection au niveau le plus bas de la base de données. Concrètement, chaque requête SQL est automatiquement filtrée par <code>organization_id</code>. Même en cas de bug applicatif ou de tentative malveillante, <strong>il est impossible techniquement</strong> qu'une organisation accède aux données d'une autre.</p>
+
+      <div class="callout">
+        <strong>Différence avec les concurrents&nbsp;:</strong> beaucoup de SaaS implémentent l'isolation uniquement dans le code applicatif. Si un développeur oublie un filtre, c'est la fuite de données. Avec RLS, l'isolation est garantie par PostgreSQL lui-même — c'est une protection au niveau infrastructure.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 4 : Sauvegardes ── -->
+  <section class="section">
+    <div class="container">
+      <span class="section-num">04 — Continuité</span>
+      <h2>Sauvegardes et restauration</h2>
+
+      <p>Vos données sont sauvegardées <strong>automatiquement chaque jour</strong>, sans aucune action de votre part. Les sauvegardes sont stockées dans des centres de données séparés du serveur principal — même en cas de défaillance majeure d'un site, vos données restent récupérables.</p>
+
+      <h3>Récupération en cas d'erreur</h3>
+      <p>Vous avez supprimé une intervention par erreur ? Effacé un client important ? <strong>Contactez-nous sous 7 jours</strong>, nous restaurons l'état précédent depuis nos sauvegardes.</p>
+
+      <h3>Plan de continuité</h3>
+      <p>L'infrastructure utilisée (Supabase, Vercel) garantit une disponibilité supérieure à <strong>99,9&nbsp;%</strong> avec basculement automatique en cas d'incident sur un centre de données.</p>
+    </div>
+  </section>
+
+  <!-- ── SECTION 5 : RGPD ── -->
+  <section class="section">
+    <div class="container">
+      <span class="section-num">05 — RGPD</span>
+      <h2>Vos droits, simplement</h2>
+
+      <p>Le <strong>Règlement Général sur la Protection des Données</strong> (RGPD) vous accorde 6 droits fondamentaux sur vos données personnelles. Firovia respecte chacun d'entre eux.</p>
+
+      <div class="rights-grid">
+        <div class="right-card">
+          <h4>Droit d'accès</h4>
+          <p>Obtenir la liste complète des données que nous détenons sur vous, sous 30&nbsp;jours.</p>
+        </div>
+        <div class="right-card">
+          <h4>Droit de rectification</h4>
+          <p>Modifier vos données directement dans l'application, ou nous demander de le faire.</p>
+        </div>
+        <div class="right-card">
+          <h4>Droit à l'effacement</h4>
+          <p>Demander la suppression définitive de votre compte et de toutes vos données.</p>
+        </div>
+        <div class="right-card">
+          <h4>Droit à la portabilité</h4>
+          <p>Récupérer toutes vos données dans un format ouvert (Excel, CSV, JSON) pour les migrer ailleurs.</p>
+        </div>
+        <div class="right-card">
+          <h4>Droit d'opposition</h4>
+          <p>Refuser certains traitements de vos données (marketing, analyse, etc.).</p>
+        </div>
+        <div class="right-card">
+          <h4>Droit à la limitation</h4>
+          <p>Demander que vos données soient conservées sans être traitées, le temps d'une réclamation.</p>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:24px;">
+        <strong>Comment exercer ces droits&nbsp;?</strong> Envoyez un email à <a href="mailto:contact@firovia.fr" style="color:var(--acc);font-weight:600;">contact@firovia.fr</a> en précisant votre demande. Nous répondons sous 30&nbsp;jours conformément au RGPD.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 6 : Authentification ── -->
+  <section class="section">
+    <div class="container">
+      <span class="section-num">06 — Accès</span>
+      <h2>Authentification & gestion des accès</h2>
+
+      <p>L'accès à votre compte Firovia est protégé par plusieurs couches&nbsp;:</p>
+
+      <ul>
+        <li><strong>Identifiants chiffrés</strong> — Mots de passe hashés bcrypt, jamais stockés en clair</li>
+        <li><strong>Authentification à deux facteurs (2FA)</strong> — Disponible pour tous les comptes administrateurs</li>
+        <li><strong>Sessions sécurisées</strong> — JWT signés avec expiration automatique</li>
+        <li><strong>Lien d'invitation à usage unique</strong> — Pour ajouter un membre, lien chiffré valide 7&nbsp;jours, à usage unique</li>
+        <li><strong>Rôles différenciés</strong> — Admin vs Membre, avec permissions distinctes (RH, finances, données clients)</li>
+        <li><strong>Révocation immédiate</strong> — Un administrateur peut retirer l'accès d'un membre à tout moment</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-box">
+        <h2>Une question sur la sécurité ?</h2>
+        <p>
+          Vous voulez en savoir plus sur un point précis, signaler une vulnérabilité, ou demander un DPA (Data Processing Agreement) pour votre conformité interne&nbsp;? Contactez-nous directement&nbsp;:
+        </p>
+        <p style="margin-bottom:0;">
+          📧 <a href="mailto:contact@firovia.fr">contact@firovia.fr</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div>© 2026 Firovia. Tous droits réservés.</div>
+    <div class="fnav">
+      <a href="/">Accueil</a>
+      <a href="/securite.html">Sécurité</a>
+      <a href="mailto:contact@firovia.fr">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
