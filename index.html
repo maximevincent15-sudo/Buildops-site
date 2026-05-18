@@ -824,18 +824,49 @@ function closeModal(){
   document.getElementById('modalBg').classList.remove('on');
   document.body.style.overflow='';
 }
-function submitForm(e){
+async function submitForm(e){
   e.preventDefault();
   const data={
-    firstname:document.getElementById('f_firstname').value,
-    lastname:document.getElementById('f_lastname').value,
-    email:document.getElementById('f_email').value,
-    phone:document.getElementById('f_phone').value,
-    company:document.getElementById('f_company').value,
+    firstname:document.getElementById('f_firstname').value.trim(),
+    lastname:document.getElementById('f_lastname').value.trim(),
+    email:document.getElementById('f_email').value.trim(),
+    phone:document.getElementById('f_phone').value.trim(),
+    company:document.getElementById('f_company').value.trim(),
     techs:document.getElementById('f_techs').value,
     plan:document.getElementById('f_plan').value,
   };
-  // Construction du mailto: pour envoi à contact@firovia.fr
+  // UI : passe le bouton en loading
+  const btn=e.target.querySelector('.modal-submit');
+  const originalLabel=btn.textContent;
+  btn.disabled=true;
+  btn.textContent='Envoi en cours…';
+  try{
+    const r=await fetch('/api/contact',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data),
+    });
+    const json=await r.json().catch(()=>({ok:false}));
+    if(r.ok && json.ok){
+      // Succès : on affiche le panneau de confirmation
+      document.getElementById('modalForm').style.display='none';
+      document.getElementById('modalSuccess').classList.add('on');
+    }else{
+      // Erreur côté API : on tombe sur le fallback mailto:
+      console.warn('[submitForm] API a échoué, fallback mailto:',json);
+      fallbackMailto(data);
+    }
+  }catch(err){
+    // Erreur réseau : fallback mailto:
+    console.warn('[submitForm] Erreur réseau, fallback mailto:',err);
+    fallbackMailto(data);
+  }finally{
+    btn.disabled=false;
+    btn.textContent=originalLabel;
+  }
+  return false;
+}
+function fallbackMailto(data){
   const subject=encodeURIComponent(`[Essai gratuit] ${data.company} - ${data.firstname} ${data.lastname}`);
   const body=encodeURIComponent(
     `Nouvelle demande d'essai gratuit Firovia\n\n`+
@@ -848,12 +879,9 @@ function submitForm(e){
     `Plan envisagé : ${data.plan||'À déterminer'}\n\n`+
     `À recontacter sous 24h.`
   );
-  // Ouvre le client mail avec le message pré-rempli
   window.location.href=`mailto:contact@firovia.fr?subject=${subject}&body=${body}`;
-  // Affiche le message de succès
   document.getElementById('modalForm').style.display='none';
   document.getElementById('modalSuccess').classList.add('on');
-  return false;
 }
 // Fermer modal avec Escape
 document.addEventListener('keydown',(e)=>{if(e.key==='Escape')closeModal();});

@@ -1,0 +1,10 @@
+{
+  "name": "firovia-vitrine",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Site vitrine Firovia + endpoint /api/contact (Vercel Functions)",
+  "engines": {
+    "node": ">=18"
+  }
+}
