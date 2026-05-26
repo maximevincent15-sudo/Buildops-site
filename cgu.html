@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<title>Conditions Générales d'Utilisation — Firovia</title>
+<meta name="description" content="Conditions Générales d'Utilisation du logiciel Firovia : engagements, droits, responsabilités."/>
+<meta name="author" content="Firovia"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://firovia.fr/cgu.html"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F2F3F5;--bg2:#E6E8EC;
+  --ink:#1C2130;--ink2:#5A6070;--ink3:#9AA0AE;
+  --acc:#3A5CA8;--acc2:#5578C8;
+  --wht:#F8F9FB;
+  --brd:rgba(28,33,48,.10);--brd2:rgba(28,33,48,.18);
+  --grn:#2E7D5E;--grn-lt:#D4EDE5;
+  --org:#C45A1A;--org-lt:#F5E0D0;
+  --r:10px;--rlg:18px;
+}
+html{scroll-behavior:smooth;}
+html,body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;letter-spacing:-.5px;}
+a{text-decoration:none;color:inherit;cursor:pointer;}
+
+#topnav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.85rem 4%;background:rgba(242,243,245,.95);backdrop-filter:blur(14px);border-bottom:.5px solid var(--brd);}
+.logo{display:flex;align-items:center;gap:9px;cursor:pointer;}
+.logo-txt{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--ink);}
+.logo-txt span{color:var(--acc);}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-size:.88rem;color:var(--ink2);font-weight:500;}
+.nav-links a:hover{color:var(--ink);}
+.nav-r{display:flex;gap:.6rem;align-items:center;}
+.btn-sm{display:inline-block;padding:.48rem 1.1rem;border-radius:100px;font-size:.85rem;font-weight:500;cursor:pointer;border:1px solid var(--brd2);background:transparent;color:var(--ink);transition:background .15s;}
+.btn-sm:hover{background:var(--bg2);}
+.btn-sm.acc{background:var(--acc);color:white;border-color:var(--acc);}
+.btn-sm.acc:hover{background:var(--acc2);}
+
+main{padding-top:80px;padding-bottom:80px;}
+.container{max-width:920px;margin:0 auto;padding:0 4%;}
+
+.hero{padding:64px 0 32px;text-align:center;border-bottom:1px solid var(--brd);}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--acc);background:var(--bg2);padding:6px 14px;border-radius:100px;margin-bottom:24px;letter-spacing:.4px;text-transform:uppercase;}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.1;margin-bottom:18px;}
+.hero-sub{font-size:1.02rem;color:var(--ink2);max-width:620px;margin:0 auto;}
+.hero-date{display:inline-block;margin-top:20px;font-size:.82rem;color:var(--ink3);}
+
+.section{padding:36px 0;border-bottom:1px solid var(--brd);}
+.section:last-child{border-bottom:none;}
+.section h2{font-size:1.45rem;font-weight:800;margin-bottom:14px;line-height:1.2;}
+.section h3{font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;margin-top:20px;margin-bottom:8px;letter-spacing:0;}
+.section p{color:var(--ink2);margin-bottom:12px;font-size:.95rem;}
+.section p strong{color:var(--ink);font-weight:600;}
+.section ul{list-style:none;padding-left:0;margin:12px 0;}
+.section ul li{position:relative;padding-left:24px;color:var(--ink2);font-size:.92rem;margin-bottom:8px;}
+.section ul li::before{content:"";position:absolute;left:0;top:.6rem;width:6px;height:6px;background:var(--acc);border-radius:50%;}
+
+.callout{background:white;border:1px solid var(--brd);border-left:4px solid var(--org);border-radius:var(--r);padding:18px 22px;margin:20px 0;font-size:.92rem;}
+.callout strong{color:var(--ink);}
+.callout.info{border-left-color:var(--acc);}
+
+.contact-box{background:var(--ink);color:white;border-radius:var(--rlg);padding:32px;margin-top:32px;text-align:center;}
+.contact-box h2{color:white;font-size:1.4rem;margin-bottom:8px;}
+.contact-box p{color:rgba(255,255,255,.75);margin-bottom:20px;}
+.contact-box a{color:white;font-weight:600;border-bottom:1px solid rgba(255,255,255,.4);}
+.contact-box a:hover{border-bottom-color:white;}
+
+footer{background:var(--ink);color:rgba(255,255,255,.6);padding:36px 4%;font-size:.82rem;}
+footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+footer a{color:rgba(255,255,255,.6);transition:color .15s;}
+footer a:hover{color:white;}
+.fnav{display:flex;gap:18px;flex-wrap:wrap;}
+
+@media (max-width:760px){
+  .nav-links{display:none;}
+  .hero{padding:48px 0 28px;}
+  .hero h1{font-size:1.85rem;}
+  .section{padding:28px 0;}
+  .contact-box{padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav id="topnav">
+  <a class="logo" href="/">
+    <div class="logo-txt"><span>Fir</span>ovia</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#features">Fonctionnalités</a></li>
+    <li><a href="/#pour-qui">Pour qui</a></li>
+    <li><a href="/#tarifs">Tarifs</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+  </ul>
+  <div class="nav-r">
+    <a class="btn-sm" href="https://app.firovia.fr/auth">Connexion</a>
+    <a class="btn-sm acc" href="https://app.firovia.fr/auth">Essai gratuit</a>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+
+    <section class="hero">
+      <div class="hero-tag">Légal</div>
+      <h1>Conditions Générales d'Utilisation</h1>
+      <p class="hero-sub">Les règles d'utilisation du logiciel Firovia, conçues pour protéger autant nos utilisateurs que notre activité.</p>
+      <div class="hero-date">Dernière mise à jour : 26 mai 2026</div>
+    </section>
+
+    <section class="section">
+      <div class="callout">
+        <strong>Document en cours de finalisation.</strong> Cette page présente les principes fondamentaux de nos Conditions Générales d'Utilisation. La version juridique complète et opposable, en cours de rédaction avec notre conseil juridique, sera publiée avant toute ouverture commerciale du service.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>1. Objet</h2>
+      <p>Les présentes Conditions Générales d'Utilisation (« CGU ») régissent l'accès et l'utilisation du logiciel Firovia, édité par Firovia, accessible à l'adresse <strong>app.firovia.fr</strong>.</p>
+      <p>Firovia est un logiciel SaaS (Software as a Service) destiné aux entreprises de maintenance en sécurité incendie. Il permet la gestion des interventions, la production de rapports, le suivi de la conformité réglementaire (référentiels APSAD R4, R5, R7, NF S 61-933) et la planification des techniciens.</p>
+    </section>
+
+    <section class="section">
+      <h2>2. Engagements de Firovia</h2>
+      <p>Dans le cadre du service fourni, Firovia s'engage à :</p>
+      <ul>
+        <li>Assurer un niveau de disponibilité du service de <strong>99,5%</strong> en moyenne mensuelle</li>
+        <li>Maintenir l'hébergement de l'ensemble des données dans <strong>l'Union Européenne</strong></li>
+        <li>Sauvegarder quotidiennement les données utilisateur, avec rétention de 7 jours minimum</li>
+        <li>Notifier sans délai toute incident de sécurité affectant les données de ses utilisateurs</li>
+        <li>Garantir la <strong>portabilité totale des données</strong> en cas de résiliation (export complet sous 30 jours)</li>
+        <li>Respecter scrupuleusement le Règlement Général sur la Protection des Données (RGPD)</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>3. Engagements de l'utilisateur</h2>
+      <p>En utilisant le service Firovia, l'utilisateur s'engage à :</p>
+      <ul>
+        <li>Fournir des informations exactes lors de l'inscription</li>
+        <li>Conserver la confidentialité de ses identifiants de connexion</li>
+        <li>Ne pas utiliser le service à des fins illégales ou contraires aux bonnes mœurs</li>
+        <li>Ne pas tenter d'accéder à des données ou comptes ne lui appartenant pas</li>
+        <li>Respecter la propriété intellectuelle de Firovia et de ses partenaires</li>
+        <li>Régler les abonnements selon les conditions tarifaires en vigueur</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>4. Période d'essai gratuite</h2>
+      <p>Firovia propose une <strong>période d'essai de 14 jours</strong>, sans engagement et <strong>sans demande de carte bancaire</strong>. À l'issue de cette période, l'utilisateur peut choisir de souscrire à un abonnement payant ou de cesser d'utiliser le service. Aucun prélèvement automatique n'est effectué sans accord préalable explicite.</p>
+    </section>
+
+    <section class="section">
+      <h2>5. Abonnement et facturation</h2>
+      <p>Les modalités de facturation, tarifs en vigueur, conditions de paiement et règles de résiliation sont détaillés dans nos <strong>Conditions Générales de Vente</strong> (en cours de finalisation).</p>
+      <p>Les abonnements sont facturés mensuellement ou annuellement selon le choix de l'utilisateur. Aucun engagement de durée n'est imposé : l'utilisateur peut résilier à tout moment avec un préavis d'un mois.</p>
+    </section>
+
+    <section class="section">
+      <h2>6. Données personnelles</h2>
+      <p>Le traitement des données personnelles est régi par notre <a href="/confidentialite.html" style="color:var(--acc);font-weight:500;">Politique de confidentialité</a>.</p>
+      <p>Pour le détail technique de nos pratiques de sécurité et de notre conformité RGPD, consultez notre page <a href="/securite.html" style="color:var(--acc);font-weight:500;">Sécurité &amp; RGPD</a>.</p>
+    </section>
+
+    <section class="section">
+      <h2>7. Limitation de responsabilité</h2>
+      <p>Firovia s'engage à fournir un service de qualité mais ne peut être tenue responsable :</p>
+      <ul>
+        <li>Des interruptions de service liées à un cas de force majeure</li>
+        <li>Des pertes de données résultant d'une action de l'utilisateur</li>
+        <li>De l'utilisation que fait l'utilisateur des rapports et documents générés</li>
+        <li>De la conformité réglementaire ultime des interventions effectuées (Firovia est un outil d'aide, pas une garantie de conformité)</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>8. Droit applicable</h2>
+      <p>Les présentes CGU sont soumises au <strong>droit français</strong>. Tout litige relatif à leur interprétation ou à leur exécution relève de la compétence exclusive des tribunaux français, sous réserve d'une éventuelle médiation préalable.</p>
+    </section>
+
+    <section>
+      <div class="contact-box">
+        <h2>Une question sur nos CGU ?</h2>
+        <p>Contactez-nous directement, nous répondons sous 48h.</p>
+        <a href="mailto:contact@firovia.fr">contact@firovia.fr</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div>© 2026 Firovia · Logiciel de gestion maintenance sécurité incendie</div>
+    <div class="fnav">
+      <a href="/mentions-legales.html">Mentions légales</a>
+      <a href="/cgu.html">CGU</a>
+      <a href="/confidentialite.html">Confidentialité</a>
+      <a href="/securite.html">Sécurité</a>
+      <a href="mailto:contact@firovia.fr">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
