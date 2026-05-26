@@ -1104,10 +1104,10 @@ footer{
         <span class="btn-play-ico">▶</span>
         <span>Voir la démo · 1 min</span>
       </button>
-      <button class="btn-primary">
+      <a href="/essai-gratuit.html" class="btn-primary" style="text-decoration:none;display:inline-flex;align-items:center;">
         Essai gratuit 14 jours
         <span style="margin-left:4px;">→</span>
-      </button>
+      </a>
     </div>
     <div class="hero-reassurance">
       <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Sans carte bancaire</div>
@@ -1620,10 +1620,10 @@ footer{
         <span class="btn-play-ico">▶</span>
         <span>Voir la démo · 1 min</span>
       </button>
-      <button class="btn-primary">
+      <a href="/essai-gratuit.html" class="btn-primary" style="text-decoration:none;display:inline-flex;align-items:center;">
         Essai gratuit 14 jours
         <span style="margin-left:4px;">→</span>
-      </button>
+      </a>
     </div>
   </div>
 </section>
@@ -1858,6 +1858,15 @@ document.querySelectorAll('.plan-trial').forEach((btn) => {
     const plan = btn.dataset.plan || 'pro';
     const period = pricingGrid ? (pricingGrid.dataset.period || 'annual') : 'annual';
     window.location.href = `/essai-gratuit.html?plan=${plan}&period=${period}`;
+  });
+});
+
+// ─── Clic sur "Voir la démo · 1 min" (temporaire en attente de la vidéo) ───
+// Pour l'instant, ouvre un mailto avec sujet pré-rempli pour demande de démo perso.
+// Sera remplacé par un modal vidéo Loom dès que l'enregistrement sera prêt.
+document.querySelectorAll('.btn-play').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    window.location.href = 'mailto:contact@firovia.fr?subject=Demande%20de%20d%C3%A9mo%20Firovia&body=Bonjour%2C%0A%0AJe%20souhaiterais%20voir%20une%20d%C3%A9mo%20de%20Firovia.%0A%0AVoici%20quelques%20infos%20sur%20mon%20entreprise%20%3A%0A-%20Nom%20de%20l%27entreprise%20%3A%20%0A-%20Nombre%20de%20techniciens%20%3A%20%0A-%20Logiciel%20actuel%20%3A%20%0A%0AMerci%20de%20me%20proposer%20un%20cr%C3%A9neau.%0A%0ABien%20cordialement%2C';
   });
 });
 
