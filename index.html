@@ -1082,7 +1082,7 @@ footer{
     </nav>
     <div class="nav-r">
       <a href="https://app.firovia.fr/auth" class="btn btn-light">Connexion</a>
-      <a href="https://app.firovia.fr/auth" class="btn btn-cta" data-utm="header-cta">Essai gratuit</a>
+      <a href="/essai-gratuit.html" class="btn btn-cta" data-utm="header-cta">Essai gratuit</a>
     </div>
   </div>
 </div>
@@ -1451,7 +1451,7 @@ footer{
 
     <div class="pricing-grid" data-period="annual">
 
-      <div class="plan">
+      <div class="plan" data-plan="starter">
         <div class="plan-name">Starter</div>
         <div class="plan-price">
           <strong class="price-monthly">299</strong>
@@ -1473,10 +1473,10 @@ footer{
         </ul>
         <div class="plan-savings">Économie : 598 € / an</div>
         <div class="plan-roi">Rentabilisé dès <strong>1 intervention supplémentaire</strong> par mois.</div>
-        <button class="plan-btn">Démarrer l'essai gratuit</button>
+        <button class="plan-btn plan-trial" data-plan="starter">Démarrer l'essai gratuit</button>
       </div>
 
-      <div class="plan featured">
+      <div class="plan featured" data-plan="pro">
         <div class="plan-pop">Le plus choisi</div>
         <div class="plan-name">Pro</div>
         <div class="plan-price">
@@ -1499,10 +1499,10 @@ footer{
         </ul>
         <div class="plan-savings">Économie : 998 € / an</div>
         <div class="plan-roi">Rentabilisé dès <strong>1 intervention supplémentaire</strong> par mois.</div>
-        <button class="plan-btn">Démarrer l'essai gratuit</button>
+        <button class="plan-btn plan-trial" data-plan="pro">Démarrer l'essai gratuit</button>
       </div>
 
-      <div class="plan">
+      <div class="plan" data-plan="enterprise">
         <div class="plan-name">Entreprise</div>
         <div class="plan-price">
           <span class="price-prefix">À partir de</span>
@@ -1525,7 +1525,7 @@ footer{
         </ul>
         <div class="plan-savings">Économie : 1 598 € / an</div>
         <div class="plan-roi">Rentabilisé dès <strong>2 interventions supplémentaires</strong> par mois.</div>
-        <button class="plan-btn">Nous contacter</button>
+        <button class="plan-btn plan-trial" data-plan="enterprise">Nous contacter</button>
       </div>
 
     </div>
@@ -1638,7 +1638,7 @@ footer{
           <li><a href="#features">Fonctionnalités</a></li>
           <li><a href="#tarifs">Tarifs</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="https://app.firovia.fr/auth">Essai gratuit</a></li>
+          <li><a href="/essai-gratuit.html">Essai gratuit</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1844,6 +1844,16 @@ billingOpts.forEach((btn) => {
       pricingGrid.dataset.period = period;
       prices.forEach((p) => { p.style.opacity = '1'; });
     }, 200);
+  });
+});
+
+// ─── Clic sur "Démarrer l'essai gratuit" / "Nous contacter" ───────────
+// Redirige vers /essai-gratuit.html?plan=X&period=Y en passant le choix utilisateur.
+document.querySelectorAll('.plan-trial').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const plan = btn.dataset.plan || 'pro';
+    const period = pricingGrid ? (pricingGrid.dataset.period || 'annual') : 'annual';
+    window.location.href = `/essai-gratuit.html?plan=${plan}&period=${period}`;
   });
 });
 

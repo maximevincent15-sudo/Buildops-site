@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<title>Essai gratuit 14 jours — Firovia</title>
+<meta name="description" content="Essayez Firovia gratuitement pendant 14 jours. Choisissez votre formule. Sans carte bancaire, sans engagement."/>
+<meta name="author" content="Firovia"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://firovia.fr/essai-gratuit.html"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Firovia"/>
+<meta property="og:url" content="https://firovia.fr/essai-gratuit.html"/>
+<meta property="og:title" content="Essai gratuit 14 jours — Firovia"/>
+<meta property="og:description" content="14 jours pour tester Firovia. Sans carte bancaire. Choisissez votre formule."/>
+<meta property="og:image" content="https://firovia.fr/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="fr_FR"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#FAFAFB;--bg-soft:#F2F3F5;
+  --ink:#1C2130;--ink2:#5A6070;--ink3:#9AA0AE;
+  --acc:#3A5CA8;--acc2:#5578C8;--acc-lt:#E8EEF8;--acc-tint:#F4F6FA;
+  --grn:#2E7D5E;--grn-lt:#D4EDE5;
+  --wht:#FFFFFF;
+  --brd:rgba(28,33,48,.08);--brd-strong:rgba(28,33,48,.14);
+  --shadow-soft:0 1px 3px rgba(28,33,48,.04),0 8px 24px rgba(28,33,48,.04);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.55;overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;letter-spacing:-1px;}
+a{text-decoration:none;color:inherit;cursor:pointer;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+
+/* ── NAV ── */
+.nav-wrap{position:fixed;top:24px;left:0;right:0;z-index:999;display:flex;justify-content:center;padding:0 24px;}
+.nav-grid{max-width:1180px;width:100%;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:32px;padding:10px 12px 10px 22px;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);border:1px solid var(--brd);border-radius:100px;box-shadow:0 4px 24px rgba(28,33,48,.06);}
+.nav-logo{font-family:'Syne',sans-serif;font-size:1.18rem;font-weight:800;letter-spacing:-.8px;color:var(--ink);}
+.nav-logo span{color:var(--acc);}
+.nav-pill{display:flex;gap:6px;justify-self:center;}
+.nav-link{padding:7px 14px;font-size:.86rem;font-weight:500;color:var(--ink2);border-radius:100px;transition:all .15s;}
+.nav-link:hover{color:var(--ink);background:var(--bg-soft);}
+.nav-r{display:flex;gap:8px;align-items:center;}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:100px;font-size:.88rem;font-weight:500;cursor:pointer;border:1px solid transparent;transition:all .15s;text-decoration:none;}
+.btn-light{background:transparent;color:var(--ink);border-color:var(--brd-strong);}
+.btn-light:hover{background:var(--bg-soft);}
+.btn-cta{background:var(--ink);color:white;}
+.btn-cta:hover{background:var(--acc);}
+
+main{padding-top:110px;padding-bottom:80px;}
+
+/* ── HERO ── */
+.hero{max-width:880px;margin:0 auto;padding:48px 24px 24px;text-align:center;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:100px;background:var(--grn-lt);color:var(--grn);font-size:.78rem;font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-bottom:20px;}
+.hero-tag::before{content:"";display:inline-block;width:8px;height:8px;background:var(--grn);border-radius:50%;}
+.hero h1{font-size:clamp(1.8rem,4.5vw,3rem);font-weight:800;line-height:1.1;margin-bottom:18px;}
+.hero h1 em{font-style:normal;color:var(--acc);}
+.hero-sub{font-size:1.05rem;color:var(--ink2);max-width:600px;margin:0 auto;line-height:1.55;}
+
+/* ── PRICING SECTION ── */
+.pricing-sec{max-width:1180px;margin:24px auto 0;padding:24px 24px 56px;}
+.billing-toggle-wrap{display:flex;justify-content:center;margin-bottom:36px;}
+.billing-toggle{display:inline-flex;background:var(--bg-soft);border-radius:100px;padding:5px;gap:4px;}
+.billing-opt{padding:9px 22px;border-radius:100px;font-size:.86rem;font-weight:500;color:var(--ink2);background:transparent;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;}
+.billing-opt.active{background:var(--ink);color:white;}
+.billing-save{background:var(--grn);color:white;padding:2px 8px;border-radius:100px;font-size:.7rem;font-weight:600;}
+
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.plan{background:white;border:1.5px solid var(--brd);border-radius:22px;padding:32px 28px;display:flex;flex-direction:column;cursor:pointer;transition:all .2s;position:relative;}
+.plan:hover{transform:translateY(-2px);border-color:var(--brd-strong);box-shadow:var(--shadow-soft);}
+.plan.selected{border-color:var(--acc);box-shadow:0 0 0 4px var(--acc-lt),0 8px 24px rgba(58,92,168,.12);}
+.plan.featured{background:var(--ink);color:white;}
+.plan.featured .plan-name,
+.plan.featured .price-monthly,
+.plan.featured .price-annual,
+.plan.featured .plan-equiv,
+.plan.featured .plan-desc{color:white;}
+.plan.featured.selected{border-color:white;box-shadow:0 0 0 4px rgba(255,255,255,.15),0 12px 32px rgba(28,33,48,.4);}
+
+.plan-pop{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--acc);color:white;font-size:.7rem;font-weight:700;padding:5px 14px;border-radius:100px;letter-spacing:.5px;text-transform:uppercase;}
+.plan-radio{position:absolute;top:20px;right:20px;width:22px;height:22px;border:2px solid var(--brd-strong);border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.plan.selected .plan-radio{border-color:var(--acc);background:var(--acc);}
+.plan.featured.selected .plan-radio{border-color:white;background:white;}
+.plan-radio::after{content:"";width:8px;height:8px;border-radius:50%;background:white;opacity:0;transition:opacity .2s;}
+.plan.selected .plan-radio::after{opacity:1;}
+.plan.featured.selected .plan-radio::after{background:var(--ink);}
+
+.plan-name{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;color:var(--ink2);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:14px;}
+.plan-price{display:flex;align-items:baseline;gap:6px;margin-bottom:6px;}
+.price-prefix{font-size:.78rem;color:var(--ink3);font-weight:500;display:block;width:100%;margin-bottom:-4px;}
+.plan.featured .price-prefix{color:rgba(255,255,255,.6);}
+.price-monthly,.price-annual{font-family:'Syne',sans-serif;font-size:2.6rem;font-weight:800;letter-spacing:-2px;}
+.plan-price .unit{font-size:.85rem;font-weight:500;color:var(--ink2);}
+.plan.featured .plan-price .unit{color:rgba(255,255,255,.7);}
+.plan-equiv{font-size:.82rem;color:var(--ink3);margin-bottom:18px;font-style:italic;}
+.plan.featured .plan-equiv{color:rgba(255,255,255,.55);}
+.plan-desc{font-size:.92rem;color:var(--ink2);margin-bottom:18px;line-height:1.5;}
+.plan.featured .plan-desc{color:rgba(255,255,255,.75);}
+.plan-techs{display:inline-block;background:var(--acc-lt);color:var(--acc);font-size:.82rem;font-weight:500;padding:6px 12px;border-radius:100px;margin-bottom:18px;}
+.plan.featured .plan-techs{background:rgba(255,255,255,.12);color:white;}
+.plan-feats{list-style:none;padding:0;margin-bottom:auto;}
+.plan-feats li{padding:5px 0;font-size:.88rem;color:var(--ink2);position:relative;padding-left:22px;}
+.plan-feats li::before{content:"✓";position:absolute;left:0;color:var(--grn);font-weight:700;}
+.plan.featured .plan-feats li{color:rgba(255,255,255,.85);}
+.plan.featured .plan-feats li::before{color:#7FD9B5;}
+
+.period-monthly .price-annual,
+.period-monthly .unit-annual{display:none;}
+.period-annual .price-monthly,
+.period-annual .unit-monthly{display:none;}
+
+/* ── INFO BAR (récap choix) ── */
+.choice-bar{max-width:1180px;margin:32px auto 0;padding:0 24px;}
+.choice-content{background:white;border:1.5px solid var(--acc);border-radius:18px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;box-shadow:0 4px 16px rgba(58,92,168,.08);}
+.choice-text{display:flex;flex-direction:column;gap:2px;}
+.choice-label{font-size:.78rem;color:var(--ink3);text-transform:uppercase;font-weight:600;letter-spacing:.5px;}
+.choice-value{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;color:var(--ink);}
+.choice-value span{color:var(--acc);}
+.start-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:100px;background:var(--ink);color:white;font-weight:600;font-size:.95rem;transition:all .15s;border:none;cursor:pointer;}
+.start-btn:hover{background:var(--acc);transform:translateY(-1px);box-shadow:0 8px 20px rgba(58,92,168,.2);}
+.start-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+
+/* ── REASSURE STRIP ── */
+.reassure{max-width:880px;margin:36px auto 0;padding:0 24px;}
+.reassure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.reassure-card{background:white;border:1px solid var(--brd);border-radius:14px;padding:16px;text-align:center;}
+.reassure-ico{width:36px;height:36px;border-radius:10px;background:var(--acc-lt);color:var(--acc);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;}
+.reassure-ico svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.reassure-card div{font-size:.82rem;font-weight:600;color:var(--ink);}
+.reassure-card p{font-size:.78rem;color:var(--ink2);margin-top:2px;}
+
+/* ── STEPS ── */
+.steps-sec{max-width:880px;margin:0 auto;padding:64px 24px;}
+.section-head{text-align:center;margin-bottom:40px;}
+.section-tag{display:inline-block;font-size:.78rem;font-weight:600;color:var(--acc);background:var(--acc-lt);padding:6px 14px;border-radius:100px;letter-spacing:.4px;text-transform:uppercase;margin-bottom:18px;}
+.section-head h2{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;line-height:1.15;margin-bottom:14px;}
+.section-head h2 em{font-style:normal;color:var(--acc);}
+.section-sub{font-size:1rem;color:var(--ink2);max-width:580px;margin:0 auto;}
+
+.steps{display:grid;gap:14px;}
+.step{display:grid;grid-template-columns:64px 1fr;gap:22px;background:white;border:1px solid var(--brd);border-radius:18px;padding:22px 26px;align-items:center;}
+.step-num{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--acc) 0%,var(--acc2) 100%);color:white;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;flex-shrink:0;}
+.step-c h3{font-family:'DM Sans',sans-serif;letter-spacing:-.2px;font-size:1.02rem;font-weight:700;margin-bottom:4px;}
+.step-c p{font-size:.92rem;color:var(--ink2);}
+
+/* ── FAQ ── */
+.faq-sec{max-width:780px;margin:0 auto;padding:48px 24px;}
+.faq-item{border-bottom:1px solid var(--brd);padding:22px 0;}
+.faq-q{font-family:'Syne',sans-serif;font-size:1.02rem;font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:-.3px;}
+.faq-a{font-size:.94rem;color:var(--ink2);line-height:1.6;}
+.faq-a strong{color:var(--ink);font-weight:500;}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.6);padding:36px 4%;font-size:.82rem;margin-top:48px;}
+footer .container{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+footer a{color:rgba(255,255,255,.6);transition:color .15s;}
+footer a:hover{color:white;}
+.fnav{display:flex;gap:18px;flex-wrap:wrap;}
+
+@media (max-width:920px){
+  .pricing-grid{grid-template-columns:1fr;}
+  .reassure-grid{grid-template-columns:1fr;}
+}
+@media (max-width:760px){
+  .nav-pill{display:none;}
+  .nav-grid{grid-template-columns:auto auto;gap:12px;}
+  .hero{padding:24px 24px 12px;}
+  .choice-content{flex-direction:column;align-items:stretch;}
+  .start-btn{justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV PILL ═══════════════════ -->
+<div class="nav-wrap">
+  <div class="nav-grid">
+    <a href="/" class="nav-logo"><span>Fir</span>ovia</a>
+    <nav class="nav-pill">
+      <a href="/#features" class="nav-link">Fonctionnalités</a>
+      <a href="/#pour-qui" class="nav-link">Pour qui</a>
+      <a href="/#tarifs" class="nav-link">Tarifs</a>
+      <a href="/#faq" class="nav-link">FAQ</a>
+    </nav>
+    <div class="nav-r">
+      <a href="https://app.firovia.fr/auth" class="btn btn-light">Connexion</a>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section class="hero">
+    <div class="hero-tag">Essai gratuit 14 jours</div>
+    <h1>Choisissez votre formule.<br/><em>Démarrez sans risque.</em></h1>
+    <p class="hero-sub">Toutes nos formules incluent un essai gratuit de 14 jours. Sans carte bancaire. Vous changerez de plan ou résilierez à tout moment.</p>
+  </section>
+
+  <!-- ═══════════════════ PRICING ═══════════════════ -->
+  <section class="pricing-sec">
+
+    <!-- Toggle Mensuel / Annuel -->
+    <div class="billing-toggle-wrap">
+      <div class="billing-toggle" role="tablist">
+        <button class="billing-opt" data-period="monthly">Mensuel</button>
+        <button class="billing-opt active" data-period="annual">
+          Annuel
+          <span class="billing-save">−2 mois</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="pricing-grid period-annual" id="pricingGrid">
+
+      <!-- STARTER -->
+      <div class="plan" data-plan="starter">
+        <div class="plan-radio"></div>
+        <div class="plan-name">Starter</div>
+        <div class="plan-price">
+          <strong class="price-monthly">299</strong>
+          <strong class="price-annual">2 990</strong>
+          <span class="unit">
+            <span class="unit-monthly">€ HT / mois</span>
+            <span class="unit-annual">€ HT / an</span>
+          </span>
+        </div>
+        <p class="plan-equiv plan-equiv-monthly">Soit 299 € / mois</p>
+        <p class="plan-equiv plan-equiv-annual">Soit 249 € / mois</p>
+        <p class="plan-desc">Pour les TPE familiales qui démarrent ou veulent quitter Excel.</p>
+        <div class="plan-techs">👤 1 à 5 techniciens</div>
+        <ul class="plan-feats">
+          <li>Planning + rapports terrain</li>
+          <li>Registres APSAD</li>
+          <li>Alertes échéances</li>
+          <li>Devis &amp; factures</li>
+          <li>Support email</li>
+        </ul>
+      </div>
+
+      <!-- PRO (featured) -->
+      <div class="plan featured selected" data-plan="pro">
+        <div class="plan-pop">Le plus choisi</div>
+        <div class="plan-radio"></div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">
+          <strong class="price-monthly">499</strong>
+          <strong class="price-annual">4 990</strong>
+          <span class="unit">
+            <span class="unit-monthly">€ HT / mois</span>
+            <span class="unit-annual">€ HT / an</span>
+          </span>
+        </div>
+        <p class="plan-equiv plan-equiv-monthly">Soit 499 € / mois</p>
+        <p class="plan-equiv plan-equiv-annual">Soit 416 € / mois</p>
+        <p class="plan-desc">Pour les PME en croissance qui veulent piloter business + terrain.</p>
+        <div class="plan-techs">👥 6 à 20 techniciens</div>
+        <ul class="plan-feats">
+          <li>Tout le plan Starter</li>
+          <li>Pilotage business (CA, impayés)</li>
+          <li>Tops clients / techniciens</li>
+          <li>Évolution mensuelle du CA</li>
+          <li>Support prioritaire</li>
+        </ul>
+      </div>
+
+      <!-- ENTREPRISE -->
+      <div class="plan" data-plan="enterprise">
+        <div class="plan-radio"></div>
+        <div class="plan-name">Entreprise</div>
+        <div class="plan-price">
+          <span class="price-prefix">À partir de</span>
+          <strong class="price-monthly">799</strong>
+          <strong class="price-annual">7 990</strong>
+          <span class="unit">
+            <span class="unit-monthly">€ HT / mois</span>
+            <span class="unit-annual">€ HT / an</span>
+          </span>
+        </div>
+        <p class="plan-equiv plan-equiv-monthly">Soit 799 € / mois</p>
+        <p class="plan-equiv plan-equiv-annual">Soit 666 € / mois</p>
+        <p class="plan-desc">Pour les structures multi-agences ou 21+ techniciens. Tarif sur-mesure selon vos besoins.</p>
+        <div class="plan-techs">🏢 21+ techniciens (illimité)</div>
+        <ul class="plan-feats">
+          <li>Tout le plan Pro</li>
+          <li>Multi-agences consolidé</li>
+          <li>Personnalisation avancée</li>
+          <li>Accompagnement onboarding</li>
+          <li>Support dédié</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- BANDEAU RÉCAP CHOIX + BOUTON START -->
+    <div class="choice-bar">
+      <div class="choice-content">
+        <div class="choice-text">
+          <div class="choice-label">Votre choix</div>
+          <div class="choice-value">Plan <span id="choicePlan">Pro</span> · <span id="choicePeriod">Annuel</span></div>
+        </div>
+        <button id="startBtn" class="start-btn">
+          Démarrer mon essai gratuit
+          <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- REASSURE STRIP -->
+    <div class="reassure">
+      <div class="reassure-grid">
+        <div class="reassure-card">
+          <div class="reassure-ico">
+            <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          </div>
+          <div>Aucune CB demandée</div>
+          <p>14 jours sans aucun frais</p>
+        </div>
+        <div class="reassure-card">
+          <div class="reassure-ico">
+            <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </div>
+          <div>Données 100% UE</div>
+          <p>Hébergé en France/UE</p>
+        </div>
+        <div class="reassure-card">
+          <div class="reassure-ico">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>Opérationnel en 48h</div>
+          <p>Import + formation incluse</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════ STEPS ═══════════════════ -->
+  <section class="steps-sec">
+    <div class="section-head">
+      <div class="section-tag">En 4 étapes</div>
+      <h2>Comment ça <em>démarre</em>.</h2>
+      <p class="section-sub">Pas de paperasse, pas d'attente, pas d'installation. Tout se fait en ligne.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-c">
+          <h3>Vous créez votre compte</h3>
+          <p>30 secondes : nom, prénom, email pro, entreprise, mot de passe. C'est tout.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-c">
+          <h3>On vous appelle (optionnel)</h3>
+          <p>Sous 24h, on vous propose un visio de 30 min pour comprendre votre activité et préparer l'import.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-c">
+          <h3>Vous importez vos données</h3>
+          <p>Clients, sites, techniciens depuis Excel, CSV ou votre ancien logiciel (Optim-BTP, etc.).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-c">
+          <h3>Vos équipes sont opérationnelles</h3>
+          <p>Les techniciens téléchargent l'app mobile, saisissent leurs premiers rapports terrain. Vous suivez tout en temps réel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FAQ ═══════════════════ -->
+  <section class="faq-sec">
+    <div class="section-head">
+      <div class="section-tag">FAQ</div>
+      <h2>Vos questions, <em>nos réponses.</em></h2>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Que se passe-t-il après les 14 jours ?</div>
+      <div class="faq-a">Si vous décidez de continuer, vous saisissez vos infos de paiement et confirmez le plan choisi. <strong>Si vous ne faites rien, votre compte est suspendu sans aucun prélèvement.</strong> Vos données restent disponibles 30 jours pour réactivation.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Puis-je changer de plan après l'inscription ?</div>
+      <div class="faq-a">Oui, à tout moment. Vous pouvez <strong>monter ou descendre de plan</strong> directement depuis vos paramètres, sans rien recommencer. La facturation s'ajuste au prorata.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Est-ce que je peux annuler avant la fin des 14 jours ?</div>
+      <div class="faq-a">Oui, sans pénalité. Supprimez votre compte en 1 clic depuis vos paramètres, ou ne vous connectez simplement plus. <strong>Aucun engagement, aucune carte à débiter.</strong></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Mes techniciens peuvent-ils essayer aussi ?</div>
+      <div class="faq-a">Oui, sans limite. Pendant l'essai, vous pouvez inviter <strong>tous les techniciens de votre équipe</strong> à utiliser l'app mobile. C'est même conseillé : le vrai test, c'est l'usage terrain.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Comment fonctionne le plan Entreprise ?</div>
+      <div class="faq-a">Pour les structures multi-agences ou 21+ techniciens, nous établissons un <strong>devis sur-mesure</strong> selon vos besoins. Vous pouvez démarrer l'essai gratuit normalement, et notre équipe vous contactera pour discuter de vos exigences spécifiques.</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div>© 2026 Firovia · Logiciel de gestion maintenance sécurité incendie</div>
+    <div class="fnav">
+      <a href="/mentions-legales.html">Mentions légales</a>
+      <a href="/cgu.html">CGU</a>
+      <a href="/confidentialite.html">Confidentialité</a>
+      <a href="/securite.html">Sécurité</a>
+      <a href="mailto:contact@firovia.fr">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  /* ────────── Lecture des paramètres URL ────────── */
+  const urlParams = new URLSearchParams(window.location.search);
+  const initPlan = urlParams.get('plan') || 'pro';     // pro, starter, enterprise
+  const initPeriod = urlParams.get('period') || 'annual'; // annual, monthly
+
+  /* ────────── Sélection des éléments ────────── */
+  const grid = document.getElementById('pricingGrid');
+  const plans = document.querySelectorAll('.plan');
+  const billingOpts = document.querySelectorAll('.billing-opt');
+  const choicePlanEl = document.getElementById('choicePlan');
+  const choicePeriodEl = document.getElementById('choicePeriod');
+  const startBtn = document.getElementById('startBtn');
+
+  /* ────────── État ────────── */
+  let currentPlan = initPlan;
+  let currentPeriod = initPeriod;
+
+  /* Labels lisibles */
+  const planLabels = {
+    starter: 'Starter',
+    pro: 'Pro',
+    enterprise: 'Entreprise',
+  };
+  const periodLabels = {
+    annual: 'Annuel',
+    monthly: 'Mensuel',
+  };
+
+  /* ────────── Update visuel ────────── */
+  function refresh() {
+    // Plan sélectionné
+    plans.forEach((p) => {
+      p.classList.toggle('selected', p.dataset.plan === currentPlan);
+    });
+
+    // Période active
+    billingOpts.forEach((b) => {
+      b.classList.toggle('active', b.dataset.period === currentPeriod);
+    });
+    grid.classList.toggle('period-annual', currentPeriod === 'annual');
+    grid.classList.toggle('period-monthly', currentPeriod === 'monthly');
+
+    // Show/hide les bons textes plan-equiv
+    plans.forEach((p) => {
+      const monthly = p.querySelector('.plan-equiv-monthly');
+      const annual = p.querySelector('.plan-equiv-annual');
+      if (monthly) monthly.style.display = currentPeriod === 'monthly' ? '' : 'none';
+      if (annual) annual.style.display = currentPeriod === 'annual' ? '' : 'none';
+    });
+
+    // Récap choix
+    choicePlanEl.textContent = planLabels[currentPlan] || 'Pro';
+    choicePeriodEl.textContent = periodLabels[currentPeriod] || 'Annuel';
+
+    // Texte du bouton selon plan
+    if (currentPlan === 'enterprise') {
+      startBtn.innerHTML = `Nous contacter
+        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`;
+    } else {
+      startBtn.innerHTML = `Démarrer mon essai gratuit
+        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`;
+    }
+  }
+
+  /* ────────── Listeners ────────── */
+  plans.forEach((p) => {
+    p.addEventListener('click', () => {
+      currentPlan = p.dataset.plan;
+      refresh();
+    });
+  });
+
+  billingOpts.forEach((b) => {
+    b.addEventListener('click', () => {
+      currentPeriod = b.dataset.period;
+      refresh();
+    });
+  });
+
+  startBtn.addEventListener('click', () => {
+    if (currentPlan === 'enterprise') {
+      window.location.href = `mailto:contact@firovia.fr?subject=Demande%20plan%20Entreprise&body=Bonjour%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20le%20plan%20Entreprise%20%28facturation%20${encodeURIComponent(periodLabels[currentPeriod])}%29.%0A%0AMerci.`;
+    } else {
+      window.location.href = `https://app.firovia.fr/auth?tab=register&plan=${currentPlan}&period=${currentPeriod}`;
+    }
+  });
+
+  /* ────────── Init ────────── */
+  refresh();
+})();
+</script>
+
+</body>
+</html>
