@@ -1066,6 +1066,39 @@ footer{
   .btn-play,.btn-primary{width:100%;justify-content:center;}
   .footer-top{grid-template-columns:1fr;}
 }
+
+/* ═══════════════════ MODALE VIDÉO DÉMO ═══════════════════ */
+.video-modal{
+  position:fixed;inset:0;z-index:9998;
+  background:rgba(10,12,20,.85);backdrop-filter:blur(8px);
+  display:none;align-items:center;justify-content:center;
+  padding:24px;
+  opacity:0;transition:opacity .25s ease;
+}
+.video-modal.open{display:flex;opacity:1;}
+.video-modal-inner{
+  position:relative;width:100%;max-width:960px;
+  background:#000;border-radius:16px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  aspect-ratio:16/9;
+  transform:scale(.96);transition:transform .25s ease;
+}
+.video-modal.open .video-modal-inner{transform:scale(1);}
+.video-modal-inner iframe{
+  position:absolute;inset:0;width:100%;height:100%;border:0;
+}
+.video-modal-close{
+  position:absolute;top:-44px;right:0;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.12);border:0;color:white;
+  font-size:1.2rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s;
+}
+.video-modal-close:hover{background:rgba(255,255,255,.22);}
+@media(max-width:640px){
+  .video-modal-close{top:-40px;right:0;}
+}
 </style>
 </head>
 <body>
@@ -1861,14 +1894,33 @@ document.querySelectorAll('.plan-trial').forEach((btn) => {
   });
 });
 
-// ─── Clic sur "Voir la démo · 1 min" (temporaire en attente de la vidéo) ───
-// Pour l'instant, ouvre un mailto avec sujet pré-rempli pour demande de démo perso.
-// Sera remplacé par un modal vidéo Loom dès que l'enregistrement sera prêt.
-document.querySelectorAll('.btn-play').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    window.location.href = 'mailto:contact@firovia.fr?subject=Demande%20de%20d%C3%A9mo%20Firovia&body=Bonjour%2C%0A%0AJe%20souhaiterais%20voir%20une%20d%C3%A9mo%20de%20Firovia.%0A%0AVoici%20quelques%20infos%20sur%20mon%20entreprise%20%3A%0A-%20Nom%20de%20l%27entreprise%20%3A%20%0A-%20Nombre%20de%20techniciens%20%3A%20%0A-%20Logiciel%20actuel%20%3A%20%0A%0AMerci%20de%20me%20proposer%20un%20cr%C3%A9neau.%0A%0ABien%20cordialement%2C';
+// ─── Clic sur "Voir la démo · 1 min" : ouvre la modale vidéo Loom ───
+(function initVideoModal() {
+  const modal = document.getElementById('video-modal');
+  const iframe = document.getElementById('video-modal-iframe');
+  const closeBtn = document.getElementById('video-modal-close');
+  if (!modal || !iframe || !closeBtn) return;
+
+  const LOOM_EMBED = 'https://www.loom.com/embed/ba858f621c53499ca2244e37e5f086b5?autoplay=1';
+
+  function openModal() {
+    iframe.src = LOOM_EMBED;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    iframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.btn-play').forEach((btn) => {
+    btn.addEventListener('click', openModal);
   });
-});
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+})();
 
 /* ═══════════════════ ANIMATION ORBITALE (Import section) ═══════════════════ */
 /* Fait tourner Excel / CSV / Optim-BTP autour du logo Firovia (comme des planètes). */
@@ -1937,6 +1989,14 @@ document.querySelectorAll('.btn-play').forEach((btn) => {
   observer.observe(container);
 })();
 </script>
+
+<!-- ═══════════════════ MODALE VIDÉO DÉMO ═══════════════════ -->
+<div class="video-modal" id="video-modal" role="dialog" aria-label="Vidéo de démo Firovia" aria-modal="true">
+  <div class="video-modal-inner">
+    <button type="button" class="video-modal-close" id="video-modal-close" aria-label="Fermer la vidéo">✕</button>
+    <iframe id="video-modal-iframe" src="" title="Démo Firovia" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
 
 </body>
 </html>
