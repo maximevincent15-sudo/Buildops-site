@@ -842,14 +842,18 @@ h2.visible .word{
   background:rgba(255,255,255,.06);color:rgba(255,255,255,.8);
 }
 
-/* "à partir de" prefix discret */
+/* "à partir de" prefix discret — passe en pleine largeur sur Entreprise */
 .price-prefix{
   font-size:.85rem;font-weight:500;color:var(--ink2);
   text-transform:lowercase;letter-spacing:.2px;
   font-family:'DM Sans',sans-serif;
-  margin-right:4px;
+  flex-basis:100%;margin-bottom:-2px;
+  white-space:nowrap;
 }
 .plan.featured .price-prefix{color:rgba(255,255,255,.65);}
+/* Nombre + unité : empêche le wrap interne */
+.price-monthly,.price-annual{white-space:nowrap;}
+.plan-price .unit{white-space:nowrap;}
 
 .pricing-grid{
   display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
@@ -886,7 +890,7 @@ h2.visible .word{
 .plan-price{
   font-family:'Syne',sans-serif;
   font-size:2.6rem;font-weight:800;letter-spacing:-1.5px;line-height:1;
-  display:flex;align-items:baseline;gap:6px;
+  display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;
 }
 .plan-price .unit{font-size:.95rem;font-weight:500;color:var(--ink2);}
 .plan.featured .plan-price .unit{color:rgba(255,255,255,.65);}
