@@ -1107,6 +1107,14 @@ footer{
 </head>
 <body>
 
+<!-- ═══════════════════ MODALE VIDÉO DÉMO ═══════════════════ -->
+<div class="video-modal" id="video-modal" role="dialog" aria-label="Vidéo de démo Firovia" aria-modal="true">
+  <div class="video-modal-inner">
+    <button type="button" class="video-modal-close" id="video-modal-close" aria-label="Fermer la vidéo">✕</button>
+    <iframe id="video-modal-iframe" src="" title="Démo Firovia" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
+
 <!-- ═══════════════════ NAV PILL ═══════════════════ -->
 <div class="nav-wrap">
   <div class="nav-grid">
@@ -1993,14 +2001,6 @@ document.querySelectorAll('.plan-trial').forEach((btn) => {
   observer.observe(container);
 })();
 </script>
-
-<!-- ═══════════════════ MODALE VIDÉO DÉMO ═══════════════════ -->
-<div class="video-modal" id="video-modal" role="dialog" aria-label="Vidéo de démo Firovia" aria-modal="true">
-  <div class="video-modal-inner">
-    <button type="button" class="video-modal-close" id="video-modal-close" aria-label="Fermer la vidéo">✕</button>
-    <iframe id="video-modal-iframe" src="" title="Démo Firovia" allow="autoplay; fullscreen" allowfullscreen></iframe>
-  </div>
-</div>
 
 </body>
 </html>
