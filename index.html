@@ -1067,8 +1067,32 @@ footer{
   .feat-cols-3{grid-template-columns:1fr;}
   .equip-grid{grid-template-columns:1fr 1fr;}
   .hero-actions{flex-direction:column;width:100%;}
-  .btn-play,.btn-primary{width:100%;justify-content:center;}
+  .btn-play,.btn-primary,.btn-calendar{width:100%;justify-content:center;}
   .footer-top{grid-template-columns:1fr;}
+}
+
+/* ═══════════════════ BOUTON RÉSERVER UNE DÉMO (Cal.com) ═══════════════════ */
+.btn-calendar{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:100px;
+  background:var(--acc-lt);border:1px solid rgba(58,92,168,.18);
+  font-size:.95rem;font-weight:600;color:var(--acc);
+  cursor:pointer;
+  transition:all .2s;
+  font-family:inherit;
+}
+.btn-calendar:hover{
+  transform:translateY(-1px);
+  background:rgba(58,92,168,.14);
+  border-color:rgba(58,92,168,.28);
+}
+.cta-final .btn-calendar{
+  background:rgba(255,255,255,.12);
+  color:white;
+  border-color:rgba(255,255,255,.22);
+}
+.cta-final .btn-calendar:hover{
+  background:rgba(255,255,255,.18);
 }
 
 /* ═══════════════════ MODALE VIDÉO DÉMO ═══════════════════ */
@@ -1148,6 +1172,10 @@ footer{
       <button class="btn-play">
         <span class="btn-play-ico">▶</span>
         <span>Voir la démo · 1 min</span>
+      </button>
+      <button class="btn-calendar" data-cal-namespace="demo" data-cal-link="firovia/demo" data-cal-config='{"layout":"month_view"}'>
+        <span>📅</span>
+        <span>Réserver une démo</span>
       </button>
       <a href="/essai-gratuit.html" class="btn-primary" style="text-decoration:none;display:inline-flex;align-items:center;">
         Essai gratuit 14 jours
@@ -1665,6 +1693,10 @@ footer{
         <span class="btn-play-ico">▶</span>
         <span>Voir la démo · 1 min</span>
       </button>
+      <button class="btn-calendar" data-cal-namespace="demo" data-cal-link="firovia/demo" data-cal-config='{"layout":"month_view"}'>
+        <span>📅</span>
+        <span>Réserver une démo</span>
+      </button>
       <a href="/essai-gratuit.html" class="btn-primary" style="text-decoration:none;display:inline-flex;align-items:center;">
         Essai gratuit 14 jours
         <span style="margin-left:4px;">→</span>
@@ -2000,6 +2032,13 @@ document.querySelectorAll('.plan-trial').forEach((btn) => {
   }, { threshold: 0.2 });
   observer.observe(container);
 })();
+</script>
+
+<!-- ═══════════════════ CAL.COM POPUP EMBED ═══════════════════ -->
+<script type="text/javascript">
+(function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", "demo", {origin:"https://app.cal.com"});
+Cal.ns.demo("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
 </script>
 
 </body>
