@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<title>Logiciel maintenance incendie : comment choisir en 2026 ? — Firovia</title>
+<meta name="description" content="Guide complet pour choisir son logiciel de maintenance incendie en 2026 : critères essentiels, comparatif Excel vs ERP vs SaaS spécialisé, tarifs, registre APSAD R4."/>
+<meta name="keywords" content="logiciel maintenance incendie, logiciel suivi extincteurs, logiciel APSAD R4, logiciel SSI, registre sécurité incendie, gestion interventions incendie"/>
+<meta name="author" content="Firovia"/>
+<link rel="canonical" href="https://firovia.fr/blog/logiciel-maintenance-incendie-comment-choisir-2026.html"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Firovia"/>
+<meta property="og:url" content="https://firovia.fr/blog/logiciel-maintenance-incendie-comment-choisir-2026.html"/>
+<meta property="og:title" content="Logiciel maintenance incendie : comment choisir en 2026 ?"/>
+<meta property="og:description" content="Les 7 critères essentiels, les pièges à éviter et combien ça coûte réellement pour une PME."/>
+<meta property="og:image" content="https://firovia.fr/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="fr_FR"/>
+<meta property="article:published_time" content="2026-06-15"/>
+<meta property="article:author" content="Firovia"/>
+<meta property="article:section" content="Guide"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Logiciel maintenance incendie : comment choisir en 2026 ?"/>
+<meta name="twitter:description" content="7 critères essentiels, pièges à éviter, et combien ça coûte vraiment."/>
+<meta name="twitter:image" content="https://firovia.fr/og-image.png"/>
+
+<!-- Schema.org Article + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Logiciel maintenance incendie : comment choisir en 2026 ?",
+  "description": "Guide complet pour choisir son logiciel de maintenance incendie : critères essentiels, comparatif Excel vs ERP vs SaaS spécialisé, tarifs, registre APSAD R4.",
+  "image": "https://firovia.fr/og-image.png",
+  "author": {"@type": "Organization", "name": "Firovia", "url": "https://firovia.fr/"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "Firovia",
+    "logo": {"@type": "ImageObject", "url": "https://firovia.fr/og-image.png"}
+  },
+  "datePublished": "2026-06-15",
+  "dateModified": "2026-06-15",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://firovia.fr/blog/logiciel-maintenance-incendie-comment-choisir-2026.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quel est le prix d'un logiciel de maintenance incendie pour une PME ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Comptez entre 25€ et 80€ par technicien et par mois pour un SaaS spécialisé. Une PME de 5 techniciens dépense donc entre 125€ et 400€/mois, contre plusieurs milliers d'euros pour un ERP métier installé en interne."}
+    },
+    {
+      "@type": "Question",
+      "name": "Excel peut-il suffire pour gérer la maintenance incendie ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Excel suffit jusqu'à environ 50 sites clients. Au-delà, le coût caché en temps de saisie, oublis de visites annuelles et erreurs sur le registre APSAD dépasse largement le prix d'un logiciel spécialisé."}
+    },
+    {
+      "@type": "Question",
+      "name": "Un logiciel de maintenance incendie doit-il être hébergé en France ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Pas obligatoirement, mais l'hébergement dans l'Union Européenne est fortement recommandé pour la conformité RGPD. Les données de vos clients (plans d'établissements, équipements) sont sensibles."}
+    },
+    {
+      "@type": "Question",
+      "name": "Quels sont les critères essentiels d'un logiciel de maintenance incendie ?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Les 7 critères essentiels sont : conformité APSAD R4, mobilité hors-ligne, signature électronique terrain, gestion du registre, photos & annotations, planning visuel, et facturation intégrée."}
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F2F3F5;--bg2:#E6E8EC;--bg3:#D8DCE4;
+  --ink:#1C2130;--ink2:#5A6070;--ink3:#9AA0AE;
+  --acc:#3A5CA8;--acc2:#5578C8;--acc-lt:#E8EEF8;
+  --wht:#F8F9FB;
+  --brd:rgba(28,33,48,.10);--brd2:rgba(28,33,48,.18);
+  --grn:#2E7D5E;--grn-lt:#D4EDE5;
+  --red:#A83A3A;--red-lt:#FDEAEA;
+  --org:#C45A1A;--org-lt:#F5E0D0;
+  --r:10px;--rlg:18px;
+}
+html{scroll-behavior:smooth;}
+html,body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;letter-spacing:-.5px;}
+a{text-decoration:none;color:inherit;cursor:pointer;}
+
+/* ── NAV ── */
+#topnav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.85rem 4%;background:rgba(242,243,245,.95);backdrop-filter:blur(14px);border-bottom:.5px solid var(--brd);}
+.logo{display:flex;align-items:center;gap:9px;cursor:pointer;}
+.logo-txt{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--ink);}
+.logo-txt span{color:var(--acc);}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-size:.88rem;color:var(--ink2);font-weight:500;}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a.active{color:var(--ink);font-weight:600;}
+.nav-r{display:flex;gap:.6rem;align-items:center;}
+.btn-sm{display:inline-block;padding:.48rem 1.1rem;border-radius:100px;font-size:.85rem;font-weight:500;cursor:pointer;border:1px solid var(--brd2);background:transparent;color:var(--ink);transition:background .15s;}
+.btn-sm:hover{background:var(--bg2);}
+.btn-sm.acc{background:var(--acc);color:white;border-color:var(--acc);}
+.btn-sm.acc:hover{background:var(--acc2);}
+@media(max-width:720px){.nav-links{display:none;}}
+
+/* ── PAGE LAYOUT ── */
+main{padding-top:80px;padding-bottom:40px;}
+.container{max-width:760px;margin:0 auto;padding:0 4%;}
+
+/* ── BREADCRUMB ── */
+.crumb{padding:24px 0 0;font-size:.82rem;color:var(--ink3);}
+.crumb a{color:var(--ink2);}
+.crumb a:hover{color:var(--acc);}
+.crumb span{margin:0 8px;color:var(--ink3);}
+
+/* ── ARTICLE HEAD ── */
+.art-head{padding:32px 0 40px;border-bottom:1px solid var(--brd);}
+.art-meta{display:flex;gap:12px;align-items:center;margin-bottom:18px;flex-wrap:wrap;}
+.art-cat{font-size:.72rem;font-weight:700;color:var(--acc);background:var(--acc-lt);padding:4px 10px;border-radius:100px;letter-spacing:.6px;text-transform:uppercase;}
+.art-date,.art-read{font-size:.85rem;color:var(--ink3);}
+.art-read::before{content:"·";margin-right:8px;}
+.art-head h1{font-size:clamp(1.9rem,4.5vw,2.8rem);font-weight:800;line-height:1.15;margin-bottom:18px;}
+.art-lede{font-size:1.12rem;color:var(--ink2);line-height:1.65;}
+
+/* ── TOC ── */
+.toc{background:white;border:1px solid var(--brd);border-radius:var(--rlg);padding:24px 28px;margin:40px 0;}
+.toc-title{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;color:var(--ink3);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;}
+.toc ol{list-style:none;counter-reset:toc;padding-left:0;}
+.toc ol li{counter-increment:toc;padding:6px 0;font-size:.92rem;}
+.toc ol li::before{content:counter(toc) ".";color:var(--acc);font-weight:700;margin-right:10px;}
+.toc a{color:var(--ink2);transition:color .15s;}
+.toc a:hover{color:var(--acc);}
+
+/* ── CONTENT ── */
+.content{padding:24px 0 48px;}
+.content h2{font-size:1.7rem;font-weight:800;line-height:1.2;margin:48px 0 16px;}
+.content h2:first-child{margin-top:24px;}
+.content h3{font-family:'Inter',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0;margin:32px 0 12px;color:var(--ink);}
+.content p{color:var(--ink);font-size:1.02rem;line-height:1.75;margin-bottom:18px;}
+.content p strong{font-weight:700;color:var(--ink);}
+.content ul,.content ol{margin:18px 0 24px;padding-left:0;list-style:none;}
+.content ul li{position:relative;padding-left:26px;color:var(--ink);font-size:1.02rem;margin-bottom:10px;line-height:1.7;}
+.content ul li::before{content:"";position:absolute;left:4px;top:.65rem;width:8px;height:8px;background:var(--acc);border-radius:50%;}
+.content ol{counter-reset:ol;}
+.content ol li{counter-increment:ol;position:relative;padding-left:36px;color:var(--ink);font-size:1.02rem;margin-bottom:10px;line-height:1.7;}
+.content ol li::before{content:counter(ol);position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;background:var(--acc-lt);color:var(--acc);font-weight:700;font-size:.78rem;display:flex;align-items:center;justify-content:center;}
+.content a{color:var(--acc);font-weight:500;text-decoration:underline;text-decoration-color:rgba(58,92,168,.3);text-underline-offset:3px;}
+.content a:hover{text-decoration-color:var(--acc);}
+
+/* ── CALLOUTS ── */
+.callout{background:white;border:1px solid var(--brd);border-left:4px solid var(--acc);border-radius:var(--r);padding:18px 22px;margin:24px 0;font-size:.95rem;color:var(--ink2);}
+.callout strong{color:var(--ink);}
+.callout.warn{border-left-color:var(--org);background:var(--org-lt);color:#7a3d12;}
+.callout.warn strong{color:#5a2c0d;}
+.callout.tip{border-left-color:var(--grn);background:var(--grn-lt);color:#1f5a44;}
+.callout.tip strong{color:#143828;}
+
+/* ── COMPARISON TABLE ── */
+.cmp-table{width:100%;background:white;border:1px solid var(--brd);border-radius:var(--rlg);overflow:hidden;margin:28px 0;font-size:.92rem;border-collapse:collapse;}
+.cmp-table th,.cmp-table td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--brd);}
+.cmp-table th{background:var(--bg2);font-weight:700;font-size:.82rem;letter-spacing:.4px;color:var(--ink);text-transform:uppercase;}
+.cmp-table td{color:var(--ink2);}
+.cmp-table tr:last-child td{border-bottom:none;}
+.cmp-table td:first-child{font-weight:600;color:var(--ink);}
+.cmp-yes{color:var(--grn);font-weight:600;}
+.cmp-no{color:var(--red);font-weight:600;}
+.cmp-meh{color:var(--org);font-weight:600;}
+
+/* ── FAQ ── */
+.faq{padding:32px 0;}
+.faq-item{background:white;border:1px solid var(--brd);border-radius:var(--r);padding:20px 24px;margin-bottom:12px;}
+.faq-item h3{font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0;margin:0 0 8px;color:var(--ink);}
+.faq-item p{color:var(--ink2);font-size:.95rem;line-height:1.65;margin:0;}
+
+/* ── CTA ── */
+.cta-box{background:var(--ink);color:white;border-radius:var(--rlg);padding:40px;margin:48px 0;text-align:center;}
+.cta-box h2{font-size:1.55rem;font-weight:800;margin-bottom:10px;color:white;}
+.cta-box p{color:rgba(255,255,255,.7);font-size:.95rem;margin-bottom:22px;}
+.cta-box .btn-cta{display:inline-block;background:white;color:var(--ink);padding:13px 28px;border-radius:100px;font-weight:600;font-size:.95rem;transition:transform .15s;text-decoration:none;}
+.cta-box .btn-cta:hover{transform:translateY(-1px);}
+
+/* ── BACK LINK ── */
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--acc);font-weight:600;margin-top:32px;}
+.back-link::before{content:"←";transition:transform .2s;}
+.back-link:hover::before{transform:translateX(-3px);}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.75);padding:48px 4% 28px;font-size:.88rem;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.1);}
+.footer-logo{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:white;margin-bottom:10px;}
+.footer-logo span{color:var(--acc2);}
+.footer-tagline{color:rgba(255,255,255,.55);font-size:.85rem;line-height:1.6;max-width:280px;}
+.footer-col h4{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;color:white;margin-bottom:12px;letter-spacing:1px;text-transform:uppercase;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.footer-col a{color:rgba(255,255,255,.6);transition:color .2s;}
+.footer-col a:hover{color:white;}
+.footer-bot{padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:rgba(255,255,255,.4);font-size:.78rem;}
+@media(max-width:720px){
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .toc{padding:18px 20px;}
+  .cmp-table{font-size:.82rem;}
+  .cmp-table th,.cmp-table td{padding:10px 12px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<header id="topnav">
+  <a href="/" class="logo"><span class="logo-txt"><span>Fir</span>ovia</span></a>
+  <nav class="nav-links">
+    <a href="/#features">Fonctionnalités</a>
+    <a href="/#pour-qui">Pour qui</a>
+    <a href="/#tarifs">Tarifs</a>
+    <a href="/blog/" class="active">Blog</a>
+    <a href="/#faq">FAQ</a>
+  </nav>
+  <div class="nav-r">
+    <a href="https://app.firovia.fr/auth" class="btn-sm">Connexion</a>
+    <a href="/essai-gratuit.html" class="btn-sm acc">Essai gratuit</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <!-- BREADCRUMB -->
+    <nav class="crumb">
+      <a href="/">Accueil</a><span>›</span><a href="/blog/">Blog</a><span>›</span>Logiciel maintenance incendie
+    </nav>
+
+    <!-- HEAD -->
+    <header class="art-head">
+      <div class="art-meta">
+        <span class="art-cat">Guide</span>
+        <span class="art-date">Publié le 15 juin 2026</span>
+        <span class="art-read">12 min de lecture</span>
+      </div>
+      <h1>Logiciel maintenance incendie : comment choisir en 2026 ?</h1>
+      <p class="art-lede">
+        Vous gérez une PME de maintenance en sécurité incendie et Excel ne suffit plus. Vous hésitez entre un ERP métier, un SaaS spécialisé ou même rester sur papier. On a passé des heures à discuter avec des installateurs et mainteneurs : voici les 7 critères vraiment importants, les pièges à éviter, et combien ça coûte réellement.
+      </p>
+    </header>
+
+    <!-- TOC -->
+    <nav class="toc">
+      <div class="toc-title">Sommaire</div>
+      <ol>
+        <li><a href="#pourquoi">Pourquoi un logiciel spécialisé ?</a></li>
+        <li><a href="#criteres">Les 7 critères essentiels</a></li>
+        <li><a href="#pieges">3 pièges classiques à éviter</a></li>
+        <li><a href="#comparatif">Comparatif : Excel vs ERP vs SaaS spécialisé</a></li>
+        <li><a href="#prix">Combien ça coûte réellement ?</a></li>
+        <li><a href="#demarrer">Comment démarrer : checklist en 5 étapes</a></li>
+        <li><a href="#faq-section">Questions fréquentes</a></li>
+      </ol>
+    </nav>
+
+    <!-- CONTENT -->
+    <article class="content">
+
+      <h2 id="pourquoi">Pourquoi un logiciel spécialisé maintenance incendie ?</h2>
+
+      <p>
+        La maintenance en sécurité incendie a une particularité que peu d'autres métiers du BTP connaissent : <strong>la réglementation est partout</strong>. Extincteurs APSAD R4 tous les ans, RIA APSAD R5, SSI APSAD R7, désenfumage APSAD R17… chaque équipement a son cycle de vérification, son rapport-type, et un registre à tenir à jour.
+      </p>
+
+      <p>
+        Tant que vous gérez 10 ou 20 clients, Excel s'en sort. À 50 clients, vous commencez à oublier une visite annuelle de temps en temps. À 100 clients avec 3 techniciens sur le terrain, c'est le chaos : qui a fait quoi, quand, où sont les rapports signés, quels équipements sont à remplacer.
+      </p>
+
+      <p>
+        Un logiciel spécialisé maintenance incendie résout trois problèmes que les ERP généralistes ne traitent pas :
+      </p>
+
+      <ul>
+        <li><strong>Le registre réglementaire</strong> : un PDF généré automatiquement à partir des visites, conforme APSAD, qu'on remet au client.</li>
+        <li><strong>Le terrain</strong> : un technicien doit pouvoir saisir une intervention depuis son téléphone, même sans réseau (cave, parking souterrain, zone blanche).</li>
+        <li><strong>Le rappel des visites périodiques</strong> : le logiciel sait que la prochaine visite annuelle d'un site est dans 2 mois et la planifie automatiquement.</li>
+      </ul>
+
+      <div class="callout tip">
+        <strong>💡 Le bon timing pour passer au logiciel</strong> : dès que vous avez 2 techniciens sur le terrain ou 30 clients réguliers, l'investissement est rentabilisé en 2-3 mois grâce au temps gagné en saisie et en relances.
+      </div>
+
+      <h2 id="criteres">Les 7 critères essentiels à vérifier</h2>
+
+      <p>
+        Tous les logiciels qui se disent « maintenance incendie » ne se valent pas. Voici les 7 critères qui font vraiment la différence au quotidien.
+      </p>
+
+      <h3>1. Conformité APSAD R4, R5, R7, R17</h3>
+      <p>
+        Le logiciel doit gérer nativement les référentiels APSAD applicables à votre activité. Pas juste « générer un PDF » — un vrai registre conforme avec numérotation des équipements, dates de vérification, observations, signataires.
+      </p>
+
+      <h3>2. Mobilité hors-ligne</h3>
+      <p>
+        Vos techniciens travaillent en sous-sol, dans des chaufferies, dans des zones blanches. Le logiciel mobile doit <strong>fonctionner sans réseau</strong> et synchroniser dès que la 4G revient. C'est non négociable.
+      </p>
+
+      <h3>3. Signature électronique du client sur le terrain</h3>
+      <p>
+        Plus de papier qui se perd entre la fourgonnette et le bureau. Le client signe directement sur la tablette du technicien, le rapport est automatiquement archivé et envoyé par email.
+      </p>
+
+      <h3>4. Gestion du registre de sécurité</h3>
+      <p>
+        Le registre doit être tenu en continu, et idéalement accessible au client (via un lien sécurisé) pour qu'il puisse le présenter en cas de contrôle des pompiers ou de l'assureur.
+      </p>
+
+      <h3>5. Photos & annotations sur le terrain</h3>
+      <p>
+        Un extincteur défectueux, une signalisation manquante, une porte coupe-feu coincée : le technicien doit pouvoir <strong>photographier, annoter et déclencher un devis</strong> de remise en conformité depuis son téléphone.
+      </p>
+
+      <h3>6. Planning visuel avec optimisation des tournées</h3>
+      <p>
+        Un calendrier équipe par technicien, par jour, par semaine. Avec idéalement une vue géographique pour grouper les interventions par zone et économiser des heures de route.
+      </p>
+
+      <h3>7. Devis et factures intégrés</h3>
+      <p>
+        À partir d'un rapport d'intervention, on génère un devis (extincteur à changer) puis une facture (visite annuelle + pièces). Pas besoin de ressaisir dans un logiciel comptable séparé.
+      </p>
+
+      <div class="callout">
+        <strong>Bonus : conformité RGPD et hébergement européen.</strong> Vos données clients incluent des plans d'établissements, des informations sur des bâtiments sensibles. Un hébergement <strong>dans l'Union Européenne</strong> est fortement recommandé, et obligatoire si vous travaillez pour le secteur public.
+      </div>
+
+      <h2 id="pieges">3 pièges classiques à éviter</h2>
+
+      <h3>Piège n°1 : choisir un ERP généraliste « adaptable »</h3>
+      <p>
+        Sage, EBP, Codial, Optim'BTP… ces logiciels sont conçus pour le bâtiment au sens large, pas pour la sécurité incendie. Vous allez passer 6 mois à les configurer, payer un intégrateur 10 000€, et vous retrouverez quand même à exporter du papier pour faire les registres APSAD.
+      </p>
+
+      <h3>Piège n°2 : prendre un logiciel américain « parce qu'il est joli »</h3>
+      <p>
+        ServiceTitan, Jobber, Housecall Pro : magnifiques en démo, complètement à côté de la plaque pour la France. Pas de gestion APSAD, pas de RGPD, pas de Cerfa, support client en anglais avec 9h de décalage. À éviter.
+      </p>
+
+      <h3>Piège n°3 : croire que le moins cher fera l'affaire</h3>
+      <p>
+        Un logiciel à 19€/utilisateur/mois qui ne gère pas le hors-ligne, c'est 2 rapports perdus par technicien et par mois. À 50€/rapport facturé au client, c'est 100€/mois perdu — soit beaucoup plus que ce que vous économisez sur l'abonnement.
+      </p>
+
+      <h2 id="comparatif">Comparatif : Excel vs ERP généraliste vs SaaS spécialisé</h2>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th>Critère</th>
+            <th>Excel + Drive</th>
+            <th>ERP généraliste</th>
+            <th>SaaS spécialisé</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Registre APSAD auto</td>
+            <td class="cmp-no">Non</td>
+            <td class="cmp-meh">Partiel</td>
+            <td class="cmp-yes">Natif</td>
+          </tr>
+          <tr>
+            <td>Mobile hors-ligne</td>
+            <td class="cmp-no">Non</td>
+            <td class="cmp-meh">Variable</td>
+            <td class="cmp-yes">Natif</td>
+          </tr>
+          <tr>
+            <td>Signature client</td>
+            <td class="cmp-no">Papier</td>
+            <td class="cmp-meh">Module payant</td>
+            <td class="cmp-yes">Intégrée</td>
+          </tr>
+          <tr>
+            <td>Coût mensuel (5 techniciens)</td>
+            <td class="cmp-yes">~30€</td>
+            <td class="cmp-no">500–1500€</td>
+            <td class="cmp-yes">150–400€</td>
+          </tr>
+          <tr>
+            <td>Coût d'installation</td>
+            <td class="cmp-yes">0€</td>
+            <td class="cmp-no">5–15k€</td>
+            <td class="cmp-yes">0€</td>
+          </tr>
+          <tr>
+            <td>Temps perdu en saisie</td>
+            <td class="cmp-no">Énorme</td>
+            <td class="cmp-meh">Moyen</td>
+            <td class="cmp-yes">Minimal</td>
+          </tr>
+          <tr>
+            <td>Conformité RGPD</td>
+            <td class="cmp-meh">À votre charge</td>
+            <td class="cmp-yes">Si éditeur UE</td>
+            <td class="cmp-yes">Si éditeur UE</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="prix">Combien ça coûte réellement ?</h2>
+
+      <p>
+        Le marché du logiciel de maintenance incendie en France se structure en trois gammes de prix, pour des fonctionnalités différentes.
+      </p>
+
+      <h3>Gamme entrée (15–30€/utilisateur/mois)</h3>
+      <p>
+        Outils généralistes type Sortlist ou Praxedo. Vous gérez le planning et les rapports, mais le registre APSAD n'est pas généré automatiquement et il faut souvent un module complémentaire pour la signature.
+      </p>
+
+      <h3>Gamme spécialisée (40–80€/utilisateur/mois)</h3>
+      <p>
+        Solutions conçues pour la maintenance incendie : génération automatique du registre, gestion APSAD complète, signature intégrée, mobile hors-ligne. C'est le sweet spot pour une PME de 3 à 20 techniciens.
+      </p>
+
+      <h3>Gamme ERP (5 000–30 000€ + maintenance annuelle)</h3>
+      <p>
+        Installations sur mesure pour des entreprises de 50+ techniciens. Coût d'intégration élevé, lock-in fort, mais personnalisation totale. Réservé aux gros mainteneurs nationaux.
+      </p>
+
+      <div class="callout warn">
+        <strong>⚠️ Attention aux frais cachés</strong> : signature électronique en option (5–10€/mois), API de paiement Stripe (commission), stockage des rapports facturé au Go, support payant. Demandez toujours un devis « tout compris ».
+      </div>
+
+      <h2 id="demarrer">Comment démarrer : checklist en 5 étapes</h2>
+
+      <ol>
+        <li><strong>Listez vos vrais besoins.</strong> Combien de techniciens, combien de clients, quels référentiels APSAD ? Pas de fonctionnalité gadget, juste ce qui résout vos vrais problèmes.</li>
+        <li><strong>Testez 2 ou 3 logiciels en essai gratuit.</strong> La plupart des SaaS spécialisés proposent 14 jours gratuits. Faites tester par un de vos techniciens sur le terrain, pas juste vous au bureau.</li>
+        <li><strong>Importez 5 clients tests.</strong> Pas tout votre fichier. Juste 5 clients pour voir comment le logiciel se comporte avec vos vraies données.</li>
+        <li><strong>Faites une vraie tournée avec.</strong> Une journée complète, en conditions réelles, idéalement avec un site en sous-sol pour tester le hors-ligne.</li>
+        <li><strong>Validez avec votre comptable.</strong> Les exports comptables et les factures générées doivent être propres pour votre cabinet.</li>
+      </ol>
+
+      <!-- CTA -->
+      <div class="cta-box">
+        <h2>Tester Firovia gratuitement</h2>
+        <p>Firovia coche les 7 critères de cet article. 14 jours d'essai, sans carte bancaire, sans engagement.</p>
+        <a href="/essai-gratuit.html" class="btn-cta">Démarrer l'essai gratuit →</a>
+      </div>
+
+      <h2 id="faq-section">Questions fréquentes</h2>
+
+      <div class="faq">
+        <div class="faq-item">
+          <h3>Quel est le prix d'un logiciel de maintenance incendie pour une PME ?</h3>
+          <p>Comptez entre 25€ et 80€ par technicien et par mois pour un SaaS spécialisé. Une PME de 5 techniciens dépense donc entre 125€ et 400€/mois, contre plusieurs milliers d'euros d'installation pour un ERP métier en interne.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Excel peut-il suffire pour gérer la maintenance incendie ?</h3>
+          <p>Excel suffit jusqu'à environ 30 à 50 sites clients. Au-delà, le coût caché en temps de saisie, oublis de visites annuelles et erreurs sur le registre APSAD dépasse largement le prix d'un logiciel spécialisé.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Un logiciel de maintenance incendie doit-il être hébergé en France ?</h3>
+          <p>Pas obligatoirement, mais un hébergement dans l'Union Européenne est fortement recommandé pour la conformité RGPD. Les données de vos clients (plans d'établissements, équipements) sont sensibles. C'est même obligatoire pour le secteur public.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Combien de temps pour déployer un logiciel de maintenance incendie ?</h3>
+          <p>Pour un SaaS spécialisé : 1 à 2 semaines pour importer les clients et former l'équipe. Pour un ERP métier : 3 à 6 mois en moyenne, parfois plus.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Peut-on récupérer ses données si on change de logiciel ?</h3>
+          <p>Oui, c'est même un droit RGPD. Vérifiez avant de signer que l'éditeur propose un export complet (clients, équipements, historique d'interventions, rapports PDF) au format standard (CSV, JSON, ZIP).</p>
+        </div>
+      </div>
+
+      <!-- BACK LINK -->
+      <a href="/blog/" class="back-link">Retour au blog</a>
+
+    </article>
+
+  </div>
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><span>Fir</span>ovia</div>
+        <p class="footer-tagline">Le logiciel de gestion pour les PME de maintenance en sécurité incendie. Conçu en France, hébergé en France.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Produit</h4>
+        <ul>
+          <li><a href="/#features">Fonctionnalités</a></li>
+          <li><a href="/#tarifs">Tarifs</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="/essai-gratuit.html">Essai gratuit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ressources</h4>
+        <ul>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/securite.html">Sécurité &amp; RGPD</a></li>
+          <li><a href="mailto:contact@firovia.fr">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="/mentions-legales.html">Mentions légales</a></li>
+          <li><a href="/cgu.html">CGU</a></li>
+          <li><a href="/confidentialite.html">Confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <div>© 2026 Firovia · Logiciel de gestion maintenance sécurité incendie</div>
+      <div>Conçu et hébergé en France</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

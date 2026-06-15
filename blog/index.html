@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<title>Blog Firovia — Maintenance & sécurité incendie pour PME</title>
+<meta name="description" content="Conseils, retours d'expérience et guides pratiques pour les PME de maintenance en sécurité incendie. Logiciel, organisation, conformité, terrain."/>
+<meta name="author" content="Firovia"/>
+<link rel="canonical" href="https://firovia.fr/blog/"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Firovia"/>
+<meta property="og:url" content="https://firovia.fr/blog/"/>
+<meta property="og:title" content="Blog Firovia — Maintenance & sécurité incendie pour PME"/>
+<meta property="og:description" content="Conseils, retours d'expérience et guides pratiques pour les PME de maintenance en sécurité incendie."/>
+<meta property="og:image" content="https://firovia.fr/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="fr_FR"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Blog Firovia — Maintenance & sécurité incendie pour PME"/>
+<meta name="twitter:description" content="Conseils et guides pour les PME de maintenance incendie."/>
+<meta name="twitter:image" content="https://firovia.fr/og-image.png"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F2F3F5;--bg2:#E6E8EC;--bg3:#D8DCE4;
+  --ink:#1C2130;--ink2:#5A6070;--ink3:#9AA0AE;
+  --acc:#3A5CA8;--acc2:#5578C8;--acc-lt:#E8EEF8;
+  --wht:#F8F9FB;
+  --brd:rgba(28,33,48,.10);--brd2:rgba(28,33,48,.18);
+  --grn:#2E7D5E;--grn-lt:#D4EDE5;
+  --r:10px;--rlg:18px;
+}
+html{scroll-behavior:smooth;}
+html,body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;letter-spacing:-.5px;}
+a{text-decoration:none;color:inherit;cursor:pointer;}
+
+/* ── NAV ── */
+#topnav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.85rem 4%;background:rgba(242,243,245,.95);backdrop-filter:blur(14px);border-bottom:.5px solid var(--brd);}
+.logo{display:flex;align-items:center;gap:9px;cursor:pointer;}
+.logo-txt{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--ink);}
+.logo-txt span{color:var(--acc);}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-size:.88rem;color:var(--ink2);font-weight:500;}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a.active{color:var(--ink);font-weight:600;}
+.nav-r{display:flex;gap:.6rem;align-items:center;}
+.btn-sm{display:inline-block;padding:.48rem 1.1rem;border-radius:100px;font-size:.85rem;font-weight:500;cursor:pointer;border:1px solid var(--brd2);background:transparent;color:var(--ink);transition:background .15s;}
+.btn-sm:hover{background:var(--bg2);}
+.btn-sm.acc{background:var(--acc);color:white;border-color:var(--acc);}
+.btn-sm.acc:hover{background:var(--acc2);}
+@media(max-width:720px){.nav-links{display:none;}}
+
+/* ── PAGE LAYOUT ── */
+main{padding-top:80px;padding-bottom:80px;}
+.container{max-width:980px;margin:0 auto;padding:0 4%;}
+
+/* ── HERO ── */
+.hero{padding:64px 0 32px;text-align:center;}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--acc);background:var(--acc-lt);padding:6px 14px;border-radius:100px;margin-bottom:24px;letter-spacing:.4px;text-transform:uppercase;}
+.hero-tag::before{content:"";display:inline-block;width:6px;height:6px;background:var(--acc);border-radius:50%;}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.1;margin-bottom:18px;}
+.hero h1 span{color:var(--acc);}
+.hero-sub{font-size:1.08rem;color:var(--ink2);max-width:620px;margin:0 auto;}
+
+/* ── ARTICLES LIST ── */
+.articles{padding:48px 0;display:grid;grid-template-columns:1fr;gap:24px;}
+
+.article-card{display:block;background:white;border:1px solid var(--brd);border-radius:var(--rlg);padding:0;overflow:hidden;transition:transform .18s,box-shadow .18s;}
+.article-card:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(28,33,48,.08);}
+
+.article-card.featured{border:2px solid var(--acc);background:linear-gradient(to bottom right,#fff,var(--acc-lt));}
+
+.article-body{padding:32px;}
+.article-meta{display:flex;gap:12px;align-items:center;margin-bottom:14px;flex-wrap:wrap;}
+.article-cat{font-size:.72rem;font-weight:700;color:var(--acc);background:var(--acc-lt);padding:4px 10px;border-radius:100px;letter-spacing:.6px;text-transform:uppercase;}
+.article-date{font-size:.82rem;color:var(--ink3);}
+.article-read{font-size:.82rem;color:var(--ink3);}
+.article-read::before{content:"·";margin-right:8px;}
+
+.article-title{font-size:1.5rem;font-weight:800;line-height:1.25;margin-bottom:10px;color:var(--ink);}
+.article-card.featured .article-title{font-size:1.85rem;}
+
+.article-desc{color:var(--ink2);font-size:.95rem;line-height:1.6;margin-bottom:18px;}
+
+.article-link{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:.9rem;color:var(--acc);}
+.article-link::after{content:"→";transition:transform .2s;}
+.article-card:hover .article-link::after{transform:translateX(3px);}
+
+.coming{display:block;background:white;border:1px dashed var(--brd2);border-radius:var(--rlg);padding:32px;text-align:center;color:var(--ink3);}
+.coming h3{font-family:'Inter',sans-serif;font-size:1rem;font-weight:600;color:var(--ink2);margin-bottom:6px;letter-spacing:0;}
+.coming p{font-size:.88rem;}
+
+/* ── CTA BOX ── */
+.cta-box{background:var(--ink);color:white;border-radius:var(--rlg);padding:40px;margin-top:48px;text-align:center;}
+.cta-box h2{font-size:1.6rem;font-weight:800;margin-bottom:10px;}
+.cta-box p{color:rgba(255,255,255,.7);font-size:.95rem;margin-bottom:22px;}
+.cta-box .btn-cta{display:inline-block;background:white;color:var(--ink);padding:13px 28px;border-radius:100px;font-weight:600;font-size:.95rem;transition:transform .15s;}
+.cta-box .btn-cta:hover{transform:translateY(-1px);}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.75);padding:48px 4% 28px;font-size:.88rem;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.1);}
+.footer-logo{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:white;margin-bottom:10px;}
+.footer-logo span{color:var(--acc2);}
+.footer-tagline{color:rgba(255,255,255,.55);font-size:.85rem;line-height:1.6;max-width:280px;}
+.footer-col h4{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;color:white;margin-bottom:12px;letter-spacing:1px;text-transform:uppercase;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.footer-col a{color:rgba(255,255,255,.6);transition:color .2s;}
+.footer-col a:hover{color:white;}
+.footer-bot{padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:rgba(255,255,255,.4);font-size:.78rem;}
+@media(max-width:720px){
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .article-body{padding:24px;}
+  .article-card.featured .article-title{font-size:1.4rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<header id="topnav">
+  <a href="/" class="logo"><span class="logo-txt"><span>Fir</span>ovia</span></a>
+  <nav class="nav-links">
+    <a href="/#features">Fonctionnalités</a>
+    <a href="/#pour-qui">Pour qui</a>
+    <a href="/#tarifs">Tarifs</a>
+    <a href="/blog/" class="active">Blog</a>
+    <a href="/#faq">FAQ</a>
+  </nav>
+  <div class="nav-r">
+    <a href="https://app.firovia.fr/auth" class="btn-sm">Connexion</a>
+    <a href="/essai-gratuit.html" class="btn-sm acc">Essai gratuit</a>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-tag">Blog Firovia</div>
+      <h1>Conseils, guides et retours d'expérience<br><span>pour la maintenance incendie</span></h1>
+      <p class="hero-sub">
+        Tout ce qu'on a appris en discutant avec des PME de sécurité incendie : organisation, conformité APSAD, outils, terrain. Sans jargon ni discours commercial.
+      </p>
+    </section>
+
+    <!-- ARTICLES -->
+    <section class="articles">
+
+      <!-- Article 1 : Featured -->
+      <a href="/blog/logiciel-maintenance-incendie-comment-choisir-2026.html" class="article-card featured">
+        <div class="article-body">
+          <div class="article-meta">
+            <span class="article-cat">Guide</span>
+            <span class="article-date">15 juin 2026</span>
+            <span class="article-read">12 min de lecture</span>
+          </div>
+          <h2 class="article-title">Logiciel maintenance incendie : comment choisir en 2026 ?</h2>
+          <p class="article-desc">
+            Excel ne suffit plus, mais tous les logiciels ne se valent pas. On décortique les 7 critères essentiels pour bien choisir, les pièges à éviter, et combien ça coûte réellement pour une PME de maintenance incendie.
+          </p>
+          <span class="article-link">Lire l'article</span>
+        </div>
+      </a>
+
+      <!-- Article placeholder coming soon -->
+      <div class="coming">
+        <h3>Plus d'articles arrivent bientôt</h3>
+        <p>Registre APSAD R4, organisation des tournées, conformité, signature électronique sur le terrain — on prépare la suite.</p>
+      </div>
+
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <h2>Envie d'essayer Firovia ?</h2>
+      <p>14 jours d'essai gratuit. Sans carte bancaire. Sans engagement.</p>
+      <a href="/essai-gratuit.html" class="btn-cta">Démarrer l'essai gratuit →</a>
+    </div>
+
+  </div>
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><span>Fir</span>ovia</div>
+        <p class="footer-tagline">Le logiciel de gestion pour les PME de maintenance en sécurité incendie. Conçu en France, hébergé en France.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Produit</h4>
+        <ul>
+          <li><a href="/#features">Fonctionnalités</a></li>
+          <li><a href="/#tarifs">Tarifs</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="/essai-gratuit.html">Essai gratuit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ressources</h4>
+        <ul>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/securite.html">Sécurité &amp; RGPD</a></li>
+          <li><a href="mailto:contact@firovia.fr">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="/mentions-legales.html">Mentions légales</a></li>
+          <li><a href="/cgu.html">CGU</a></li>
+          <li><a href="/confidentialite.html">Confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <div>© 2026 Firovia · Logiciel de gestion maintenance sécurité incendie</div>
+      <div>Conçu et hébergé en France</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
