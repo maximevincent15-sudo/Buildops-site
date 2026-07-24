@@ -852,8 +852,12 @@ h2.visible .word{
 }
 .plan.featured .price-prefix{color:rgba(255,255,255,.65);}
 /* Nombre + unité : empêche le wrap interne */
-.price-monthly,.price-annual{white-space:nowrap;}
+.price-monthly,.price-annual{white-space:nowrap;word-break:keep-all;overflow-wrap:normal;}
 .plan-price .unit{white-space:nowrap;}
+/* Entreprise : réduit la taille du chiffre pour rester sur une ligne
+   avec "À partir de" + € HT/an dans le peu de place disponible */
+.plan[data-plan="enterprise"] .plan-price{font-size:2.1rem;}
+.plan[data-plan="enterprise"] .plan-price .unit{font-size:.85rem;}
 
 .pricing-grid{
   display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
@@ -1533,7 +1537,7 @@ footer{
         <div class="plan-name">Starter</div>
         <div class="plan-price">
           <strong class="price-monthly">299</strong>
-          <strong class="price-annual">2 990</strong>
+          <strong class="price-annual">2&nbsp;990</strong>
           <span class="unit">
             <span class="unit-monthly">€ HT / mois</span>
             <span class="unit-annual">€ HT / an</span>
@@ -1559,7 +1563,7 @@ footer{
         <div class="plan-name">Pro</div>
         <div class="plan-price">
           <strong class="price-monthly">499</strong>
-          <strong class="price-annual">4 990</strong>
+          <strong class="price-annual">4&nbsp;990</strong>
           <span class="unit">
             <span class="unit-monthly">€ HT / mois</span>
             <span class="unit-annual">€ HT / an</span>
@@ -1585,7 +1589,7 @@ footer{
         <div class="plan-price">
           <span class="price-prefix">À partir de</span>
           <strong class="price-monthly">799</strong>
-          <strong class="price-annual">7 990</strong>
+          <strong class="price-annual">7&nbsp;990</strong>
           <span class="unit">
             <span class="unit-monthly">€ HT / mois</span>
             <span class="unit-annual">€ HT / an</span>
