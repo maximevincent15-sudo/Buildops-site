@@ -73,7 +73,7 @@ main{padding-top:110px;padding-bottom:80px;}
 .billing-opt.active{background:var(--ink);color:white;}
 .billing-save{background:var(--grn);color:white;padding:2px 8px;border-radius:100px;font-size:.7rem;font-weight:600;}
 
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.pricing-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:860px;margin:0 auto;}
 .plan{background:white;border:1.5px solid var(--brd);border-radius:22px;padding:32px 28px;display:flex;flex-direction:column;cursor:pointer;transition:all .2s;position:relative;}
 .plan:hover{transform:translateY(-2px);border-color:var(--brd-strong);box-shadow:var(--shadow-soft);}
 .plan.selected{border-color:var(--acc);box-shadow:0 0 0 4px var(--acc-lt),0 8px 24px rgba(58,92,168,.12);}
@@ -221,80 +221,57 @@ footer a:hover{color:white;}
 
     <div class="pricing-grid period-annual" id="pricingGrid">
 
-      <!-- STARTER -->
-      <div class="plan" data-plan="starter">
+      <!-- ESSENTIEL -->
+      <div class="plan" data-plan="essentiel">
         <div class="plan-radio"></div>
-        <div class="plan-name">Starter</div>
+        <div class="plan-name">Essentiel</div>
         <div class="plan-price">
-          <strong class="price-monthly">299</strong>
-          <strong class="price-annual">2 990</strong>
+          <strong class="price-monthly">49</strong>
+          <strong class="price-annual">490</strong>
           <span class="unit">
-            <span class="unit-monthly">€ HT / mois</span>
-            <span class="unit-annual">€ HT / an</span>
+            <span class="unit-monthly">€ HT / technicien / mois</span>
+            <span class="unit-annual">€ HT / technicien / an</span>
           </span>
         </div>
-        <p class="plan-equiv plan-equiv-monthly">Soit 299 € / mois</p>
-        <p class="plan-equiv plan-equiv-annual">Soit 249 € / mois</p>
-        <p class="plan-desc">Pour les TPE familiales qui démarrent ou veulent quitter Excel.</p>
-        <div class="plan-techs">👤 1 à 5 techniciens</div>
+        <p class="plan-equiv plan-equiv-monthly">Minimum 2 techniciens facturés · 39 € dès le 11<sup>e</sup></p>
+        <p class="plan-equiv plan-equiv-annual">2 mois offerts · minimum 2 techniciens · 390 € dès le 11<sup>e</sup></p>
+        <p class="plan-desc">Tout le terrain, du planning à la facture. Pour quitter enfin le papier et Excel.</p>
+        <div class="plan-techs">👤 2 comptes bureau inclus</div>
         <ul class="plan-feats">
           <li>Planning + rapports terrain</li>
           <li>Registres APSAD</li>
-          <li>Alertes échéances</li>
-          <li>Devis &amp; factures</li>
+          <li>Visites préventives automatiques</li>
+          <li>Contrats de maintenance</li>
+          <li>Devis, factures et catalogue</li>
+          <li>Portail client</li>
           <li>Support email</li>
         </ul>
       </div>
 
       <!-- PRO (featured) -->
       <div class="plan featured selected" data-plan="pro">
-        <div class="plan-pop">Le plus choisi</div>
+        <div class="plan-pop">Recommandé</div>
         <div class="plan-radio"></div>
         <div class="plan-name">Pro</div>
         <div class="plan-price">
-          <strong class="price-monthly">499</strong>
-          <strong class="price-annual">4 990</strong>
+          <strong class="price-monthly">69</strong>
+          <strong class="price-annual">690</strong>
           <span class="unit">
-            <span class="unit-monthly">€ HT / mois</span>
-            <span class="unit-annual">€ HT / an</span>
+            <span class="unit-monthly">€ HT / technicien / mois</span>
+            <span class="unit-annual">€ HT / technicien / an</span>
           </span>
         </div>
-        <p class="plan-equiv plan-equiv-monthly">Soit 499 € / mois</p>
-        <p class="plan-equiv plan-equiv-annual">Soit 416 € / mois</p>
-        <p class="plan-desc">Pour les PME en croissance qui veulent piloter business + terrain.</p>
-        <div class="plan-techs">👥 6 à 20 techniciens</div>
+        <p class="plan-equiv plan-equiv-monthly">Minimum 3 techniciens facturés · 59 € dès le 11<sup>e</sup></p>
+        <p class="plan-equiv plan-equiv-annual">2 mois offerts · minimum 3 techniciens · 590 € dès le 11<sup>e</sup></p>
+        <p class="plan-desc">Le terrain + le pilotage de l'activité : rentabilité, temps passé, paie.</p>
+        <div class="plan-techs">👥 5 comptes bureau inclus</div>
         <ul class="plan-feats">
-          <li>Tout le plan Starter</li>
+          <li>Tout le plan Essentiel</li>
           <li>Pilotage business (CA, impayés)</li>
-          <li>Tops clients / techniciens</li>
-          <li>Évolution mensuelle du CA</li>
+          <li>Temps passé réel par intervention</li>
+          <li>Export paie (heures sup, frais)</li>
           <li>Support prioritaire</li>
-        </ul>
-      </div>
-
-      <!-- ENTREPRISE -->
-      <div class="plan" data-plan="enterprise">
-        <div class="plan-radio"></div>
-        <div class="plan-name">Entreprise</div>
-        <div class="plan-price">
-          <span class="price-prefix">À partir de</span>
-          <strong class="price-monthly">799</strong>
-          <strong class="price-annual">7 990</strong>
-          <span class="unit">
-            <span class="unit-monthly">€ HT / mois</span>
-            <span class="unit-annual">€ HT / an</span>
-          </span>
-        </div>
-        <p class="plan-equiv plan-equiv-monthly">Soit 799 € / mois</p>
-        <p class="plan-equiv plan-equiv-annual">Soit 666 € / mois</p>
-        <p class="plan-desc">Pour les structures multi-agences ou 21+ techniciens. Tarif sur-mesure selon vos besoins.</p>
-        <div class="plan-techs">🏢 21+ techniciens (illimité)</div>
-        <ul class="plan-feats">
-          <li>Tout le plan Pro</li>
-          <li>Multi-agences consolidé</li>
-          <li>Personnalisation avancée</li>
-          <li>Accompagnement onboarding</li>
-          <li>Support dédié</li>
+          <li>Onboarding humain 1h</li>
         </ul>
       </div>
 
@@ -405,8 +382,8 @@ footer a:hover{color:white;}
       <div class="faq-a">Oui, sans limite. Pendant l'essai, vous pouvez inviter <strong>tous les techniciens de votre équipe</strong> à utiliser l'app mobile. C'est même conseillé : le vrai test, c'est l'usage terrain.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Comment fonctionne le plan Entreprise ?</div>
-      <div class="faq-a">Pour les structures multi-agences ou 21+ techniciens, nous établissons un <strong>devis sur-mesure</strong> selon vos besoins. Vous pouvez démarrer l'essai gratuit normalement, et notre équipe vous contactera pour discuter de vos exigences spécifiques.</div>
+      <div class="faq-q">Comment est calculé le prix ?</div>
+      <div class="faq-a">Vous payez <strong>uniquement vos techniciens actifs</strong>, au prix de la formule (49 € ou 69 € HT par technicien et par mois, tarif dégressif dès le 11<sup>e</sup>). Les comptes bureau sont inclus : 2 en Essentiel, 5 en Pro. Un technicien ajouté ou retiré en cours de mois est calculé au prorata, automatiquement. Plus de 20 techniciens ? Nous établissons un <strong>devis sur mesure</strong>.</div>
     </div>
   </section>
 
@@ -430,7 +407,10 @@ footer a:hover{color:white;}
 (function() {
   /* ────────── Lecture des paramètres URL ────────── */
   const urlParams = new URLSearchParams(window.location.search);
-  const initPlan = urlParams.get('plan') || 'pro';     // pro, starter, enterprise
+  // Anciens liens (formules forfaitaires) : starter → essentiel, enterprise → pro
+  const LEGACY_PLANS = { starter: 'essentiel', enterprise: 'pro' };
+  const askedPlan = urlParams.get('plan') || 'pro';
+  const initPlan = ['essentiel', 'pro'].includes(LEGACY_PLANS[askedPlan] || askedPlan) ? (LEGACY_PLANS[askedPlan] || askedPlan) : 'pro';
   const initPeriod = urlParams.get('period') || 'annual'; // annual, monthly
 
   /* ────────── Sélection des éléments ────────── */
@@ -447,9 +427,8 @@ footer a:hover{color:white;}
 
   /* Labels lisibles */
   const planLabels = {
-    starter: 'Starter',
+    essentiel: 'Essentiel',
     pro: 'Pro',
-    enterprise: 'Entreprise',
   };
   const periodLabels = {
     annual: 'Annuel',
@@ -482,14 +461,6 @@ footer a:hover{color:white;}
     choicePlanEl.textContent = planLabels[currentPlan] || 'Pro';
     choicePeriodEl.textContent = periodLabels[currentPeriod] || 'Annuel';
 
-    // Texte du bouton selon plan
-    if (currentPlan === 'enterprise') {
-      startBtn.innerHTML = `Nous contacter
-        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`;
-    } else {
-      startBtn.innerHTML = `Démarrer mon essai gratuit
-        <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`;
-    }
   }
 
   /* ────────── Listeners ────────── */
@@ -508,11 +479,7 @@ footer a:hover{color:white;}
   });
 
   startBtn.addEventListener('click', () => {
-    if (currentPlan === 'enterprise') {
-      window.location.href = `mailto:contact@firovia.fr?subject=Demande%20plan%20Entreprise&body=Bonjour%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20le%20plan%20Entreprise%20%28facturation%20${encodeURIComponent(periodLabels[currentPeriod])}%29.%0A%0AMerci.`;
-    } else {
-      window.location.href = `https://app.firovia.fr/auth?tab=register&plan=${currentPlan}&period=${currentPeriod}`;
-    }
+    window.location.href = `https://app.firovia.fr/auth?tab=register&plan=${currentPlan}&period=${currentPeriod}`;
   });
 
   /* ────────── Init ────────── */

@@ -4,8 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-<title>Tarifs Firovia — Logiciel maintenance sécurité incendie · Starter 299 €/mois</title>
-<meta name="description" content="Tarifs Firovia : Starter 299 €/mois (1-5 techniciens), Pro 499 €/mois (6-20 techniciens), Enterprise sur devis (21+). Sans engagement. Essai gratuit 14 jours sans carte bancaire."/>
+<title>Tarifs Firovia — Logiciel maintenance sécurité incendie · 49 € par technicien</title>
+<meta name="description" content="Tarifs Firovia : Essentiel 49 € HT par technicien et par mois, Pro 69 € HT. Comptes bureau inclus, sans engagement. Essai gratuit 14 jours sans carte bancaire."/>
 <meta name="keywords" content="tarif logiciel maintenance incendie, prix SaaS APSAD, abonnement gestion techniciens incendie, coût logiciel sécurité incendie, tarification Firovia"/>
 <meta name="author" content="Firovia"/>
 <link rel="canonical" href="https://firovia.fr/tarifs"/>
@@ -14,8 +14,8 @@
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Firovia"/>
 <meta property="og:url" content="https://firovia.fr/tarifs"/>
-<meta property="og:title" content="Tarifs Firovia — À partir de 299 €/mois HT"/>
-<meta property="og:description" content="3 formules pensées pour les PME de maintenance en sécurité incendie. Sans engagement, essai gratuit 14 jours sans carte bancaire."/>
+<meta property="og:title" content="Tarifs Firovia — 49 € HT par technicien et par mois"/>
+<meta property="og:description" content="Un prix par technicien, comptes bureau inclus, pensé pour les TPE et PME de maintenance en sécurité incendie. Sans engagement, essai gratuit 14 jours sans carte bancaire."/>
 <meta property="og:image" content="https://firovia.fr/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
@@ -24,8 +24,8 @@
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Tarifs Firovia — À partir de 299 €/mois HT"/>
-<meta name="twitter:description" content="3 formules pour les PME de maintenance incendie. Essai gratuit 14 jours sans carte bancaire."/>
+<meta name="twitter:title" content="Tarifs Firovia — 49 € HT par technicien et par mois"/>
+<meta name="twitter:description" content="Un prix par technicien pour les TPE et PME de maintenance incendie. Essai gratuit 14 jours sans carte bancaire."/>
 <meta name="twitter:image" content="https://firovia.fr/og-image.png"/>
 
 <!-- Schema.org JSON-LD (Product offers pour rich results Google) -->
@@ -42,33 +42,37 @@
   "offers": [
     {
       "@type": "Offer",
-      "name": "Firovia Starter",
-      "price": "299",
+      "name": "Firovia Essentiel",
+      "price": "49",
       "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "49",
+        "priceCurrency": "EUR",
+        "unitText": "technicien / mois",
+        "valueAddedTaxIncluded": false
+      },
       "url": "https://firovia.fr/tarifs",
       "priceValidUntil": "2027-12-31",
       "availability": "https://schema.org/InStock",
-      "description": "Pour les TPE et petites PME de 1 à 5 techniciens. Planning, rapports terrain, registres APSAD, devis et factures."
+      "description": "Prix par technicien actif et par mois (minimum 2 techniciens, 39 € dès le 11e, 2 comptes bureau inclus). Planning, rapports terrain, registres APSAD, devis et factures."
     },
     {
       "@type": "Offer",
       "name": "Firovia Pro",
-      "price": "499",
+      "price": "69",
       "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "69",
+        "priceCurrency": "EUR",
+        "unitText": "technicien / mois",
+        "valueAddedTaxIncluded": false
+      },
       "url": "https://firovia.fr/tarifs",
       "priceValidUntil": "2027-12-31",
       "availability": "https://schema.org/InStock",
-      "description": "Pour les PME en croissance de 6 à 20 techniciens. Tout Starter + pilotage business, tops clients, multi-sites."
-    },
-    {
-      "@type": "Offer",
-      "name": "Firovia Enterprise",
-      "price": "799",
-      "priceCurrency": "EUR",
-      "url": "https://firovia.fr/tarifs",
-      "priceValidUntil": "2027-12-31",
-      "availability": "https://schema.org/InStock",
-      "description": "Pour les structures multi-agences ou 21+ techniciens. Tarif sur-mesure."
+      "description": "Prix par technicien actif et par mois (minimum 3 techniciens, 59 € dès le 11e, 5 comptes bureau inclus). Tout Essentiel + pilotage business, temps passé, export paie."
     }
   ]
 }
@@ -884,14 +888,41 @@ h2.visible .word{
 /* Nombre + unité : empêche le wrap interne */
 .price-monthly,.price-annual{white-space:nowrap;word-break:keep-all;overflow-wrap:normal;}
 .plan-price .unit{white-space:nowrap;}
-/* Entreprise : réduit la taille du chiffre pour rester sur une ligne
-   avec "À partir de" + € HT/an dans le peu de place disponible */
-.plan[data-plan="enterprise"] .plan-price{font-size:2.1rem;}
-.plan[data-plan="enterprise"] .plan-price .unit{font-size:.85rem;}
 
 .pricing-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
-  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;
+  max-width:860px;margin:0 auto;
+}
+
+/* Simulateur de prix (par technicien) */
+.price-sim{
+  max-width:860px;margin:28px auto 0;
+  background:white;border:1px solid var(--brd);border-radius:20px;
+  padding:24px 28px;display:flex;flex-direction:column;gap:14px;
+}
+.sim-label{
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-weight:600;font-size:1rem;
+}
+.sim-label strong{color:var(--acc);}
+#sim-techs{width:100%;accent-color:var(--acc);cursor:pointer;}
+.sim-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.sim-res{
+  background:var(--bg-soft);border-radius:12px;padding:14px 16px;
+  display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
+}
+.sim-plan{
+  flex-basis:100%;font-family:'Syne',sans-serif;font-weight:700;font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.5px;color:var(--ink2);
+}
+.sim-res strong{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;letter-spacing:-1px;white-space:nowrap;}
+.sim-unit{font-size:.85rem;color:var(--ink2);}
+.sim-note{font-size:.82rem;color:var(--ink2);}
+.pricing-more{text-align:center;margin-top:22px;font-size:.92rem;color:var(--ink2);}
+.pricing-more a{color:var(--acc);font-weight:600;}
+@media (max-width:600px){
+  .sim-results{grid-template-columns:1fr;}
+  .price-sim{padding:20px 18px;}
 }
 .plan{
   background:white;border:1px solid var(--brd);
@@ -1095,6 +1126,12 @@ footer{
   .cta-final{padding:48px 24px;margin:40px 12px;}
 }
 @media (max-width:560px){
+  /* Menu du haut : logo + Connexion + Essai gratuit tiennent sur 320-375 px */
+  .nav-wrap{padding:0 12px;}
+  .nav-grid{gap:8px;}
+  .nav-logo{font-size:1.2rem;}
+  .nav-r{gap:6px;}
+  .nav-r .btn{padding:9px 13px;font-size:.84rem;}
   .hero h1{font-size:2rem;}
   .stats-grid{grid-template-columns:1fr;}
   .cards-numbered{grid-template-columns:1fr;}
@@ -1103,6 +1140,11 @@ footer{
   .hero-actions{flex-direction:column;width:100%;}
   .btn-play,.btn-primary,.btn-calendar{width:100%;justify-content:center;}
   .footer-top{grid-template-columns:1fr;}
+}
+/* Très petits écrans (320 px) : menu encore plus compact */
+@media (max-width:359px){
+  .nav-logo{font-size:1.1rem;}
+  .nav-r .btn{padding:8px 10px;font-size:.8rem;}
 }
 
 /* ═══════════════════ BOUTON RÉSERVER UNE DÉMO (Cal.com) ═══════════════════ */
@@ -1206,8 +1248,8 @@ footer{
   <div class="section-inner">
     <div class="section-head">
       <div class="section-tag">Tarifs</div>
-      <h2>Simple. <span class="hl">Sans surprise.</span></h2>
-      <p class="section-sub">Sans engagement en mensuel : changez de plan ou résiliez à tout moment, effet à la fin du mois en cours.</p>
+      <h2>Un prix par technicien. <span class="hl">Rien d'autre.</span></h2>
+      <p class="section-sub">Vous ne payez que vos techniciens actifs, comptes bureau inclus. Sans engagement en mensuel : changez de formule ou résiliez à tout moment, effet à la fin du mois en cours.</p>
     </div>
 
     <!-- Toggle Mensuel / Annuel -->
@@ -1223,88 +1265,80 @@ footer{
 
     <div class="pricing-grid" data-period="annual">
 
-      <div class="plan" data-plan="starter">
-        <div class="plan-name">Starter</div>
+      <div class="plan" data-plan="essentiel">
+        <div class="plan-name">Essentiel</div>
         <div class="plan-price">
-          <strong class="price-monthly">299</strong>
-          <strong class="price-annual">2&nbsp;990</strong>
+          <strong class="price-monthly">49</strong>
+          <strong class="price-annual">490</strong>
           <span class="unit">
-            <span class="unit-monthly">€ HT / mois</span>
-            <span class="unit-annual">€ HT / an</span>
+            <span class="unit-monthly">€ HT / technicien / mois</span>
+            <span class="unit-annual">€ HT / technicien / an</span>
           </span>
         </div>
-        <p class="plan-equiv">Soit 249 € HT / mois</p>
-        <p class="plan-desc">Pour les TPE familiales qui démarrent ou veulent quitter Excel.</p>
-        <div class="plan-techs">👤 1 à 5 techniciens</div>
+        <p class="plan-equiv">Soit 2 mois offerts par rapport au mensuel</p>
+        <p class="plan-desc">Tout le terrain, du planning à la facture. Pour quitter enfin le papier et Excel.</p>
+        <div class="plan-techs">👤 Minimum 2 techniciens · 2 comptes bureau inclus</div>
         <ul class="plan-feats">
           <li>Planning + rapports terrain mobile</li>
           <li>Registres équipements format APSAD</li>
+          <li>Visites préventives programmées automatiquement</li>
+          <li>Contrats de maintenance et échéances</li>
           <li>Alertes échéances</li>
-          <li>Devis &amp; factures illimités</li>
+          <li>Devis &amp; factures illimités, catalogue d'articles</li>
           <li>Envoi automatique par email</li>
+          <li>Portail client</li>
           <li>Support email</li>
-          <li>Hébergement UE (RGPD)</li>
+          <li>Hébergement UE, export de vos données à tout moment</li>
         </ul>
-        <div class="plan-savings">Économie : 598 € / an</div>
-        <div class="plan-roi">Rentabilisé dès <strong>1 intervention supplémentaire</strong> par mois.</div>
-        <button class="plan-btn plan-trial" data-plan="starter">Démarrer l'essai gratuit</button>
+        <div class="plan-roi"><span>Dès le 11<sup>e</sup> technicien : <strong><span class="price-monthly">39 €</span><span class="price-annual">390 €</span></strong> au lieu de <span class="price-monthly">49 €</span><span class="price-annual">490 €</span>.</span></div>
+        <button class="plan-btn plan-trial" data-plan="essentiel">Démarrer l'essai gratuit</button>
       </div>
 
       <div class="plan featured" data-plan="pro">
-        <div class="plan-pop">Le plus choisi</div>
+        <div class="plan-pop">Recommandé</div>
         <div class="plan-name">Pro</div>
         <div class="plan-price">
-          <strong class="price-monthly">499</strong>
-          <strong class="price-annual">4&nbsp;990</strong>
+          <strong class="price-monthly">69</strong>
+          <strong class="price-annual">690</strong>
           <span class="unit">
-            <span class="unit-monthly">€ HT / mois</span>
-            <span class="unit-annual">€ HT / an</span>
+            <span class="unit-monthly">€ HT / technicien / mois</span>
+            <span class="unit-annual">€ HT / technicien / an</span>
           </span>
         </div>
-        <p class="plan-equiv">Soit 416 € HT / mois</p>
-        <p class="plan-desc">Pour les PME en croissance qui veulent piloter business + terrain.</p>
-        <div class="plan-techs">👥 6 à 20 techniciens</div>
+        <p class="plan-equiv">Soit 2 mois offerts par rapport au mensuel</p>
+        <p class="plan-desc">Le terrain + le pilotage de l'activité : rentabilité, temps passé, paie.</p>
+        <div class="plan-techs">👥 Minimum 3 techniciens · 5 comptes bureau inclus</div>
         <ul class="plan-feats">
-          <li>Tout le plan Starter</li>
+          <li>Tout le plan Essentiel</li>
           <li>Pilotage business (CA, impayés)</li>
           <li>Tops clients / techniciens</li>
           <li>Évolution mensuelle du CA</li>
+          <li>Temps passé réel par intervention</li>
           <li>Export paie (heures sup, frais)</li>
           <li>Support prioritaire</li>
           <li>Onboarding humain 1h</li>
         </ul>
-        <div class="plan-savings">Économie : 998 € / an</div>
-        <div class="plan-roi">Rentabilisé dès <strong>1 intervention supplémentaire</strong> par mois.</div>
+        <div class="plan-roi"><span>Dès le 11<sup>e</sup> technicien : <strong><span class="price-monthly">59 €</span><span class="price-annual">590 €</span></strong> au lieu de <span class="price-monthly">69 €</span><span class="price-annual">690 €</span>.</span></div>
         <button class="plan-btn plan-trial" data-plan="pro">Démarrer l'essai gratuit</button>
       </div>
 
-      <div class="plan" data-plan="enterprise">
-        <div class="plan-name">Entreprise</div>
-        <div class="plan-price">
-          <span class="price-prefix">À partir de</span>
-          <strong class="price-monthly">799</strong>
-          <strong class="price-annual">7&nbsp;990</strong>
-          <span class="unit">
-            <span class="unit-monthly">€ HT / mois</span>
-            <span class="unit-annual">€ HT / an</span>
-          </span>
-        </div>
-        <p class="plan-equiv">Soit 666 € HT / mois</p>
-        <p class="plan-desc">Pour les structures multi-agences ou 21+ techniciens. Tarif sur-mesure selon vos besoins.</p>
-        <div class="plan-techs">🏢 21+ techniciens (illimité)</div>
-        <ul class="plan-feats">
-          <li>Tout le plan Pro</li>
-          <li>Techniciens illimités</li>
-          <li>Personnalisation avancée</li>
-          <li>Accompagnement onboarding</li>
-          <li>Support dédié</li>
-        </ul>
-        <div class="plan-savings">Économie : 1 598 € / an</div>
-        <div class="plan-roi">Rentabilisé dès <strong>2 interventions supplémentaires</strong> par mois.</div>
-        <button class="plan-btn plan-trial" data-plan="enterprise">Démarrer l'essai gratuit</button>
-      </div>
-
     </div>
+
+    <!-- Simulateur : montant selon le nombre de techniciens -->
+    <div class="price-sim">
+      <label for="sim-techs" class="sim-label">
+        <span>Combien je paie ?</span>
+        <strong id="sim-count">4 techniciens</strong>
+      </label>
+      <input type="range" id="sim-techs" min="1" max="20" value="4" aria-label="Nombre de techniciens"/>
+      <div class="sim-results">
+        <div class="sim-res"><span class="sim-plan">Essentiel</span><strong id="sim-ess">1 960 €</strong><span class="sim-unit">HT / an</span></div>
+        <div class="sim-res"><span class="sim-plan">Pro</span><strong id="sim-pro">2 760 €</strong><span class="sim-unit">HT / an</span></div>
+      </div>
+      <p class="sim-note">Seuls les techniciens actifs sont facturés. Un technicien ajouté ou retiré en cours de période est calculé au prorata, automatiquement.</p>
+    </div>
+
+    <p class="pricing-more">Plus de 20 techniciens ou plusieurs agences ? <a href="mailto:contact@firovia.fr?subject=Firovia%20%E2%80%94%20Devis%20sur%20mesure">Demandez un devis sur mesure</a></p>
   </div>
 </section>
 
@@ -1624,6 +1658,32 @@ billingOpts.forEach((btn) => {
     }, 200);
   });
 });
+
+// ─── Simulateur de prix : même calcul que les paliers Stripe ───────────
+// (minimum facturé, puis prix par technicien, dégressif dès le 11e ;
+//  annuel = 10 mois)
+(function initPriceSim() {
+  const range = document.getElementById('sim-techs');
+  if (!range || !pricingGrid) return;
+  const PLANS = { ess: { min: 2, unit: 49, after10: 39 }, pro: { min: 3, unit: 69, after10: 59 } };
+  const fmt = (n) => n.toLocaleString('fr-FR') + ' €';
+  const total = (p, n, annual) => {
+    const seats = Math.max(n, p.min);
+    const full = Math.min(seats, 10);
+    return (full * p.unit + (seats - full) * p.after10) * (annual ? 10 : 1);
+  };
+  const render = () => {
+    const n = Number(range.value);
+    const annual = pricingGrid.dataset.period === 'annual';
+    document.getElementById('sim-count').textContent = n + (n > 1 ? ' techniciens' : ' technicien');
+    document.getElementById('sim-ess').textContent = fmt(total(PLANS.ess, n, annual));
+    document.getElementById('sim-pro').textContent = fmt(total(PLANS.pro, n, annual));
+    document.querySelectorAll('.sim-unit').forEach((u) => { u.textContent = annual ? 'HT / an' : 'HT / mois'; });
+  };
+  range.addEventListener('input', render);
+  billingOpts.forEach((b) => b.addEventListener('click', () => setTimeout(render, 220)));
+  render();
+})();
 
 // ─── Clic sur "Démarrer l'essai gratuit" / "Nous contacter" ───────────
 // Redirige vers /essai-gratuit.html?plan=X&period=Y en passant le choix utilisateur.
