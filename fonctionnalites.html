@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<title>Fonctionnalités — Firovia, logiciel de maintenance incendie</title>
+<meta name="description" content="Toutes les fonctionnalités de Firovia : rapports sur téléphone, parc d'équipements et scan QR, maintenance préventive et corrective, registres APSAD, planning, devis, factures, contrats, portail client et export comptable."/>
+<meta name="author" content="Firovia"/>
+<link rel="canonical" href="https://firovia.fr/fonctionnalites"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Firovia"/>
+<meta property="og:url" content="https://firovia.fr/fonctionnalites"/>
+<meta property="og:title" content="Fonctionnalités — Firovia"/>
+<meta property="og:description" content="Rapports sur téléphone, scan QR, maintenance préventive et corrective, registres APSAD, devis, factures, contrats, portail client."/>
+<meta property="og:image" content="https://firovia.fr/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="fr_FR"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Fonctionnalités — Firovia"/>
+<meta name="twitter:description" content="Toute la maintenance incendie, du terrain au bureau, dans une seule application."/>
+<meta name="twitter:image" content="https://firovia.fr/og-image.png"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Firovia",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web, iOS, Android (navigateur)",
+  "description": "Toutes les fonctionnalités de Firovia : rapports sur téléphone, parc d'équipements et scan QR, maintenance préventive et corrective, registres APSAD, planning, devis, factures, contrats, portail client et export comptable.",
+  "url": "https://firovia.fr/fonctionnalites",
+  "offers": {
+    "@type": "Offer",
+    "price": "49",
+    "priceCurrency": "EUR",
+    "description": "Formule Essentiel, par technicien et par mois, HT (2 techniciens minimum)"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Firovia",
+    "url": "https://firovia.fr/"
+  }
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<!-- Vercel Web Analytics + Speed Insights -->
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F2F3F5;--bg2:#E6E8EC;--bg3:#D8DCE4;
+  --ink:#1C2130;--ink2:#5A6070;--ink3:#9AA0AE;
+  --acc:#3A5CA8;--acc2:#5578C8;
+  --wht:#F8F9FB;
+  --brd:rgba(28,33,48,.10);--brd2:rgba(28,33,48,.18);
+  --grn:#2E7D5E;--grn-lt:#D4EDE5;
+  --org:#C45A1A;--org-lt:#F5E0D0;
+  --r:10px;--rlg:18px;
+}
+html{scroll-behavior:smooth;}
+html,body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;letter-spacing:-.5px;}
+a{text-decoration:none;color:inherit;cursor:pointer;}
+
+.ico{display:inline-block;width:1em;height:1em;vertical-align:-0.125em;flex-shrink:0;}
+svg.ico{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.ico-lg{width:1.5em;height:1.5em;}
+
+/* ── NAV ── */
+#topnav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:.85rem 4%;background:rgba(242,243,245,.95);backdrop-filter:blur(14px);border-bottom:.5px solid var(--brd);}
+.logo{display:flex;align-items:center;gap:9px;cursor:pointer;}
+.logo-txt{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--ink);}
+.logo-txt span{color:var(--acc);}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-size:.88rem;color:var(--ink2);font-weight:500;}
+.nav-links a:hover{color:var(--ink);}
+.nav-r{display:flex;gap:.6rem;align-items:center;}
+.btn-sm{display:inline-block;padding:.48rem 1.1rem;border-radius:100px;font-size:.85rem;font-weight:500;cursor:pointer;border:1px solid var(--brd2);background:transparent;color:var(--ink);transition:background .15s;}
+.btn-sm:hover{background:var(--bg2);}
+.btn-sm.acc{background:var(--acc);color:white;border-color:var(--acc);}
+.btn-sm.acc:hover{background:var(--acc2);}
+
+/* ── PAGE LAYOUT ── */
+main{padding-top:80px;padding-bottom:80px;}
+.container{max-width:920px;margin:0 auto;padding:0 4%;}
+
+/* ── HERO ── */
+.hero{padding:64px 0 48px;text-align:center;border-bottom:1px solid var(--brd);}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--grn);background:var(--grn-lt);padding:6px 14px;border-radius:100px;margin-bottom:24px;letter-spacing:.4px;text-transform:uppercase;}
+.hero-tag::before{content:"";display:inline-block;width:6px;height:6px;background:var(--grn);border-radius:50%;}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;line-height:1.1;margin-bottom:18px;}
+.hero h1 span{color:var(--acc);}
+.hero-sub{font-size:1.08rem;color:var(--ink2);max-width:620px;margin:0 auto;}
+
+/* ── KEY POINTS GRID ── */
+.kp-section{padding:64px 0 32px;}
+.kp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px;}
+.kp-card{background:white;border:1px solid var(--brd);border-radius:var(--rlg);padding:24px;display:flex;gap:16px;align-items:flex-start;transition:transform .15s,box-shadow .15s;}
+.kp-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(28,33,48,.06);}
+.kp-ico{width:42px;height:42px;border-radius:12px;background:var(--bg2);display:flex;align-items:center;justify-content:center;color:var(--acc);flex-shrink:0;}
+.kp-ico svg{width:22px;height:22px;}
+.kp-ico{font-size:1.25rem;}
+a.kp-card{color:inherit;}
+.kp-card h3{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:6px;letter-spacing:0;}
+.kp-card p{font-size:.85rem;color:var(--ink2);line-height:1.55;}
+
+/* ── SECTIONS ── */
+.section{padding:48px 0;border-bottom:1px solid var(--brd);}
+.section:last-child{border-bottom:none;}
+.section-num{display:inline-block;font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--acc);letter-spacing:1.2px;margin-bottom:8px;text-transform:uppercase;}
+.section h2{font-size:1.65rem;font-weight:800;margin-bottom:18px;line-height:1.2;}
+.section h3{font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;margin-top:24px;margin-bottom:10px;letter-spacing:0;}
+.section p{color:var(--ink2);margin-bottom:14px;font-size:.95rem;}
+.section p strong{color:var(--ink);font-weight:600;}
+.section ul{list-style:none;padding-left:0;margin:14px 0;}
+.section ul li{position:relative;padding-left:24px;color:var(--ink2);font-size:.92rem;margin-bottom:8px;}
+.section ul li::before{content:"";position:absolute;left:0;top:.55rem;width:8px;height:8px;background:var(--grn);border-radius:50%;}
+
+.callout{background:white;border:1px solid var(--brd);border-left:4px solid var(--acc);border-radius:var(--r);padding:18px 22px;margin:20px 0;font-size:.92rem;}
+.callout strong{color:var(--ink);}
+
+.tech-table{width:100%;background:white;border:1px solid var(--brd);border-radius:var(--rlg);overflow:hidden;margin:20px 0;font-size:.88rem;}
+.tech-table tr{border-bottom:1px solid var(--brd);}
+.tech-table tr:last-child{border-bottom:none;}
+.tech-table td{padding:12px 18px;vertical-align:top;}
+.tech-table td:first-child{font-weight:600;color:var(--ink);width:200px;background:var(--wht);}
+.tech-table td:last-child{color:var(--ink2);}
+
+/* ── DROITS RGPD ── */
+.rights-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px;}
+.right-card{background:white;border:1px solid var(--brd);border-radius:var(--r);padding:16px 18px;}
+.right-card h4{font-family:'Inter',sans-serif;font-size:.88rem;font-weight:700;margin-bottom:4px;letter-spacing:0;color:var(--ink);}
+.right-card p{font-size:.82rem;color:var(--ink2);line-height:1.5;margin:0;}
+
+/* ── CONTACT ── */
+.contact-box{background:var(--ink);color:white;border-radius:var(--rlg);padding:32px;margin-top:32px;}
+.contact-box h2{color:white;font-size:1.4rem;margin-bottom:8px;}
+.contact-box p{color:rgba(255,255,255,.75);margin-bottom:20px;}
+.contact-box a{color:white;font-weight:600;border-bottom:1px solid rgba(255,255,255,.4);}
+.contact-box a:hover{border-bottom-color:white;}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.6);padding:36px 4%;font-size:.82rem;margin-top:0;}
+footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+footer a{color:rgba(255,255,255,.6);transition:color .15s;}
+footer a:hover{color:white;}
+.fnav{display:flex;gap:18px;flex-wrap:wrap;}
+
+/* ── MOBILE ── */
+@media (max-width:760px){
+  .nav-links{display:none;}
+  .kp-grid{grid-template-columns:1fr;}
+  .rights-grid{grid-template-columns:1fr;}
+  .hero{padding:48px 0 36px;}
+  .hero h1{font-size:1.9rem;}
+  .section{padding:36px 0;}
+  .tech-table td:first-child{width:auto;}
+  .contact-box{padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="topnav">
+  <a class="logo" href="/">
+    <div class="logo-txt"><span>Fir</span>ovia</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/fonctionnalites" style="color:var(--ink);font-weight:600">Fonctionnalités</a></li>
+    <li><a href="/#pour-qui">Pour qui</a></li>
+    <li><a href="/tarifs">Tarifs</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+  </ul>
+  <div class="nav-r">
+    <a class="btn-sm" href="https://app.firovia.fr/auth">Connexion</a>
+    <a class="btn-sm acc" href="/essai-gratuit">Essai gratuit</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-tag">Fonctionnalités</div>
+      <h1>Toute votre maintenance incendie,<br><span>du terrain au bureau.</span></h1>
+      <p class="hero-sub">
+        Firovia est le logiciel conçu pour les entreprises de maintenance en sécurité incendie&nbsp;: rapports sur téléphone, parc d'équipements, registres APSAD, planning, devis, factures et contrats, au même endroit. Voici tout ce qu'il fait, concrètement.
+      </p>
+    </div>
+  </section>
+
+  <!-- SOMMAIRE -->
+  <section class="kp-section">
+    <div class="container">
+      <div class="kp-grid">
+        <a class="kp-card" href="#terrain"><div class="kp-ico">📱</div><div><h3>Rapports sur le terrain</h3><p>Contrôle équipement par équipement sur téléphone, signature du client, PDF envoyé.</p></div></a>
+        <a class="kp-card" href="#parc"><div class="kp-ico">🧯</div><div><h3>Parc d'équipements et QR code</h3><p>Chaque appareil de chaque site, retrouvé en un scan d'étiquette.</p></div></a>
+        <a class="kp-card" href="#preventive"><div class="kp-ico">📅</div><div><h3>Maintenance préventive</h3><p>Vérifications suivies, visites annuelles replanifiées automatiquement, alertes.</p></div></a>
+        <a class="kp-card" href="#corrective"><div class="kp-ico">⚠️</div><div><h3>Maintenance corrective</h3><p>Anomalies relevées sur place, devis correctif en un clic, suivi jusqu'à la résolution.</p></div></a>
+        <a class="kp-card" href="#gestion"><div class="kp-ico">🧾</div><div><h3>Devis, factures, contrats</h3><p>Catalogue d'articles, contrats de maintenance facturés en un clic, export comptable.</p></div></a>
+        <a class="kp-card" href="#portail"><div class="kp-ico">🗂️</div><div><h3>Portail client et pilotage</h3><p>Vos clients suivent tout en ligne ; vous suivez votre chiffre d'affaires et votre marge.</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. TERRAIN -->
+  <section class="section" id="terrain">
+    <div class="container">
+      <span class="section-num">01 · Terrain</span>
+      <h2>Rapports d'intervention sur téléphone</h2>
+      <p>Le technicien démarre l'intervention depuis son téléphone ou sa tablette&nbsp;: le rapport s'ouvre directement, avec la liste des équipements du site.</p>
+      <ul>
+        <li><strong>Contrôle équipement par équipement</strong>, avec une checklist adaptée à chaque famille (extincteurs, RIA, BAES, désenfumage…), au format APSAD.</li>
+        <li><strong>Verdict par appareil</strong>&nbsp;: conforme, à surveiller ou à réformer, avec observation.</li>
+        <li><strong>Photos horodatées</strong> jointes au contrôle, comme preuve.</li>
+        <li><strong>Signature du client sur l'écran</strong>, à la fin de la visite.</li>
+        <li><strong>Rapport PDF généré automatiquement</strong> et envoyé au client par email depuis Firovia, avec le <strong>registre nominatif découpé par type d'équipement</strong>.</li>
+        <li><strong>Heures d'arrivée et de départ</strong> enregistrées&nbsp;: temps passé réel par intervention (formule Pro).</li>
+        <li><strong>Application web</strong>&nbsp;: rien à installer, elle fonctionne dans le navigateur du téléphone (iPhone et Android) et s'ajoute à l'écran d'accueil.</li>
+      </ul>
+      <div class="callout"><strong>Sans réseau&nbsp;?</strong> Les contrôles d'équipement s'enregistrent même sans connexion (sous-sol, local technique) et sont envoyés automatiquement dès que le réseau revient.</div>
+    </div>
+  </section>
+
+  <!-- 2. PARC -->
+  <section class="section" id="parc">
+    <div class="container">
+      <span class="section-num">02 · Parc d'équipements</span>
+      <h2>Chaque appareil, chaque site, et le scan QR</h2>
+      <ul>
+        <li><strong>Clients multi-sites</strong>&nbsp;: un client peut avoir plusieurs sites, chacun avec son adresse, ses contacts, ses accès et ses zones (bâtiment, étage, local).</li>
+        <li><strong>Parc nominatif</strong>&nbsp;: numéro, emplacement, type, marque, modèle, année de mise en service et année de réforme prévue.</li>
+        <li><strong>Toutes les familles</strong>&nbsp;: extincteurs, RIA, BAES, portes coupe-feu, désenfumage, détection incendie, colonnes sèches.</li>
+        <li><strong>Scan des étiquettes QR</strong>&nbsp;: le technicien vise l'étiquette, la fiche de l'appareil s'ouvre. Les étiquettes déjà posées par un ancien prestataire sont reprises telles quelles.</li>
+        <li><strong>Inventaire au scan</strong>&nbsp;: une étiquette inconnue ouvre une fiche pré-remplie (à partir du QR code ou de l'appareil précédent)&nbsp;: le parc d'un nouveau site se constitue pendant la première visite.</li>
+        <li><strong>Gros sites</strong>&nbsp;: recherche, filtre «&nbsp;reste à contrôler&nbsp;», sites de plusieurs milliers d'appareils.</li>
+        <li><strong>Import Excel ou CSV en libre-service</strong>&nbsp;: clients, sites, équipements, techniciens, interventions, catalogue.</li>
+      </ul>
+      <p>Pour aller plus loin&nbsp;: <a href="/blog/qr-code-extincteur-etiquette-maintenance" style="color:var(--acc);font-weight:600">le guide des étiquettes QR code sur les extincteurs</a>.</p>
+    </div>
+  </section>
+
+  <!-- 3. PRÉVENTIVE -->
+  <section class="section" id="preventive">
+    <div class="container">
+      <span class="section-num">03 · Maintenance préventive</span>
+      <h2>Suivi des vérifications et registres à jour</h2>
+      <ul>
+        <li><strong>Visites préventives programmées automatiquement</strong>&nbsp;: à la clôture d'une vérification, la visite de l'année suivante est créée dans le planning.</li>
+        <li><strong>Historique des contrôles</strong> par équipement et par site.</li>
+        <li><strong>Registres équipements au format APSAD</strong>, alimentés à chaque intervention.</li>
+        <li><strong>Alertes d'échéances</strong>&nbsp;: vérifications réglementaires, habilitations des techniciens, véhicules (contrôle technique, assurance, entretien) et contrats.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. CORRECTIVE -->
+  <section class="section" id="corrective">
+    <div class="container">
+      <span class="section-num">04 · Maintenance corrective</span>
+      <h2>Des anomalies au devis, sans ressaisie</h2>
+      <ul>
+        <li><strong>Anomalies relevées sur place</strong>, appareil par appareil, avec l'action recommandée (remplacement, recharge…) et une priorité.</li>
+        <li><strong>Suivi des anomalies</strong>&nbsp;: ouvertes, planifiées, résolues&nbsp;; elles sont reprises automatiquement à la visite suivante.</li>
+        <li><strong>Devis correctif en un clic</strong> depuis le rapport, avec une ligne par anomalie.</li>
+        <li><strong>Interventions correctives et dépannages</strong> planifiés comme les visites préventives.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. PLANNING -->
+  <section class="section" id="planning">
+    <div class="container">
+      <span class="section-num">05 · Planning et équipe</span>
+      <h2>Interventions, techniciens et planning</h2>
+      <ul>
+        <li><strong>Planning des interventions</strong> par technicien, avec types d'intervention (préventive, corrective…), créneaux et durée.</li>
+        <li><strong>Bons d'intervention</strong>&nbsp;: adresse, accès, contact sur place, matériel à prévoir.</li>
+        <li><strong>Gestion des techniciens</strong>&nbsp;: habilitations, véhicules, notes de frais et heures supplémentaires à valider.</li>
+        <li><strong>Demandes d'intervention</strong> envoyées par vos clients depuis leur portail, directement dans votre planning.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6. GESTION -->
+  <section class="section" id="gestion">
+    <div class="container">
+      <span class="section-num">06 · Devis, factures et contrats</span>
+      <h2>La gestion commerciale au même endroit</h2>
+      <ul>
+        <li><strong>Catalogue d'articles</strong> (appareils, prestations, déplacements)&nbsp;: un devis complet en quelques secondes.</li>
+        <li><strong>Devis et factures</strong> en PDF à votre en-tête, envoyés par email depuis Firovia, avec modèles de relance.</li>
+        <li><strong>Suivi des paiements</strong>&nbsp;: factures payées, en attente ou en retard.</li>
+        <li><strong>Contrats de maintenance</strong>&nbsp;: échéances, révision des prix, renouvellement, PDF à signer, et <strong>facturation du mois en un clic</strong>.</li>
+        <li><strong>Export comptable</strong> pour votre expert-comptable&nbsp;: Excel (factures, journal des ventes, TVA, frais) et fichier FEC.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 7. PORTAIL + PILOTAGE -->
+  <section class="section" id="portail">
+    <div class="container">
+      <span class="section-num">07 · Portail client et pilotage</span>
+      <h2>Vos clients suivent tout, vous pilotez</h2>
+      <h3>Portail client</h3>
+      <ul>
+        <li>Chaque client retrouve en ligne ses <strong>rapports</strong>, ses <strong>factures</strong>, ses <strong>contrats</strong> et ses <strong>prochaines visites</strong>.</li>
+        <li>Il peut <strong>demander une intervention</strong> en quelques clics.</li>
+        <li>Accès par un simple lien, sans mot de passe à gérer pour vous.</li>
+      </ul>
+      <h3>Pilotage de l'activité (formule Pro)</h3>
+      <ul>
+        <li><strong>Tableau de bord</strong>&nbsp;: chiffre d'affaires encaissé, impayés, meilleurs clients et techniciens.</li>
+        <li><strong>Évolution du CA</strong>, avec la <strong>marge et le bénéfice estimés</strong> mois par mois.</li>
+        <li><strong>Temps passé réel</strong> par intervention et <strong>export paie</strong> (heures supplémentaires, frais).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 8. DONNÉES -->
+  <section class="section" id="donnees">
+    <div class="container">
+      <span class="section-num">08 · Vos données</span>
+      <h2>Hébergées en Europe, toujours à vous</h2>
+      <ul>
+        <li><strong>Hébergement dans l'Union européenne</strong> (base de données à Paris), sauvegardes quotidiennes.</li>
+        <li><strong>Export complet de vos données</strong> à tout moment.</li>
+        <li><strong>Archivage</strong> de vos documents PDF existants.</li>
+      </ul>
+      <p>Détails techniques&nbsp;: <a href="/securite" style="color:var(--acc);font-weight:600">sécurité et confidentialité</a>.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-box">
+        <h2>Essayez Firovia sur vos propres cas</h2>
+        <p>14 jours d'essai gratuit, sans engagement, toutes les fonctionnalités incluses. Dès 49&nbsp;€ HT par technicien et par mois. Reprise de vos données et formation de vos équipes sur devis.</p>
+        <p style="margin-bottom:0;display:flex;gap:18px;flex-wrap:wrap">
+          <a href="/essai-gratuit">Démarrer l'essai gratuit →</a>
+          <a href="https://cal.com/firovia">Réserver une démo de 30 minutes →</a>
+          <a href="/tarifs">Voir les tarifs →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div>© 2026 Firovia · SIREN 106 429 749 · Logiciel de gestion maintenance sécurité incendie</div>
+    <div class="fnav">
+      <a href="/fonctionnalites">Fonctionnalités</a>
+      <a href="/tarifs">Tarifs</a>
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/cgu">CGU</a>
+      <a href="/cgv">CGV</a>
+      <a href="/confidentialite">Confidentialité</a>
+      <a href="/securite">Sécurité</a>
+      <a href="mailto:contact@firovia.fr">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
