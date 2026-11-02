@@ -485,7 +485,7 @@ footer a:hover{color:white;}
   });
 
   startBtn.addEventListener('click', () => {
-    window.location.href = `https://app.firovia.fr/auth?tab=register&plan=${currentPlan}&period=${currentPeriod}`;
+    window.location.href = (window.firoviaWithSource || String)(`https://app.firovia.fr/auth?tab=register&plan=${currentPlan}&period=${currentPeriod}`);
   });
 
   /* ────────── Init ────────── */
@@ -493,5 +493,6 @@ footer a:hover{color:white;}
 })();
 </script>
 
+<script src="/js/origine.js" defer></script>
 </body>
 </html>
