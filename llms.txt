@@ -1,0 +1,50 @@
+# Firovia
+
+> Firovia est un logiciel en ligne français pour les entreprises de maintenance en sécurité incendie, de 2 à 20 techniciens. Les techniciens font leurs vérifications sur le téléphone, appareil par appareil ; le rapport, le registre et la signature du client se font sur place. Le logiciel gère aussi le planning, les visites récurrentes, les devis, les factures, les contrats de maintenance et un portail client. Données hébergées en France.
+
+## L'essentiel
+
+- Pour qui : entreprises qui installent, vérifient et entretiennent les équipements de sécurité incendie en France (extincteurs, RIA, BAES, désenfumage, portes coupe-feu, colonnes sèches, détection incendie).
+- Sur le terrain : scan des étiquettes QR, liste de contrôle par type d'appareil, résultat (conforme, à surveiller, à réformer), opérations, photos, anomalies, signature du client sur l'écran. Fonctionne dans le navigateur du téléphone (iPhone, Android), sans installation, et aussi sans réseau.
+- Au bureau : planning des techniciens, visite suivante planifiée automatiquement à la clôture du rapport, alertes d'échéances, devis et factures, contrats de maintenance (révision des prix, facturation du mois), export comptable, portail client.
+- Prix (HT, par technicien actif et par mois) : formule Essentiel 49 € (minimum 2 techniciens, soit 98 € par mois) ; formule Pro 69 € (minimum 3 techniciens). À partir du 11e technicien : 39 € et 59 €. Plus de 20 techniciens : sur devis. Sans engagement en mensuel ; en annuel, 2 mois offerts. Essai gratuit de 14 jours sans carte bancaire. Tarif de lancement garanti pour toute souscription avant le 31 mars 2027.
+- Import des fichiers Excel en libre-service ; reprise des données et formation sur devis.
+- Firovia n'est ni certifié ni agréé APSAD : un logiciel ne peut pas l'être. Les listes de contrôle s'appuient sur les règles APSAD (R4 pour les extincteurs, R5 pour les RIA, R17 pour le désenfumage) et les registres sont prêts pour les audits.
+- Données hébergées en France (base de données à Paris), export complet des données à tout moment.
+- Éditeur : Firovia, entreprise individuelle de Maxime Vincent, Poissy (Yvelines), SIREN 106 429 749. Contact : contact@firovia.fr.
+
+## Le produit
+
+- [Accueil](https://firovia.fr/): présentation de Firovia, pour qui, principales fonctions et prix.
+- [Fonctionnalités](https://firovia.fr/fonctionnalites): toutes les fonctions, du rapport sur le terrain aux factures et au portail client.
+- [Tarifs](https://firovia.fr/tarifs): formules Essentiel et Pro, prix par technicien, essai gratuit.
+- [Démo vidéo](https://firovia.fr/demo): l'application en 2 minutes, avec de vraies captures.
+- [Essai gratuit](https://firovia.fr/essai-gratuit): créer un compte d'essai de 14 jours.
+
+## Par type d'équipement
+
+- [Extincteurs](https://firovia.fr/logiciel-verification-extincteurs): vérification des extincteurs sur téléphone, année de réforme, étiquettes QR.
+- [RIA](https://firovia.fr/logiciel-verification-ria): vérification des robinets d'incendie armés, essai de mise en eau.
+- [BAES](https://firovia.fr/logiciel-maintenance-baes): maintenance des blocs autonomes d'éclairage de sécurité, autotest SATI, batteries.
+- [Désenfumage](https://firovia.fr/logiciel-maintenance-desenfumage): exutoires, ouvrants, volets et commandes, même sans réseau en toiture.
+- [Portes coupe-feu](https://firovia.fr/logiciel-portes-coupe-feu): contrôle des portes coupe-feu, degré coupe-feu noté pour chaque porte.
+- [Colonnes sèches](https://firovia.fr/logiciel-colonnes-seches): vérification des colonnes sèches, raccords, vannes de niveau, essai de mise en charge.
+
+## Guides
+
+- [Logiciel de maintenance incendie : comment choisir](https://firovia.fr/blog/logiciel-maintenance-incendie-comment-choisir-2026): les critères pour choisir un logiciel quand on est une PME de maintenance incendie.
+- [Passer du papier au logiciel](https://firovia.fr/blog/passer-du-papier-au-logiciel-maintenance-incendie): la méthode en 5 étapes pour quitter le papier sans tout ressaisir.
+- [Vérification du désenfumage](https://firovia.fr/blog/verification-desenfumage-annuelle): ce que contrôle la vérification annuelle du désenfumage et ce que dit la réglementation.
+- [Étiquettes QR code sur les extincteurs](https://firovia.fr/blog/qr-code-extincteur-etiquette-maintenance): que mettre dans le code, quelles étiquettes choisir, inventaire par scan.
+- [Le registre de sécurité](https://firovia.fr/blog/registre-apsad-loi-francaise-2026): ce que dit la loi sur le registre et les vérifications périodiques.
+
+## Confiance
+
+- [Sécurité et confidentialité](https://firovia.fr/securite): hébergement, sauvegardes, chiffrement, protection des données.
+- [Conditions générales de vente](https://firovia.fr/cgv): abonnement, résiliation, réversibilité des données.
+- [Mentions légales](https://firovia.fr/mentions-legales): éditeur et hébergeurs.
+
+## Optional
+
+- [Conditions générales d'utilisation](https://firovia.fr/cgu)
+- [Politique de confidentialité](https://firovia.fr/confidentialite)

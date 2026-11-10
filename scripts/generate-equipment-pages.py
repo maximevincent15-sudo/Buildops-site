@@ -141,7 +141,7 @@ FAMILIES = [
         "mock": {"rep": "DSF-07", "fam": "Désenfumage", "zone": "Canton 2", "loc": "Entrepôt, côté quai", "meta": "Exutoire (toiture) · CO2 · 1,2 m²"},
         "faq_specific": ("Ça marche vraiment sans réseau, en toiture ?", "Oui. Les contrôles, les photos, « Tout conforme » et même la clôture du rapport se font sans réseau. Tout est gardé dans le téléphone et envoyé dès que le réseau revient."),
         "apsad": "R17",
-        "blog": None,
+        "blog": ("/blog/verification-desenfumage-annuelle", "ce que contrôle la vérification annuelle du désenfumage"),
     },
     {
         "slug": "logiciel-portes-coupe-feu",
